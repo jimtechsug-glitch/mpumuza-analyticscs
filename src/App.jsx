@@ -63,18 +63,18 @@ function MainApp() {
       />
 
       {/* Role Indicator Bar — shown to all users */}
-      <div className="bg-white border-b border-slate-200 px-4 py-2.5 shadow-sm">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
+      <div className="bg-white border-b border-slate-200 px-3 sm:px-4 py-2 sm:py-2.5 shadow-2xs">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
           
-          <div className="flex items-center space-x-2 text-xs">
-            <span className="text-slate-500 font-semibold">Logged in as:</span>
-            <span className="font-extrabold text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded-md border border-amber-200 flex items-center space-x-1">
+          <div className="flex items-center space-x-2 text-xs flex-wrap gap-y-1">
+            <span className="text-slate-500 font-semibold text-[11px] sm:text-xs">Logged in:</span>
+            <span className="font-extrabold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-md border border-amber-200 flex items-center space-x-1 text-[11px] sm:text-xs">
               {activeRole === 'SUPER_ADMIN' && <ShieldCheck className="w-3.5 h-3.5 mr-1" />}
               {activeRole === 'SCHOOL_ADMIN' && <School className="w-3.5 h-3.5 mr-1" />}
               {activeRole === 'TEACHER' && <Users className="w-3.5 h-3.5 mr-1" />}
               {activeRole === 'PARENT' && <UserCheck className="w-3.5 h-3.5 mr-1" />}
-              <span>{currentUser.name || activeRole.replace('_', ' ')}</span>
-              <span className="ml-1.5 text-[10px] text-amber-600 font-bold bg-amber-100 px-1.5 py-0.5 rounded border border-amber-300">
+              <span className="truncate max-w-[120px] sm:max-w-none">{currentUser.name || activeRole.replace('_', ' ')}</span>
+              <span className="ml-1 text-[9px] sm:text-[10px] text-amber-600 font-bold bg-amber-100 px-1.5 py-0.2 rounded border border-amber-300">
                 {activeRole.replace('_', ' ')}
               </span>
             </span>
@@ -82,25 +82,25 @@ function MainApp() {
 
           {/* Quick Tenant Switcher — Super Admin ONLY */}
           {isSuperAdmin && (
-            <div className="flex items-center space-x-1 bg-slate-100 p-1 rounded-xl border border-slate-200 text-xs">
+            <div className="flex items-center space-x-1 bg-slate-100 p-0.5 sm:p-1 rounded-xl border border-slate-200 text-xs w-full sm:w-auto justify-between sm:justify-start">
               <button
                 onClick={() => setViewRoleOverride('SUPER_ADMIN')}
-                className={`px-3 py-1 rounded-lg font-bold transition-all flex items-center space-x-1 ${
-                  (viewRoleOverride || 'SUPER_ADMIN') === 'SUPER_ADMIN' ? 'bg-amber-500 text-white shadow-sm' : 'text-slate-600 hover:text-slate-900 hover:bg-white'
+                className={`px-2.5 sm:px-3 py-1 rounded-lg font-bold transition-all flex items-center space-x-1 text-[11px] sm:text-xs ${
+                  (viewRoleOverride || 'SUPER_ADMIN') === 'SUPER_ADMIN' ? 'bg-amber-500 text-white shadow-2xs' : 'text-slate-600 hover:text-slate-900 hover:bg-white'
                 }`}
               >
                 <ShieldCheck className="w-3.5 h-3.5" />
-                <span className="hidden sm:inline">Platform Overview</span>
+                <span>Overview</span>
               </button>
 
               <button
                 onClick={() => setViewRoleOverride('SCHOOL_ADMIN')}
-                className={`px-3 py-1 rounded-lg font-bold transition-all flex items-center space-x-1 ${
-                  viewRoleOverride === 'SCHOOL_ADMIN' ? 'bg-amber-500 text-white shadow-sm' : 'text-slate-600 hover:text-slate-900 hover:bg-white'
+                className={`px-2.5 sm:px-3 py-1 rounded-lg font-bold transition-all flex items-center space-x-1 text-[11px] sm:text-xs ${
+                  viewRoleOverride === 'SCHOOL_ADMIN' ? 'bg-amber-500 text-white shadow-2xs' : 'text-slate-600 hover:text-slate-900 hover:bg-white'
                 }`}
               >
                 <School className="w-3.5 h-3.5" />
-                <span className="hidden sm:inline">School Admin View</span>
+                <span>Admin View</span>
               </button>
             </div>
           )}
@@ -109,7 +109,7 @@ function MainApp() {
       </div>
 
       {/* Main Content Body */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-2.5 sm:px-6 lg:px-8 py-4 sm:py-8">
         {/* Super Admin: can preview School Admin view via switcher */}
         {activeRole === 'SUPER_ADMIN' && (viewRoleOverride === 'SCHOOL_ADMIN' ? <SchoolAdminDashboard /> : <SuperAdminDashboard />)}
 

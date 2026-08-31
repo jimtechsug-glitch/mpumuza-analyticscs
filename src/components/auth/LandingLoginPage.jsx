@@ -53,46 +53,46 @@ export default function LandingLoginPage() {
       </header>
 
       {/* Main Body */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col justify-center">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-12 flex flex-col justify-center">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-12 items-center">
           
           {/* Left Column: Branding & Value Proposition */}
-          <div className="lg:col-span-7 space-y-6 text-left">
+          <div className="lg:col-span-7 space-y-4 sm:space-y-6 text-left">
             
-            <div className="inline-flex items-center space-x-2 bg-amber-100 border border-amber-300 px-3 py-1 rounded-full text-xs font-extrabold text-amber-900">
-              <Award className="w-4 h-4 text-amber-600" />
-              <span>Official UNEB PLE, UCE & UACE Grading Standard</span>
+            <div className="inline-flex items-center space-x-2 bg-amber-100 border border-amber-300 px-3 py-1 rounded-full text-[11px] sm:text-xs font-extrabold text-amber-900">
+              <Award className="w-4 h-4 text-amber-600 shrink-0" />
+              <span className="truncate">UNEB PLE, UCE & UACE Grading Standard</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight font-outfit leading-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight font-outfit leading-tight">
               Mpumuza Analytics <br />
               <span className="text-amber-600">Multitenant School Report Engine</span>
             </h1>
 
-            <p className="text-slate-600 text-base sm:text-lg max-w-2xl leading-relaxed">
+            <p className="text-slate-600 text-sm sm:text-lg max-w-2xl leading-relaxed">
               A comprehensive academic management system built for Uganda's Primary, O'Level, and A'Level institutions. Manage subjects, teachers, student rosters, bulk Excel mark uploads, and generate printable PDF report cards.
             </p>
 
             {/* Level Standards Pills */}
-            <div className="flex flex-wrap gap-3 pt-2">
-              <div className="flex items-center space-x-2 bg-white border border-slate-200 px-4 py-2 rounded-xl shadow-xs">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                <span className="text-xs font-bold text-slate-800">Primary (PLE 4 Core Aggregates)</span>
+            <div className="flex flex-wrap gap-2 sm:gap-3 pt-1 sm:pt-2">
+              <div className="flex items-center space-x-2 bg-white border border-slate-200 px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl shadow-2xs">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span className="text-[11px] sm:text-xs font-bold text-slate-800">Primary (PLE 4 Aggregates)</span>
               </div>
-              <div className="flex items-center space-x-2 bg-white border border-slate-200 px-4 py-2 rounded-xl shadow-xs">
-                <CheckCircle2 className="w-4 h-4 text-blue-600" />
-                <span className="text-xs font-bold text-slate-800">O-Level (UCE Best 8 & New NCDC)</span>
+              <div className="flex items-center space-x-2 bg-white border border-slate-200 px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl shadow-2xs">
+                <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
+                <span className="text-[11px] sm:text-xs font-bold text-slate-800">O-Level (UCE Best 8 & NCDC)</span>
               </div>
-              <div className="flex items-center space-x-2 bg-white border border-slate-200 px-4 py-2 rounded-xl shadow-xs">
-                <CheckCircle2 className="w-4 h-4 text-amber-600" />
-                <span className="text-xs font-bold text-slate-800">A-Level (UACE 20 Points Scale)</span>
+              <div className="flex items-center space-x-2 bg-white border border-slate-200 px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl shadow-2xs">
+                <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0" />
+                <span className="text-[11px] sm:text-xs font-bold text-slate-800">A-Level (UACE 20 Points)</span>
               </div>
             </div>
 
             {/* Feature Highlights Grid */}
-            <div className="grid grid-cols-2 gap-4 pt-4 border-t border-slate-200">
-              <div className="flex items-start space-x-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-3 sm:pt-4 border-t border-slate-200">
+              <div className="flex items-start space-x-3 bg-white sm:bg-transparent p-3 sm:p-0 rounded-xl border sm:border-0 border-slate-200">
                 <div className="p-2 bg-amber-50 rounded-lg text-amber-600 border border-amber-200 shrink-0">
                   <FileSpreadsheet className="w-5 h-5" />
                 </div>
@@ -102,7 +102,7 @@ export default function LandingLoginPage() {
                 </div>
               </div>
 
-              <div className="flex items-start space-x-3">
+              <div className="flex items-start space-x-3 bg-white sm:bg-transparent p-3 sm:p-0 rounded-xl border sm:border-0 border-slate-200">
                 <div className="p-2 bg-blue-50 rounded-lg text-blue-600 border border-blue-200 shrink-0">
                   <Printer className="w-5 h-5" />
                 </div>
@@ -118,25 +118,25 @@ export default function LandingLoginPage() {
           {/* Right Column: Dedicated Login Portal Box */}
           <div className="lg:col-span-5">
             
-            <div className="bg-white border border-slate-200 rounded-3xl p-8 shadow-xl text-left space-y-6">
+            <div className="bg-white border border-slate-200 rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-xl text-left space-y-4 sm:space-y-6">
               
-              <div className="flex items-center justify-between border-b border-slate-200 pb-4">
+              <div className="flex items-center justify-between border-b border-slate-200 pb-3 sm:pb-4">
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900 font-outfit">Portal Sign In</h3>
-                  <p className="text-xs text-slate-500">Sign in to access your school dashboard</p>
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 font-outfit">Portal Sign In</h3>
+                  <p className="text-[11px] sm:text-xs text-slate-500">Sign in to access your school dashboard</p>
                 </div>
-                <div className="p-2.5 bg-amber-50 text-amber-600 rounded-xl border border-amber-200">
-                  <Lock className="w-5 h-5" />
+                <div className="p-2 sm:p-2.5 bg-amber-50 text-amber-600 rounded-xl border border-amber-200">
+                  <Lock className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
               </div>
 
               {/* Login Mode Selector Tabs */}
-              <div className="grid grid-cols-3 gap-1 bg-slate-100 p-1 rounded-xl text-[11px] font-bold">
+              <div className="grid grid-cols-3 gap-1 bg-slate-100 p-1 rounded-xl text-[10px] sm:text-[11px] font-bold">
                 <button
                   type="button"
                   onClick={() => setActiveTab('quick')}
-                  className={`py-2 rounded-lg transition-all ${
-                    activeTab === 'quick' ? 'bg-amber-500 text-white shadow-xs' : 'text-slate-600 hover:text-slate-900'
+                  className={`py-2 rounded-lg transition-all truncate ${
+                    activeTab === 'quick' ? 'bg-amber-500 text-white shadow-2xs' : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
                   Quick Demo
@@ -144,8 +144,8 @@ export default function LandingLoginPage() {
                 <button
                   type="button"
                   onClick={() => setActiveTab('credentials')}
-                  className={`py-2 rounded-lg transition-all ${
-                    activeTab === 'credentials' ? 'bg-amber-500 text-white shadow-xs' : 'text-slate-600 hover:text-slate-900'
+                  className={`py-2 rounded-lg transition-all truncate ${
+                    activeTab === 'credentials' ? 'bg-amber-500 text-white shadow-2xs' : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
                   Staff Login
@@ -153,8 +153,8 @@ export default function LandingLoginPage() {
                 <button
                   type="button"
                   onClick={() => setActiveTab('parent')}
-                  className={`py-2 rounded-lg transition-all ${
-                    activeTab === 'parent' ? 'bg-amber-500 text-white shadow-xs' : 'text-slate-600 hover:text-slate-900'
+                  className={`py-2 rounded-lg transition-all truncate ${
+                    activeTab === 'parent' ? 'bg-amber-500 text-white shadow-2xs' : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
                   Parent Portal

@@ -561,44 +561,47 @@ _Powered by Mpumuza Analytics Platform_`;
 
       {/* Top Action Bar & Interactive Term Switcher (Screen Only) */}
       {!isBatchMode && (
-        <div className="w-full max-w-[794px] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-slate-900 border border-slate-800 p-3 rounded-2xl shadow-lg print:hidden">
-          <button
-            onClick={onBack}
-            className="flex items-center space-x-1.5 text-slate-300 hover:text-white px-3 py-1.5 bg-slate-800 hover:bg-slate-700 rounded-xl text-xs font-semibold transition-colors shrink-0"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            <span>Back to Roster</span>
-          </button>
+        <div className="w-full max-w-[794px] flex flex-col gap-2.5 bg-slate-900 border border-slate-800 p-3 rounded-2xl shadow-lg print:hidden">
+          
+          <div className="flex items-center justify-between gap-2 flex-wrap">
+            <button
+              onClick={onBack}
+              className="flex items-center space-x-1.5 text-slate-300 hover:text-white px-3 py-1.5 bg-slate-800 hover:bg-slate-700 rounded-xl text-xs font-semibold transition-colors shrink-0"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              <span>Back</span>
+            </button>
 
-          {/* Term Filter Pills */}
-          <div className="flex items-center space-x-1 bg-slate-800/90 p-1 rounded-xl border border-slate-700">
-            <span className="text-[10px] font-bold text-slate-400 px-1.5 uppercase">Term:</span>
-            {['BOT', 'MOT', 'EOT', 'COMBINED'].map(t => (
-              <button
-                key={t}
-                onClick={() => setSelectedTerm(t)}
-                className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all ${selectedTerm === t
-                  ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-                  : 'text-slate-300 hover:bg-slate-700/60 hover:text-white'
-                  }`}
-              >
-                {t}
-              </button>
-            ))}
+            {/* Term Filter Pills */}
+            <div className="flex items-center space-x-1 bg-slate-800/90 p-1 rounded-xl border border-slate-700 overflow-x-auto no-scrollbar">
+              <span className="text-[10px] font-bold text-slate-400 px-1 uppercase">Term:</span>
+              {['BOT', 'MOT', 'EOT', 'COMBINED'].map(t => (
+                <button
+                  key={t}
+                  onClick={() => setSelectedTerm(t)}
+                  className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all ${selectedTerm === t
+                    ? 'bg-amber-500 text-slate-950 shadow-md font-black'
+                    : 'text-slate-300 hover:bg-slate-700/60 hover:text-white'
+                    }`}
+                >
+                  {t}
+                </button>
+              ))}
+            </div>
           </div>
 
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center justify-between sm:justify-end gap-2 flex-wrap pt-2 border-t border-slate-800">
             <button
               onClick={handleShareWhatsApp}
               title="Share report summary and portal link directly via WhatsApp to parent"
-              className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-3 py-1.5 rounded-xl shadow transition-all flex items-center space-x-1.5 text-xs"
+              className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-3 py-1.5 rounded-xl shadow transition-all flex items-center space-x-1.5 text-xs active:scale-95"
             >
               <MessageCircle className="w-3.5 h-3.5" />
               <span>WhatsApp</span>
             </button>
             <button
               onClick={handlePrint}
-              className="bg-white text-slate-950 font-bold px-3.5 py-1.5 rounded-xl shadow hover:bg-slate-100 transition-all flex items-center space-x-1.5 text-xs"
+              className="bg-white text-slate-950 font-bold px-3.5 py-1.5 rounded-xl shadow hover:bg-slate-100 transition-all flex items-center space-x-1.5 text-xs active:scale-95"
             >
               <Printer className="w-3.5 h-3.5" />
               <span>Print</span>
@@ -606,7 +609,7 @@ _Powered by Mpumuza Analytics Platform_`;
             <button
               onClick={handleExportPDF}
               disabled={isExporting}
-              className="bg-gradient-to-r from-amber-500 to-yellow-500 text-slate-950 font-bold px-4 py-1.5 rounded-xl shadow-md hover:from-amber-400 hover:to-yellow-400 transition-all flex items-center space-x-1.5 text-xs disabled:opacity-50 disabled:cursor-not-allowed"
+              className="bg-gradient-to-r from-amber-500 to-yellow-500 text-slate-950 font-bold px-4 py-1.5 rounded-xl shadow-md hover:from-amber-400 hover:to-yellow-400 transition-all flex items-center space-x-1.5 text-xs disabled:opacity-50 disabled:cursor-not-allowed active:scale-95"
             >
               {isExporting ? (
                 <svg className="w-3.5 h-3.5 animate-spin" viewBox="0 0 24 24" fill="none">
