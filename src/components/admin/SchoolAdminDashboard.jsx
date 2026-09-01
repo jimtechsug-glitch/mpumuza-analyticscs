@@ -620,260 +620,29 @@ _Powered by Mpumuza Analytics Platform_`;
         </div>
       </div>
 
-      {/* Mobile Navigation Bar & Sidebar Trigger (Visible on mobile/tablet, hidden on desktop) */}
-      <div className="lg:hidden bg-white border border-slate-200 rounded-2xl p-3 shadow-sm space-y-2">
-        <div className="flex items-center justify-between gap-2">
-          <button
-            onClick={() => setIsMobileSidebarOpen(true)}
-            className="flex-1 py-2.5 px-3.5 bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-xl text-xs font-bold flex items-center justify-between shadow-sm active:scale-98 transition-all"
-          >
-            <div className="flex items-center space-x-2">
-              <Layers className="w-4 h-4 text-emerald-400" />
-              <span>Menu &amp; Actions Sidebar</span>
-            </div>
-            <span className="text-[10px] bg-emerald-600 text-slate-950 px-2 py-0.5 rounded-full font-black uppercase">
-              {activeTab}
-            </span>
-          </button>
-
-          <button
-            onClick={() => setIsStudentModalOpen(true)}
-            className="p-2.5 bg-emerald-600 text-white rounded-xl shadow-xs active:scale-95 flex items-center justify-center shrink-0"
-            title="Enroll Student"
-          >
-            <UserPlus className="w-4 h-4" />
-          </button>
-        </div>
-
-        {/* Horizontal Quick Pill Strip */}
-        <div className="flex items-center space-x-1.5 overflow-x-auto pb-1 pt-0.5 no-scrollbar scroll-smooth">
-          {[
-            { id: 'students', label: 'Students', icon: GraduationCap },
-            { id: 'reports', label: 'Reports', icon: Printer },
-            { id: 'teachers', label: 'Teachers', icon: Users },
-            { id: 'subjects', label: 'Subjects', icon: BookOpen },
-            { id: 'classes', label: 'Classes', icon: Layers },
-            { id: 'fees', label: 'Fees', icon: DollarSign },
-            { id: 'attendance', label: 'Attendance', icon: Calendar },
-            { id: 'sms', label: 'SMS', icon: Send },
-            { id: 'settings', label: 'Settings', icon: Settings },
-            { id: 'audit', label: 'Audit Logs', icon: ShieldCheck }
-          ].map(tab => {
-            const Icon = tab.icon;
-            const isActive = activeTab === tab.id;
-            return (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all shrink-0 ${
-                  isActive
-                    ? 'bg-emerald-600 text-white shadow-sm font-extrabold'
-                    : 'bg-slate-50 text-slate-700 hover:bg-slate-100 border border-slate-200'
-                }`}
-              >
-                <Icon className="w-3.5 h-3.5" />
-                <span>{tab.label}</span>
-              </button>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Off-Canvas Mobile Sidebar Drawer */}
-      {isMobileSidebarOpen && (
-        <div className="fixed inset-0 z-50 lg:hidden flex">
-          {/* Backdrop Overlay */}
-          <div
-            onClick={() => setIsMobileSidebarOpen(false)}
-            className="fixed inset-0 bg-slate-950/70 backdrop-blur-xs transition-opacity"
-          />
-
-          {/* Drawer Content */}
-          <div className="relative w-[320px] max-w-[85vw] bg-white h-full shadow-2xl flex flex-col z-10 overflow-y-auto p-4 space-y-4">
-            
-            {/* Drawer Header */}
-            <div className="flex items-center justify-between border-b border-slate-200 pb-3">
-              <div className="flex items-center space-x-2">
-                <div className="h-8 w-8 rounded-lg bg-emerald-600 flex items-center justify-center text-white font-bold text-xs">
-                  <School className="w-4 h-4" />
-                </div>
-                <div>
-                  <h3 className="text-xs font-extrabold text-slate-900 font-outfit uppercase tracking-wider">
-                    School Navigation
-                  </h3>
-                  <span className="text-[10px] text-slate-500 truncate block max-w-[170px]">{currentSchool?.name}</span>
-                </div>
-              </div>
-
-              <button
-                onClick={() => setIsMobileSidebarOpen(false)}
-                className="p-1.5 text-slate-400 hover:text-slate-700 rounded-lg hover:bg-slate-100"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            {/* Quick Actions in Mobile Drawer */}
-            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-3 space-y-2">
-              <span className="text-[10px] font-extrabold uppercase text-slate-400 tracking-wider block">
-                Quick Actions
-              </span>
-              <button
-                onClick={() => {
-                  setIsStudentModalOpen(true);
-                  setIsMobileSidebarOpen(false);
-                }}
-                className="w-full px-3 py-2 bg-emerald-600 text-white rounded-xl text-xs font-bold flex items-center justify-between shadow-xs"
-              >
-                <div className="flex items-center space-x-2">
-                  <UserPlus className="w-3.5 h-3.5" />
-                  <span>Enroll Student</span>
-                </div>
-                <Plus className="w-3.5 h-3.5" />
-              </button>
-
-              <button
-                onClick={() => {
-                  setIsBatchReportModalOpen(true);
-                  setIsMobileSidebarOpen(false);
-                }}
-                className="w-full px-3 py-2 bg-slate-900 text-white rounded-xl text-xs font-bold flex items-center justify-between border border-slate-800"
-              >
-                <div className="flex items-center space-x-2">
-                  <Printer className="w-3.5 h-3.5 text-emerald-400" />
-                  <span>Batch PDF Reports</span>
-                </div>
-                <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
-              </button>
-            </div>
-
-            {/* Navigation Sections */}
-            <nav className="space-y-4 flex-1">
-              {/* 1. Academic Management */}
-              <div>
-                <span className="text-[10px] font-extrabold uppercase text-emerald-900 tracking-wider px-2 py-1 block font-outfit">
-                  Academic Management
-                </span>
-                <div className="space-y-1 mt-1">
-                  {[
-                    { id: 'students', label: 'Students Roster', icon: GraduationCap, count: schoolStudents.length, color: 'text-emerald-700' },
-                    { id: 'subjects', label: 'Subjects Setup', icon: BookOpen, count: schoolSubjects.length, color: 'text-indigo-600' },
-                    { id: 'teachers', label: 'Teachers Staff', icon: Users, count: schoolTeachers.length, color: 'text-blue-600' },
-                    { id: 'classes', label: 'Classes & Streams', icon: Layers, count: schoolClasses.length, color: 'text-emerald-600' },
-                  ].map(tab => {
-                    const Icon = tab.icon;
-                    const isActive = activeTab === tab.id;
-                    return (
-                      <button
-                        key={tab.id}
-                        onClick={() => {
-                          setActiveTab(tab.id);
-                          setIsMobileSidebarOpen(false);
-                        }}
-                        className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-bold transition-all ${
-                          isActive
-                            ? 'bg-emerald-600 text-white shadow-sm font-extrabold'
-                            : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
-                        }`}
-                      >
-                        <div className="flex items-center space-x-2.5">
-                          <Icon className={`w-4 h-4 ${isActive ? 'text-white' : tab.color}`} />
-                          <span>{tab.label}</span>
-                        </div>
-                        <span className={`text-[10px] px-2 py-0.5 rounded-full font-extrabold ${
-                          isActive ? 'bg-white/25 text-white' : 'bg-slate-100 text-slate-600 border border-slate-200'
-                        }`}>
-                          {tab.count}
-                        </span>
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-
-              {/* 2. Finance & Communications */}
-              <div className="border-t border-slate-100 pt-3">
-                <span className="text-[10px] font-extrabold uppercase text-emerald-900 tracking-wider px-2 py-1 block font-outfit">
-                  Finance &amp; Communication
-                </span>
-                <div className="space-y-1 mt-1">
-                  {[
-                    { id: 'fees', label: 'Fees & Clearance', icon: DollarSign, color: 'text-emerald-600', badge: 'Locks' },
-                    { id: 'sms', label: 'SMS Results Broadcast', icon: Send, color: 'text-sky-600', badge: 'SMS' },
-                    { id: 'attendance', label: 'Term Attendance', icon: Calendar, color: 'text-blue-600' },
-                  ].map(tab => {
-                    const Icon = tab.icon;
-                    const isActive = activeTab === tab.id;
-                    return (
-                      <button
-                        key={tab.id}
-                        onClick={() => {
-                          setActiveTab(tab.id);
-                          setIsMobileSidebarOpen(false);
-                        }}
-                        className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-bold transition-all ${
-                          isActive
-                            ? 'bg-emerald-600 text-white shadow-sm font-extrabold'
-                            : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
-                        }`}
-                      >
-                        <div className="flex items-center space-x-2.5">
-                          <Icon className={`w-4 h-4 ${isActive ? 'text-white' : tab.color}`} />
-                          <span>{tab.label}</span>
-                        </div>
-                        {tab.badge && (
-                          <span className={`text-[9px] px-1.5 py-0.5 rounded font-bold ${
-                            isActive ? 'bg-white/25 text-white' : 'bg-slate-100 text-slate-500 border border-slate-200'
-                          }`}>
-                            {tab.badge}
-                          </span>
-                        )}
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-
-              {/* 3. Reports & Settings */}
-              <div className="border-t border-slate-100 pt-3">
-                <span className="text-[10px] font-extrabold uppercase text-emerald-900 tracking-wider px-2 py-1 block font-outfit">
-                  Reports &amp; Settings
-                </span>
-                <div className="space-y-1 mt-1">
-                  {[
-                    { id: 'reports', label: 'Printable PDF Reports', icon: Printer, color: 'text-purple-600' },
-                    { id: 'settings', label: 'Template & Weights', icon: Settings, color: 'text-slate-600' },
-                    { id: 'audit', label: 'Audit Trail Logs', icon: ShieldCheck, color: 'text-rose-600' },
-                  ].map(tab => {
-                    const Icon = tab.icon;
-                    const isActive = activeTab === tab.id;
-                    return (
-                      <button
-                        key={tab.id}
-                        onClick={() => {
-                          setActiveTab(tab.id);
-                          setIsMobileSidebarOpen(false);
-                        }}
-                        className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-bold transition-all ${
-                          isActive
-                            ? 'bg-emerald-600 text-white shadow-sm font-extrabold'
-                            : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
-                        }`}
-                      >
-                        <div className="flex items-center space-x-2.5">
-                          <Icon className={`w-4 h-4 ${isActive ? 'text-white' : tab.color}`} />
-                          <span>{tab.label}</span>
-                        </div>
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-            </nav>
-
+      {/* Mobile Navigation Status & Sidebar Trigger (Visible on mobile/tablet, hidden on desktop) */}
+      <div className="lg:hidden bg-white border border-slate-200 rounded-2xl p-3 shadow-sm flex items-center justify-between gap-2">
+        <button
+          onClick={() => setIsMobileSidebarOpen(true)}
+          className="flex-1 py-2.5 px-3.5 bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-xl text-xs font-bold flex items-center justify-between shadow-sm active:scale-98 transition-all"
+        >
+          <div className="flex items-center space-x-2">
+            <Menu className="w-4 h-4 text-emerald-400" />
+            <span>Open Navigation Sidebar</span>
           </div>
-        </div>
-      )}
+          <span className="text-[10px] bg-emerald-600 text-white px-2.5 py-0.5 rounded-full font-black uppercase tracking-wider">
+            {activeTab}
+          </span>
+        </button>
+
+        <button
+          onClick={() => setIsStudentModalOpen(true)}
+          className="p-2.5 bg-emerald-600 text-white rounded-xl shadow-xs active:scale-95 flex items-center justify-center shrink-0"
+          title="Enroll Student"
+        >
+          <UserPlus className="w-4 h-4" />
+        </button>
+      </div>
 
       {/* Main Two-Column Layout: Desktop Sidebar Navigation + Tab Views */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
