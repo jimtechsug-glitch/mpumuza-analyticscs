@@ -40,21 +40,6 @@ export default function LoginModal({ isOpen, onClose }) {
           </label>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-            
-            <button
-              type="button"
-              onClick={() => handleQuickLogin('admin@mpumuza.ug', 'Adallyn2290')}
-              className="p-3 bg-slate-50 border border-emerald-300 hover:border-emerald-500 rounded-xl text-left transition-all group flex items-center justify-between shadow-xs hover:shadow-sm"
-            >
-              <div>
-                <div className="font-bold text-slate-900 group-hover:text-emerald-800 flex items-center space-x-1.5">
-                  <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                  <span>Super Admin</span>
-                </div>
-                <span className="text-[10px] text-slate-500">All Platforms Management</span>
-              </div>
-              <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-emerald-600" />
-            </button>
 
             <button
               type="button"
