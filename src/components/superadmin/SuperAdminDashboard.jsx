@@ -435,13 +435,13 @@ export default function SuperAdminDashboard() {
 
         <div className="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
           <div className="flex items-center justify-between mb-4">
-            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">PostgreSQL Database</span>
+            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">MongoDB Database</span>
             <div className="p-3 bg-emerald-50 rounded-xl text-emerald-600 border border-emerald-200">
               <CheckCircle2 className="w-6 h-6" />
             </div>
           </div>
-          <div className="text-xl font-bold text-emerald-700 font-outfit">Supabase Connected</div>
-          <div className="text-xs text-slate-500 mt-2 font-medium">Multi-tenant Cloud DB Online</div>
+          <div className="text-xl font-bold text-emerald-700 font-outfit">MongoDB Atlas Connected</div>
+          <div className="text-xs text-slate-500 mt-2 font-medium">Multi-tenant Document Cloud DB</div>
         </div>
 
       </div>
