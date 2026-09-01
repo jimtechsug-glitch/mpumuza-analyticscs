@@ -31,17 +31,11 @@ export default function LandingPage({ onGoToSignIn }) {
 
           {/* Brand */}
           <div className="flex items-center space-x-3">
-            <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-emerald-600 to-green-700 flex items-center justify-center text-white shadow-md shadow-emerald-500/20">
-              <BarChart3 className="w-5 h-5" />
-            </div>
-            <div>
-              <span className="font-extrabold text-lg sm:text-xl tracking-tight text-slate-900 font-outfit block leading-none">
-                Mpumuza Analytics
-              </span>
-              <span className="text-[10px] text-emerald-700 font-bold uppercase tracking-wider">
-                Uganda School Report Engine
-              </span>
-            </div>
+            <img
+              src="/mpumuza-logo.jpg"
+              alt="Mpumuza Analytics - School Report Management System"
+              className="h-10 sm:h-12 w-auto object-contain rounded-xl shadow-xs"
+            />
           </div>
 
           {/* Nav CTA */}

@@ -51,16 +51,20 @@ export default function Header({ onOpenLoginModal }) {
           
           {/* Logo & School Branding */}
           <div className="flex items-center space-x-2.5 sm:space-x-4 min-w-0">
-            <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-xl bg-gradient-to-br from-emerald-600 to-green-700 p-0.5 shadow-md flex items-center justify-center shrink-0">
+            <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-xl bg-slate-100 p-0.5 shadow-md flex items-center justify-center shrink-0 border border-slate-200">
               <div className="h-full w-full bg-white rounded-[9px] sm:rounded-[10px] p-0.5 sm:p-1 flex items-center justify-center overflow-hidden">
                 {isSuperAdmin ? (
-                  <BarChart3 className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-600" />
+                  <img
+                    src="/logo.jpg"
+                    alt="Mpumuza Logo"
+                    className="h-full w-full object-contain"
+                  />
                 ) : (
                   <img
-                    src={currentSchool?.badgeUrl || 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=200&q=80'}
+                    src={currentSchool?.badgeUrl || '/logo.jpg'}
                     alt="Badge"
                     className="h-full w-full object-cover rounded-[7px]"
-                    onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=200&q=80'; }}
+                    onError={(e) => { e.target.src = '/logo.jpg'; }}
                   />
                 )}
               </div>

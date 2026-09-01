@@ -83,19 +83,11 @@ export default function PortalLoginPage({ onBackToHome }) {
               <span className="hidden sm:inline">Back to Showcase</span>
             </button>
 
-            <div className="flex items-center space-x-2.5">
-              <div className="h-9 w-9 rounded-xl bg-gradient-to-br from-emerald-600 to-green-700 flex items-center justify-center text-white shadow-md shadow-emerald-500/20">
-                <BarChart3 className="w-5 h-5" />
-              </div>
-              <div>
-                <span className="font-extrabold text-base sm:text-lg tracking-tight font-outfit text-slate-900 block leading-none">
-                  Mpumuza Analytics
-                </span>
-                <span className="text-[10px] text-emerald-700 font-bold uppercase tracking-wider">
-                  Secure Access Gateway
-                </span>
-              </div>
-            </div>
+            <img
+              src="/mpumuza-logo.jpg"
+              alt="Mpumuza Analytics - School Report Management System"
+              className="h-9 sm:h-11 w-auto object-contain rounded-xl shadow-xs"
+            />
           </div>
 
           <div className="flex items-center space-x-2">
