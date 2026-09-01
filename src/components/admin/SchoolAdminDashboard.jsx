@@ -808,7 +808,7 @@ _Powered by Mpumuza Analytics Platform_`;
               <h3 className="text-lg font-bold text-slate-900 font-outfit">Enrolled Student Directory</h3>
               <p className="text-xs text-slate-500">Manage individual student records, attendance, and LIN accounts.</p>
             </div>
-            <div className="flex space-x-3">
+            <div className="flex flex-wrap gap-2">
               <button
                 onClick={() => setIsStudentModalOpen(true)}
                 className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-xl text-xs font-bold transition-all flex items-center space-x-2 border border-slate-300"
@@ -816,7 +816,6 @@ _Powered by Mpumuza Analytics Platform_`;
                 <Plus className="w-4 h-4 text-emerald-700" />
                 <span>Single Student Entry</span>
               </button>
-
               <button
                 onClick={() => setIsBulkModalOpen(true)}
                 className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition-all flex items-center space-x-2 shadow-sm"
@@ -827,16 +826,90 @@ _Powered by Mpumuza Analytics Platform_`;
             </div>
           </div>
 
-          <div className="overflow-x-auto">
+          {/* Mobile Card View (hidden on md+) */}
+          <div className="md:hidden space-y-3">
+            {schoolStudents.length === 0 && (
+              <div className="text-center py-8 text-slate-400 text-sm italic">No students enrolled yet.</div>
+            )}
+            {schoolStudents.map(std => {
+              const cls = schoolClasses.find(c => c.id === std.classId);
+              const isCleared = std.feeBalanceUGX <= 0 || std.feeOverride;
+              const isALvl = cls?.level === 'A-Level' || ['S.5', 'S.6'].some(s => cls?.name?.includes(s));
+              return (
+                <div key={std.id} className={`rounded-2xl border p-4 space-y-3 ${std.blocked ? 'bg-rose-50/50 border-rose-200' : 'bg-slate-50 border-slate-200'}`}>
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="min-w-0">
+                      <div className="font-bold text-slate-900 text-sm truncate">{std.name}</div>
+                      <div className="font-mono text-emerald-700 text-xs font-bold mt-0.5">{std.lin}</div>
+                    </div>
+                    <div className="flex items-center gap-1.5 shrink-0">
+                      {std.blocked && <span className="text-[9px] bg-rose-100 text-rose-700 border border-rose-300 px-1.5 py-0.5 rounded-full font-bold">Blocked</span>}
+                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded border ${isCleared ? 'bg-emerald-100 text-emerald-800 border-emerald-300' : 'bg-rose-100 text-rose-800 border-rose-300'}`}>
+                        {isCleared ? 'Fees OK' : 'Fee Bal'}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2 text-xs">
+                    <div>
+                      <span className="text-slate-400 font-bold uppercase text-[10px] block">Class</span>
+                      <span className="font-semibold text-slate-800">{cls?.name || '—'} <span className="text-slate-500">({std.stream})</span></span>
+                    </div>
+                    <div>
+                      <span className="text-slate-400 font-bold uppercase text-[10px] block">Gender</span>
+                      <span className="font-semibold text-slate-800">{std.gender === 'M' ? 'Male' : 'Female'}</span>
+                    </div>
+                    <div>
+                      <span className="text-slate-400 font-bold uppercase text-[10px] block">Level</span>
+                      <span className="font-semibold text-slate-800">
+                        {isALvl ? (std.combination || 'PCM/ICT') : (cls?.level || 'O-Level')}
+                      </span>
+                    </div>
+                    <div>
+                      <span className="text-slate-400 font-bold uppercase text-[10px] block">Parent PIN</span>
+                      <span className="font-mono font-bold text-emerald-900 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded">{std.parentPin || '1234'}</span>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap gap-1.5 pt-1 border-t border-slate-200">
+                    <button onClick={() => handleOpenEditStudent(std)} className="px-2.5 py-1.5 bg-slate-100 text-slate-700 border border-slate-300 rounded-lg text-xs font-bold flex items-center space-x-1">
+                      <Settings className="w-3.5 h-3.5" /><span>Edit/PIN</span>
+                    </button>
+                    <button onClick={() => setSelectedStudentForReport(std.id)} className="px-2.5 py-1.5 bg-emerald-50 text-emerald-900 border border-emerald-300 rounded-lg text-xs font-bold flex items-center space-x-1">
+                      <Printer className="w-3.5 h-3.5" /><span>Report</span>
+                    </button>
+                    <button onClick={() => handleWhatsAppShareStudent(std)} className="p-1.5 bg-emerald-50 text-emerald-700 border border-emerald-300 rounded-lg">
+                      <MessageCircle className="w-3.5 h-3.5" />
+                    </button>
+                    {std.blocked ? (
+                      <button onClick={() => setConfirmAction({ type: 'unblock', entity: 'student', record: std })} className="p-1.5 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-lg">
+                        <Unlock className="w-3.5 h-3.5" />
+                      </button>
+                    ) : (
+                      <button onClick={() => setConfirmAction({ type: 'block', entity: 'student', record: std })} className="p-1.5 bg-slate-50 text-slate-700 border border-slate-200 rounded-lg">
+                        <Lock className="w-3.5 h-3.5" />
+                      </button>
+                    )}
+                    <button onClick={() => setConfirmAction({ type: 'delete', entity: 'student', record: std })} className="p-1.5 bg-rose-50 text-rose-700 border border-rose-200 rounded-lg ml-auto">
+                      <Trash2 className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Desktop Table View (hidden on mobile) */}
+          <div className="hidden md:block overflow-x-auto">
             <table className="w-full text-left border-collapse text-xs">
               <thead>
                 <tr className="bg-slate-100 text-slate-700 font-outfit uppercase border-b border-slate-200">
                   <th className="p-3">LIN</th>
                   <th className="p-3">Full Name</th>
                   <th className="p-3">Gender</th>
-                  <th className="p-3">Class & Stream</th>
+                  <th className="p-3">Class &amp; Stream</th>
                   <th className="p-3">Level / Combination</th>
-                  <th className="p-3">Parent Access PIN</th>
+                  <th className="p-3">Parent PIN</th>
                   <th className="p-3">Fee Status</th>
                   <th className="p-3 text-right">Actions</th>
                 </tr>
@@ -846,30 +919,22 @@ _Powered by Mpumuza Analytics Platform_`;
                   const cls = schoolClasses.find(c => c.id === std.classId);
                   const isCleared = std.feeBalanceUGX <= 0 || std.feeOverride;
                   const isALvl = cls?.level === 'A-Level' || ['S.5', 'S.6'].some(s => cls?.name?.includes(s));
-
                   return (
                     <tr key={std.id} className="hover:bg-slate-50 transition-colors">
                       <td className="p-3 font-mono text-emerald-800 font-bold">{std.lin}</td>
                       <td className="p-3 font-bold text-slate-900 text-sm">{std.name}</td>
                       <td className="p-3 text-slate-700">{std.gender === 'M' ? 'Male' : 'Female'}</td>
-                      <td className="p-3 font-semibold text-slate-800">
-                        {cls?.name || 'Class'} <span className="text-slate-500 font-normal">({std.stream})</span>
-                      </td>
+                      <td className="p-3 font-semibold text-slate-800">{cls?.name || 'Class'} <span className="text-slate-500 font-normal">({std.stream})</span></td>
                       <td className="p-3">
                         {isALvl ? (
-                          <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-indigo-50 text-indigo-800 border border-indigo-200">
-                            {std.combination || 'PCM / ICT'}
-                          </span>
+                          <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-indigo-50 text-indigo-800 border border-indigo-200">{std.combination || 'PCM / ICT'}</span>
                         ) : (
-                          <span className="text-slate-500 font-medium text-[11px]">
-                            {cls?.level || 'O-Level'}
-                          </span>
+                          <span className="text-slate-500 font-medium text-[11px]">{cls?.level || 'O-Level'}</span>
                         )}
                       </td>
                       <td className="p-3">
-                        <span className="px-2.5 py-1 rounded-md text-xs font-mono font-bold bg-emerald-50 text-emerald-950 border border-emerald-300 inline-flex items-center space-x-1 shadow-2xs">
-                          <Lock className="w-3 h-3 text-emerald-700" />
-                          <span>{std.parentPin || '1234'}</span>
+                        <span className="px-2.5 py-1 rounded-md text-xs font-mono font-bold bg-emerald-50 text-emerald-950 border border-emerald-300 inline-flex items-center space-x-1">
+                          <Lock className="w-3 h-3 text-emerald-700" /><span>{std.parentPin || '1234'}</span>
                         </span>
                       </td>
                       <td className="p-3">
@@ -883,57 +948,26 @@ _Powered by Mpumuza Analytics Platform_`;
                       </td>
                       <td className="p-3 text-right">
                         <div className="flex items-center justify-end space-x-1.5">
-                          {std.blocked && (
-                            <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 bg-rose-100 text-rose-700 border border-rose-300 rounded-full text-[9px] font-bold">
-                              <Ban className="w-2.5 h-2.5" /> Blocked
-                            </span>
-                          )}
-                          <button
-                            onClick={() => handleOpenEditStudent(std)}
-                            className="px-2.5 py-1.5 bg-slate-100 text-slate-700 border border-slate-300 hover:bg-slate-200 rounded-lg text-xs font-bold transition-all flex items-center space-x-1"
-                            title="Edit Student Particulars & Parent Access PIN"
-                          >
-                            <Settings className="w-3.5 h-3.5 text-slate-600" />
-                            <span>Edit / PIN</span>
+                          {std.blocked && <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 bg-rose-100 text-rose-700 border border-rose-300 rounded-full text-[9px] font-bold"><Ban className="w-2.5 h-2.5" /> Blocked</span>}
+                          <button onClick={() => handleOpenEditStudent(std)} className="px-2.5 py-1.5 bg-slate-100 text-slate-700 border border-slate-300 hover:bg-slate-200 rounded-lg text-xs font-bold transition-all flex items-center space-x-1">
+                            <Settings className="w-3.5 h-3.5 text-slate-600" /><span>Edit/PIN</span>
                           </button>
-                          <button
-                            onClick={() => setSelectedStudentForReport(std.id)}
-                            className="px-3 py-1.5 bg-emerald-50 text-emerald-900 border border-emerald-300 hover:bg-emerald-100 rounded-lg text-xs font-bold transition-all flex items-center space-x-1"
-                          >
-                            <Printer className="w-3.5 h-3.5" />
-                            <span>Report</span>
+                          <button onClick={() => setSelectedStudentForReport(std.id)} className="px-3 py-1.5 bg-emerald-50 text-emerald-900 border border-emerald-300 hover:bg-emerald-100 rounded-lg text-xs font-bold transition-all flex items-center space-x-1">
+                            <Printer className="w-3.5 h-3.5" /><span>Report</span>
                           </button>
-                          <button
-                            onClick={() => handleWhatsAppShareStudent(std)}
-                            title="Share student result summary and portal PIN directly via WhatsApp"
-                            className="p-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-300 rounded-lg text-xs font-bold transition-all flex items-center"
-                          >
+                          <button onClick={() => handleWhatsAppShareStudent(std)} className="p-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-300 rounded-lg">
                             <MessageCircle className="w-3.5 h-3.5" />
                           </button>
-                          {/* Block / Unblock */}
                           {std.blocked ? (
-                            <button
-                              title="Unblock student portal access"
-                              onClick={() => setConfirmAction({ type: 'unblock', entity: 'student', record: std })}
-                              className="p-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 transition-colors"
-                            >
+                            <button onClick={() => setConfirmAction({ type: 'unblock', entity: 'student', record: std })} className="p-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200">
                               <Unlock className="w-3.5 h-3.5" />
                             </button>
                           ) : (
-                            <button
-                              title="Block student portal access"
-                              onClick={() => setConfirmAction({ type: 'block', entity: 'student', record: std })}
-                              className="p-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 transition-colors"
-                            >
+                            <button onClick={() => setConfirmAction({ type: 'block', entity: 'student', record: std })} className="p-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200">
                               <Lock className="w-3.5 h-3.5" />
                             </button>
                           )}
-                          {/* Delete */}
-                          <button
-                            title="Permanently delete student record"
-                            onClick={() => setConfirmAction({ type: 'delete', entity: 'student', record: std })}
-                            className="p-1.5 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 transition-colors"
-                          >
+                          <button onClick={() => setConfirmAction({ type: 'delete', entity: 'student', record: std })} className="p-1.5 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200">
                             <Trash2 className="w-3.5 h-3.5" />
                           </button>
                         </div>
@@ -946,7 +980,6 @@ _Powered by Mpumuza Analytics Platform_`;
           </div>
         </div>
       )}
-
 
       {/* 2. SUBJECTS TAB */}
       {activeTab === 'subjects' && (
@@ -1103,7 +1136,68 @@ _Powered by Mpumuza Analytics Platform_`;
             </button>
           </div>
 
-          <div className="overflow-x-auto rounded-2xl border border-slate-200">
+          {/* Mobile Teacher Cards */}
+          <div className="md:hidden space-y-3">
+            {schoolTeachers.length === 0 && (
+              <div className="text-center py-8 text-slate-400 text-sm italic">No teachers registered yet.</div>
+            )}
+            {schoolTeachers.map(tr => (
+              <div key={tr.id} className={`rounded-2xl border p-4 space-y-3 ${tr.blocked ? 'bg-rose-50/50 border-rose-200' : 'bg-slate-50 border-slate-200'}`}>
+                <div className="flex items-start justify-between gap-2">
+                  <div className="min-w-0">
+                    <div className="font-bold text-slate-900 text-sm truncate">{tr.name}</div>
+                    <div className="text-[10px] text-slate-400 font-mono truncate">{tr.email}</div>
+                    {tr.phone && <div className="text-xs text-emerald-800 font-semibold mt-0.5">{tr.phone}</div>}
+                  </div>
+                  <span className={`shrink-0 inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold ${
+                    tr.blocked ? 'bg-rose-100 text-rose-700 border border-rose-300' : 'bg-emerald-100 text-emerald-700 border border-emerald-300'
+                  }`}>
+                    {tr.blocked ? <><Ban className="w-3 h-3" /> Blocked</> : <><CheckCircle2 className="w-3 h-3" /> Active</>}
+                  </span>
+                </div>
+                {(tr.assignedClasses?.length > 0 || tr.assignedSubjects?.length > 0) && (
+                  <div className="space-y-1.5">
+                    {tr.assignedClasses?.length > 0 && (
+                      <div className="flex flex-wrap gap-1">
+                        {tr.assignedClasses.map((acId, i) => {
+                          const c = schoolClasses.find(cl => cl.id === acId);
+                          return c ? <span key={i} className="bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded text-[10px] text-emerald-950 font-semibold">{c.name}</span> : null;
+                        })}
+                      </div>
+                    )}
+                    {tr.assignedSubjects?.length > 0 && (
+                      <div className="flex flex-wrap gap-1">
+                        {tr.assignedSubjects.map((subId, i) => {
+                          const s = schoolSubjects.find(sb => sb.id === subId);
+                          return s ? <span key={i} className="bg-sky-50 border border-sky-200 px-2 py-0.5 rounded text-[10px] text-sky-900 font-semibold">{s.code}</span> : null;
+                        })}
+                      </div>
+                    )}
+                  </div>
+                )}
+                <div className="flex items-center gap-1.5 pt-1 border-t border-slate-200">
+                  <button onClick={() => handleOpenEditTeacher(tr)} className="p-1.5 rounded-lg bg-emerald-50 text-emerald-800 border border-emerald-200">
+                    <Pencil className="w-3.5 h-3.5" />
+                  </button>
+                  {tr.blocked ? (
+                    <button onClick={() => setConfirmAction({ type: 'unblock', entity: 'teacher', record: tr })} className="p-1.5 rounded-lg bg-emerald-50 text-emerald-700 border border-emerald-200">
+                      <Unlock className="w-3.5 h-3.5" />
+                    </button>
+                  ) : (
+                    <button onClick={() => setConfirmAction({ type: 'block', entity: 'teacher', record: tr })} className="p-1.5 rounded-lg bg-slate-50 text-slate-700 border border-slate-200">
+                      <Lock className="w-3.5 h-3.5" />
+                    </button>
+                  )}
+                  <button onClick={() => setConfirmAction({ type: 'delete', entity: 'teacher', record: tr })} className="p-1.5 rounded-lg bg-rose-50 text-rose-700 border border-rose-200 ml-auto">
+                    <Trash2 className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop Teacher Table */}
+          <div className="hidden md:block overflow-x-auto rounded-2xl border border-slate-200">
             <table className="w-full text-left border-collapse text-xs">
               <thead>
                 <tr className="bg-slate-50 text-slate-600 font-outfit uppercase tracking-wide text-[11px] border-b border-slate-200">
@@ -1220,7 +1314,6 @@ _Powered by Mpumuza Analytics Platform_`;
           </div>
         </div>
       )}
-
 
       {/* 4. CLASSES TAB */}
       {activeTab === 'classes' && (
@@ -1516,18 +1609,18 @@ _Powered by Mpumuza Analytics Platform_`;
               </div>
             </div>
 
-            <div className="overflow-x-auto">
-              <table className="w-full text-left border-collapse text-xs">
+            <div className="overflow-x-auto -mx-6 px-6">
+              <table className="min-w-[800px] w-full text-left border-collapse text-xs">
                 <thead>
                   <tr className="bg-slate-100 text-slate-700 font-outfit uppercase border-b border-slate-200">
                     <th className="p-3">Student Name</th>
                     <th className="p-3">LIN</th>
-                    <th className="p-3">Class & Stream</th>
-                    <th className="p-3 text-right">Fee Required (UGX)</th>
-                    <th className="p-3 text-right">Amount Paid (UGX)</th>
-                    <th className="p-3 text-right">Balance Due</th>
-                    <th className="p-3 text-center">Release Status</th>
-                    <th className="p-3 text-right">Clearance Waiver</th>
+                    <th className="p-3">Class</th>
+                    <th className="p-3 text-right">Required (UGX)</th>
+                    <th className="p-3 text-right">Paid (UGX)</th>
+                    <th className="p-3 text-right">Balance</th>
+                    <th className="p-3 text-center">Status</th>
+                    <th className="p-3 text-right">Waiver</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-200">
@@ -1546,7 +1639,6 @@ _Powered by Mpumuza Analytics Platform_`;
                           {cls?.name || 'Class'} <span className="text-slate-500 font-normal">({std.stream})</span>
                         </td>
                         
-                        {/* Editable Fee Required Field */}
                         <td className="p-3 text-right">
                           <input
                             type="number"
@@ -1554,11 +1646,9 @@ _Powered by Mpumuza Analytics Platform_`;
                             step="50000"
                             value={req}
                             onChange={(e) => updateFeeRecord(std.id, Number(e.target.value), paid, std.feeOverride)}
-                            className="w-32 bg-white border border-emerald-300 focus:border-emerald-600 text-right font-mono font-bold text-emerald-950 rounded-lg p-1.5 focus:outline-none shadow-2xs"
+                            className="w-28 bg-white border border-emerald-300 focus:border-emerald-600 text-right font-mono font-bold text-emerald-950 rounded-lg p-1.5 focus:outline-none"
                           />
                         </td>
-
-                        {/* Editable Amount Paid Field */}
                         <td className="p-3 text-right">
                           <input
                             type="number"
@@ -1566,7 +1656,7 @@ _Powered by Mpumuza Analytics Platform_`;
                             step="50000"
                             value={paid}
                             onChange={(e) => updateFeeRecord(std.id, req, Number(e.target.value), std.feeOverride)}
-                            className="w-32 bg-white border border-slate-300 focus:border-slate-500 text-right font-mono font-bold text-emerald-800 rounded-lg p-1.5 focus:outline-none shadow-2xs"
+                            className="w-28 bg-white border border-slate-300 focus:border-slate-500 text-right font-mono font-bold text-emerald-800 rounded-lg p-1.5 focus:outline-none"
                           />
                         </td>
 

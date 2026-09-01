@@ -485,22 +485,131 @@ export default function TeacherDashboard() {
   return (
     <div className="space-y-8 text-left">
       
+      {/* Off-Canvas Mobile Sidebar Drawer */}
+      {isMobileSidebarOpen && (
+        <div className="fixed inset-0 z-50 lg:hidden flex">
+          <div
+            onClick={() => setIsMobileSidebarOpen(false)}
+            className="fixed inset-0 bg-slate-950/70 backdrop-blur-xs transition-opacity"
+          />
+          <div className="relative w-[320px] max-w-[85vw] bg-white h-full shadow-2xl flex flex-col z-10 overflow-y-auto p-4 space-y-4">
+            {/* Drawer Header */}
+            <div className="flex items-center justify-between border-b border-slate-200 pb-3">
+              <div className="flex items-center space-x-2">
+                <div className="h-8 w-8 rounded-lg bg-emerald-600 flex items-center justify-center text-white">
+                  <BookOpen className="w-4 h-4" />
+                </div>
+                <div>
+                  <h3 className="text-xs font-extrabold text-slate-900 font-outfit uppercase tracking-wider">Teacher Portal</h3>
+                  <span className="text-[10px] text-slate-500">{currentSchool?.name}</span>
+                </div>
+              </div>
+              <button
+                onClick={() => setIsMobileSidebarOpen(false)}
+                className="p-1.5 text-slate-400 hover:text-slate-700 rounded-lg hover:bg-slate-100"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Quick Context & Class Switcher inside Drawer */}
+            <div className="bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-2xl p-3.5 space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-extrabold uppercase tracking-wider text-emerald-400">Class & Stream</span>
+                <span className="text-[10px] bg-white/10 px-2 py-0.5 rounded-full font-bold">{enrolledStudents.length} Students</span>
+              </div>
+              <div className="space-y-2">
+                <div>
+                  <label className="block text-[10px] font-bold text-slate-400 mb-1">Class</label>
+                  <select
+                    value={selectedClassId}
+                    onChange={(e) => setSelectedClassId(e.target.value)}
+                    className="w-full bg-slate-800 border border-slate-700 rounded-xl px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-emerald-600"
+                  >
+                    {schoolClasses.map(cls => (
+                      <option key={cls.id} value={cls.id}>{cls.name} ({cls.level})</option>
+                    ))}
+                  </select>
+                </div>
+                <div className="grid grid-cols-2 gap-2">
+                  <div>
+                    <label className="block text-[10px] font-bold text-slate-400 mb-1">Stream</label>
+                    <select
+                      value={selectedStream}
+                      onChange={(e) => setSelectedStream(e.target.value)}
+                      className="w-full bg-slate-800 border border-slate-700 rounded-xl px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-emerald-600"
+                    >
+                      {availableStreams.map(st => (
+                        <option key={st} value={st}>Stream {st}</option>
+                      ))}
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-[10px] font-bold text-slate-400 mb-1">Student</label>
+                    <select
+                      value={selectedStudentId}
+                      onChange={(e) => setSelectedStudentId(e.target.value)}
+                      className="w-full bg-slate-800 border border-slate-700 rounded-xl px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-emerald-600 truncate"
+                    >
+                      {enrolledStudents.length === 0
+                        ? <option value="">No students</option>
+                        : enrolledStudents.map(stu => (
+                          <option key={stu.id} value={stu.id}>{stu.name}</option>
+                        ))}
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Navigation Tabs in Drawer */}
+            <div className="space-y-1 pt-1">
+              <span className="text-[10px] font-extrabold uppercase text-slate-400 px-2 tracking-wider block">Menu</span>
+              {[
+                { id: 'marks', label: 'Mark Entry Grid', icon: FileSpreadsheet },
+                { id: 'ncdc', label: 'NCDC Formative (AoI)', icon: Target },
+                { id: 'remarks', label: 'Class Remarks', icon: MessageSquareQuote },
+                { id: 'analytics', label: 'Subject Analytics', icon: BarChart3 },
+                { id: 'roster', label: 'Student Roster', icon: Users },
+                { id: 'grading', label: 'UNEB Grading Scale', icon: Award }
+              ].map(tab => {
+                const Icon = tab.icon;
+                const isActive = activeTab === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    type="button"
+                    onClick={() => { setActiveTab(tab.id); setIsMobileSidebarOpen(false); }}
+                    className={`w-full flex items-center space-x-3 px-3 py-2.5 rounded-xl text-xs font-bold transition-all text-left ${
+                      isActive ? 'bg-emerald-600 text-white shadow-sm' : 'text-slate-700 hover:bg-slate-100'
+                    }`}
+                  >
+                    <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-slate-500'}`} />
+                    <span>{tab.label}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Top Banner */}
-      <div className="bg-gradient-to-r from-sky-600 via-sky-700 to-indigo-800 p-8 rounded-3xl text-white shadow-xl relative overflow-hidden">
+      <div className="bg-gradient-to-r from-sky-600 via-sky-700 to-indigo-800 p-6 sm:p-8 rounded-3xl text-white shadow-xl relative overflow-hidden">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
           <div>
             <div className="flex items-center space-x-3 mb-2">
-              <span className="p-2.5 bg-white/20 rounded-2xl text-white backdrop-blur-sm shadow-inner">
-                <BookOpen className="w-7 h-7" />
+              <span className="p-2.5 bg-white/20 rounded-2xl text-white backdrop-blur-sm shadow-inner shrink-0">
+                <BookOpen className="w-6 h-6 sm:w-7 sm:h-7" />
               </span>
               <div>
-                <span className="text-[11px] uppercase tracking-widest text-sky-200 font-bold block">Teacher Academic Portal</span>
-                <h1 className="text-2xl sm:text-3xl font-extrabold text-white font-outfit leading-none">
+                <span className="text-[10px] sm:text-[11px] uppercase tracking-widest text-sky-200 font-bold block">Teacher Academic Portal</span>
+                <h1 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white font-outfit leading-tight">
                   {currentUser?.name || 'Subject Teacher'} &mdash; {currentSchool?.name}
                 </h1>
               </div>
             </div>
-            <p className="text-sky-100 text-sm max-w-xl font-medium mt-1">
+            <p className="text-sky-100 text-xs sm:text-sm max-w-xl font-medium mt-1">
               Enter BOT, MOT, and EOT scores. Dynamic UNEB grading engines calculate weighted percentages and grades in real-time.
             </p>
           </div>
@@ -508,19 +617,19 @@ export default function TeacherDashboard() {
           {/* Quick Save Action Button */}
           <button
             onClick={handleSaveAll}
-            className="bg-slate-900 hover:bg-slate-950 text-white font-bold px-7 py-3.5 rounded-2xl shadow-xl transition-all flex items-center space-x-2 shrink-0 text-sm border border-slate-800 hover:scale-105 active:scale-95"
+            className="bg-slate-900 hover:bg-slate-950 text-white font-bold px-6 py-3 rounded-2xl shadow-xl transition-all flex items-center space-x-2 shrink-0 text-xs sm:text-sm border border-slate-800 hover:scale-105 active:scale-95"
           >
-            <Save className="w-5 h-5 text-sky-400" />
-            <span>Save Marks & Comments</span>
+            <Save className="w-4 h-4 sm:w-5 sm:h-5 text-sky-400" />
+            <span>Save Marks &amp; Comments</span>
           </button>
         </div>
       </div>
 
       {/* Success Toast */}
       {savedSuccess && (
-        <div className="bg-emerald-100 border border-emerald-300 text-emerald-800 p-4 rounded-2xl flex items-center space-x-3 text-sm font-bold shadow-sm animate-pulse">
+        <div className="bg-emerald-100 border border-emerald-300 text-emerald-800 p-4 rounded-2xl flex items-center space-x-3 text-xs sm:text-sm font-bold shadow-sm animate-pulse">
           <CheckCircle className="w-5 h-5 text-emerald-600 shrink-0" />
-          <span>Subject marks and remarks successfully saved to PostgreSQL database!</span>
+          <span>Subject marks and remarks successfully saved to database!</span>
         </div>
       )}
 
@@ -532,7 +641,7 @@ export default function TeacherDashboard() {
         >
           <div className="flex items-center space-x-2">
             <Menu className="w-4 h-4 text-emerald-400" />
-            <span>Open Navigation Sidebar</span>
+            <span>Open Menu &amp; Class Switcher</span>
           </div>
           <span className="text-[10px] bg-emerald-600 text-white px-2.5 py-0.5 rounded-full font-black uppercase tracking-wider">
             {activeTab}
@@ -547,6 +656,25 @@ export default function TeacherDashboard() {
           <Save className="w-4 h-4" />
           <span>Save</span>
         </button>
+      </div>
+
+      {/* Mobile Inline Quick Student Switcher (shown only on mobile when on marks tab) */}
+      <div className="lg:hidden bg-white border border-slate-200 rounded-2xl p-3.5 shadow-sm space-y-2">
+        <div className="flex items-center justify-between">
+          <span className="text-[10px] font-extrabold uppercase text-slate-400 tracking-wider">Quick Student Switcher</span>
+          <span className="text-[10px] text-emerald-700 font-bold font-mono">{currentClass?.name} ({selectedStream})</span>
+        </div>
+        <select
+          value={selectedStudentId}
+          onChange={(e) => setSelectedStudentId(e.target.value)}
+          className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs font-bold text-slate-800 focus:outline-none focus:border-emerald-600"
+        >
+          {enrolledStudents.length === 0
+            ? <option value="">No students in class</option>
+            : enrolledStudents.map(stu => (
+              <option key={stu.id} value={stu.id}>{stu.name} (LIN: {stu.lin})</option>
+            ))}
+        </select>
       </div>
 
       {/* Main Two-Column Layout with Categorized Left Sidebar */}

@@ -365,92 +365,92 @@ export default function SuperAdminDashboard() {
       )}
       
       {/* Header Banner */}
-      <div className="bg-gradient-to-r from-sky-600 via-sky-700 to-indigo-800 p-8 rounded-3xl text-white shadow-xl relative overflow-hidden">
+      <div className="bg-gradient-to-r from-sky-600 via-sky-700 to-indigo-800 p-6 sm:p-8 rounded-3xl text-white shadow-xl relative overflow-hidden">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative z-10">
           <div>
             <div className="flex items-center space-x-3 mb-2">
-              <span className="p-2.5 bg-white/20 rounded-2xl text-white backdrop-blur-sm shadow-inner">
-                <ShieldCheck className="w-7 h-7" />
+              <span className="p-2.5 bg-white/20 rounded-2xl text-white backdrop-blur-sm shadow-inner shrink-0">
+                <ShieldCheck className="w-6 h-6 sm:w-7 sm:h-7" />
               </span>
               <div>
-                <span className="text-[11px] uppercase tracking-widest text-sky-200 font-bold block">Super Administrator</span>
-                <h1 className="text-3xl font-extrabold text-white font-outfit leading-none">
+                <span className="text-[10px] sm:text-[11px] uppercase tracking-widest text-sky-200 font-bold block">Super Administrator</span>
+                <h1 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white font-outfit leading-tight">
                   Mpumuza Analytics Platform Control
                 </h1>
               </div>
             </div>
-            <p className="text-sky-100 text-sm max-w-2xl font-medium mt-2">
+            <p className="text-sky-100 text-xs sm:text-sm max-w-2xl font-medium mt-1">
               Configure multi-tenant school platforms, manage and edit institution profiles, block/unblock tenant access, configure UNEB grading metrics, and audit system security.
             </p>
           </div>
 
           <button
             onClick={() => setIsCreateModalOpen(true)}
-            className="bg-slate-900 hover:bg-slate-950 text-white font-bold px-6 py-3.5 rounded-2xl shadow-xl transition-all flex items-center space-x-2 shrink-0 border border-slate-800 hover:scale-105 active:scale-95"
+            className="bg-slate-900 hover:bg-slate-950 text-white font-bold px-5 py-3 sm:px-6 sm:py-3.5 rounded-2xl shadow-xl transition-all flex items-center space-x-2 shrink-0 border border-slate-800 hover:scale-105 active:scale-95 text-xs sm:text-sm"
           >
-            <Plus className="w-5 h-5 text-sky-400" />
+            <Plus className="w-4 h-4 sm:w-5 sm:h-5 text-sky-400" />
             <span>Create New School Platform</span>
           </button>
         </div>
       </div>
 
       {/* Global Analytics Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         
-        <div className="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-          <div className="flex items-center justify-between mb-4">
+        <div className="bg-white border border-slate-200 p-5 sm:p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+          <div className="flex items-center justify-between mb-3 sm:mb-4">
             <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Total School Platforms</span>
-            <div className="p-3 bg-emerald-50 rounded-xl text-emerald-600 border border-emerald-200">
-              <School className="w-6 h-6" />
+            <div className="p-2.5 sm:p-3 bg-emerald-50 rounded-xl text-emerald-600 border border-emerald-200">
+              <School className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
           </div>
-          <div className="text-3xl font-extrabold text-slate-900 font-outfit">{schools.length}</div>
+          <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-outfit">{schools.length}</div>
           <div className="text-xs text-slate-600 font-semibold mt-2 flex items-center justify-between">
             <span className="text-emerald-600 font-bold">{schools.filter(s => s.active).length} Active</span>
             <span className="text-rose-600 font-bold">{schools.filter(s => !s.active).length} Blocked</span>
           </div>
         </div>
 
-        <div className="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-          <div className="flex items-center justify-between mb-4">
+        <div className="bg-white border border-slate-200 p-5 sm:p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+          <div className="flex items-center justify-between mb-3 sm:mb-4">
             <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Total Enrolled Students</span>
-            <div className="p-3 bg-blue-50 rounded-xl text-blue-600 border border-blue-200">
-              <GraduationCap className="w-6 h-6" />
+            <div className="p-2.5 sm:p-3 bg-blue-50 rounded-xl text-blue-600 border border-blue-200">
+              <GraduationCap className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
           </div>
-          <div className="text-3xl font-extrabold text-slate-900 font-outfit">{students.length}</div>
-          <div className="text-xs text-slate-500 mt-2 font-medium">Across all levels & streams</div>
+          <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-outfit">{students.length}</div>
+          <div className="text-xs text-slate-500 mt-2 font-medium">Across all levels &amp; streams</div>
         </div>
 
-        <div className="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-          <div className="flex items-center justify-between mb-4">
+        <div className="bg-white border border-slate-200 p-5 sm:p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+          <div className="flex items-center justify-between mb-3 sm:mb-4">
             <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Platform Billing Revenue</span>
-            <div className="p-3 bg-emerald-50 rounded-xl text-emerald-600 border border-emerald-200">
-              <DollarSign className="w-6 h-6" />
+            <div className="p-2.5 sm:p-3 bg-emerald-50 rounded-xl text-emerald-600 border border-emerald-200">
+              <DollarSign className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
           </div>
-          <div className="text-2xl font-extrabold text-slate-900 font-outfit">UGX {totalPlatformRevenueUGX.toLocaleString()}</div>
+          <div className="text-xl sm:text-2xl font-extrabold text-slate-900 font-outfit">UGX {totalPlatformRevenueUGX.toLocaleString()}</div>
           <div className="text-xs text-emerald-700 font-semibold mt-2">@ 1,500 UGX / active student / term</div>
         </div>
 
-        <div className="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-          <div className="flex items-center justify-between mb-4">
+        <div className="bg-white border border-slate-200 p-5 sm:p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+          <div className="flex items-center justify-between mb-3 sm:mb-4">
             <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">MongoDB Database</span>
-            <div className="p-3 bg-emerald-50 rounded-xl text-emerald-600 border border-emerald-200">
-              <CheckCircle2 className="w-6 h-6" />
+            <div className="p-2.5 sm:p-3 bg-emerald-50 rounded-xl text-emerald-600 border border-emerald-200">
+              <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
           </div>
-          <div className="text-xl font-bold text-emerald-700 font-outfit">MongoDB Atlas Connected</div>
+          <div className="text-lg sm:text-xl font-bold text-emerald-700 font-outfit">MongoDB Atlas Connected</div>
           <div className="text-xs text-slate-500 mt-2 font-medium">Multi-tenant Document Cloud DB</div>
         </div>
 
       </div>
 
       {/* School Platforms Directory */}
-      <div className="bg-white border border-slate-200 rounded-3xl p-6 shadow-sm space-y-6">
+      <div className="bg-white border border-slate-200 rounded-3xl p-4 sm:p-6 shadow-sm space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-4">
           <div>
-            <h2 className="text-xl font-bold text-slate-900 font-outfit">Registered School Platforms ({displayedSchools.length})</h2>
+            <h2 className="text-lg sm:text-xl font-bold text-slate-900 font-outfit">Registered School Platforms ({displayedSchools.length})</h2>
             <p className="text-xs text-slate-500">Manage, edit details, and configure access permissions or block tenant portals.</p>
           </div>
 
@@ -460,21 +460,21 @@ export default function SuperAdminDashboard() {
               <button
                 type="button"
                 onClick={() => setStatusFilter('ALL')}
-                className={`px-3 py-1 rounded-lg transition-all ${statusFilter === 'ALL' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-500 hover:text-slate-900'}`}
+                className={`px-2.5 sm:px-3 py-1 rounded-lg transition-all ${statusFilter === 'ALL' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-500 hover:text-slate-900'}`}
               >
                 All ({schools.length})
               </button>
               <button
                 type="button"
                 onClick={() => setStatusFilter('ACTIVE')}
-                className={`px-3 py-1 rounded-lg transition-all ${statusFilter === 'ACTIVE' ? 'bg-emerald-600 text-white shadow-xs' : 'text-slate-500 hover:text-slate-900'}`}
+                className={`px-2.5 sm:px-3 py-1 rounded-lg transition-all ${statusFilter === 'ACTIVE' ? 'bg-emerald-600 text-white shadow-xs' : 'text-slate-500 hover:text-slate-900'}`}
               >
                 Active ({schools.filter(s => s.active).length})
               </button>
               <button
                 type="button"
                 onClick={() => setStatusFilter('BLOCKED')}
-                className={`px-3 py-1 rounded-lg transition-all ${statusFilter === 'BLOCKED' ? 'bg-rose-600 text-white shadow-xs' : 'text-slate-500 hover:text-slate-900'}`}
+                className={`px-2.5 sm:px-3 py-1 rounded-lg transition-all ${statusFilter === 'BLOCKED' ? 'bg-rose-600 text-white shadow-xs' : 'text-slate-500 hover:text-slate-900'}`}
               >
                 Blocked ({schools.filter(s => !s.active).length})
               </button>
@@ -482,7 +482,7 @@ export default function SuperAdminDashboard() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {displayedSchools.map(school => {
             const schoolStudents = students.filter(s => s.schoolId === school.id);
             const schoolAdmin = users.find(u => u.schoolId === school.id && u.role === 'SCHOOL_ADMIN');
@@ -492,7 +492,7 @@ export default function SuperAdminDashboard() {
             return (
               <div
                 key={school.id}
-                className={`rounded-2xl p-6 transition-all shadow-sm hover:shadow-md flex flex-col justify-between group border relative ${
+                className={`rounded-2xl p-5 sm:p-6 transition-all shadow-sm hover:shadow-md flex flex-col justify-between group border relative ${
                   isBlocked
                     ? 'bg-rose-50/40 border-rose-300 ring-1 ring-rose-200'
                     : 'bg-slate-50 border-slate-200 hover:border-emerald-500'
@@ -520,7 +520,7 @@ export default function SuperAdminDashboard() {
                       />
                     </div>
 
-                    <span className={`px-3 py-1 rounded-full text-xs font-bold ${
+                    <span className={`px-2.5 sm:px-3 py-1 rounded-full text-[11px] sm:text-xs font-bold ${
                       school.levelType === 'PRIMARY' ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' :
                       'bg-blue-100 text-blue-800 border border-blue-300'
                     }`}>
@@ -528,7 +528,7 @@ export default function SuperAdminDashboard() {
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-bold text-slate-900 group-hover:text-emerald-700 transition-colors font-outfit">
+                  <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-emerald-700 transition-colors font-outfit">
                     {school.name}
                   </h3>
                   <p className="text-xs text-slate-500 mt-1 italic">"{school.motto || 'No motto set'}"</p>
@@ -551,7 +551,7 @@ export default function SuperAdminDashboard() {
                       <span className="font-bold text-slate-900">{schoolStudents.length}</span>
                     </div>
                     <div className="flex justify-between items-center pt-2 border-t border-slate-200">
-                      <span className="text-slate-500">Subscription Status:</span>
+                      <span className="text-slate-500">Subscription:</span>
                       <select
                         value={subStatus}
                         onChange={(e) => updateSubscriptionStatus(school.id, e.target.value)}
@@ -639,10 +639,10 @@ export default function SuperAdminDashboard() {
       </div>
 
       {/* Global Audit Logs Monitor */}
-      <div className="bg-white border border-slate-200 rounded-3xl p-6 shadow-sm space-y-6">
+      <div className="bg-white border border-slate-200 rounded-3xl p-4 sm:p-6 shadow-sm space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <h2 className="text-xl font-bold text-slate-900 font-outfit">Platform Security & Audit Logs Monitor</h2>
+            <h2 className="text-lg sm:text-xl font-bold text-slate-900 font-outfit">Platform Security &amp; Audit Logs Monitor</h2>
             <p className="text-xs text-slate-500">Real-time system audit logs across all tenant school platforms.</p>
           </div>
 
@@ -655,16 +655,42 @@ export default function SuperAdminDashboard() {
             >
               <option value="ALL">All Categories</option>
               <option value="PLATFORM_ADMIN">Platform Admin</option>
-              <option value="AUTHENTICATION">Authentication & Logins</option>
+              <option value="AUTHENTICATION">Authentication &amp; Logins</option>
               <option value="SCHOOL_CONFIG">School Config</option>
               <option value="STUDENT_MGMT">Student Management</option>
-              <option value="FINANCIAL_CLEARANCE">Fees & Finance</option>
+              <option value="FINANCIAL_CLEARANCE">Fees &amp; Finance</option>
               <option value="MARK_SHEET">Mark Entries</option>
             </select>
           </div>
         </div>
 
-        <div className="overflow-x-auto">
+        {/* Mobile Card List for Logs (hidden on md+) */}
+        <div className="md:hidden space-y-3">
+          {filteredLogs.length === 0 && (
+            <div className="text-center py-8 text-slate-400 text-xs italic">No logs recorded for this filter.</div>
+          )}
+          {filteredLogs.map((log, idx) => (
+            <div key={idx} className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+              <div className="flex items-start justify-between gap-2">
+                <div>
+                  <span className="font-bold text-slate-900 text-xs">{log.userName}</span>
+                  <span className="text-[10px] text-slate-400 block font-mono">{log.userRole}</span>
+                </div>
+                <span className="px-2 py-0.5 bg-slate-200 text-slate-700 rounded text-[9px] font-bold border border-slate-300 shrink-0">
+                  {log.category}
+                </span>
+              </div>
+              <div className="font-bold text-xs text-emerald-800">{log.action}</div>
+              <p className="text-xs text-slate-600 font-medium">{log.details}</p>
+              <div className="text-[10px] font-mono text-slate-400 pt-1 border-t border-slate-200">
+                {new Date(log.timestamp).toLocaleString()}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop Table View for Logs */}
+        <div className="hidden md:block overflow-x-auto">
           <table className="w-full text-left border-collapse text-xs">
             <thead>
               <tr className="bg-slate-100 text-slate-700 font-outfit uppercase border-b border-slate-200">
