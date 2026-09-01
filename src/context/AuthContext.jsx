@@ -248,9 +248,10 @@ export function AuthProvider({ children }) {
 
   // ─── Auth ─────────────────────────────────────────────────────────────────
   const login = (email, password) => {
-    // Search local state (already loaded from Supabase on mount)
+    const cleanEmail = (email || '').trim().toLowerCase();
+    const cleanPass = (password || '').trim();
     const found = users.find(
-      u => u.email.toLowerCase() === email.toLowerCase() && u.password === password
+      u => (u.email || '').trim().toLowerCase() === cleanEmail && (u.password || '').trim() === cleanPass
     );
     if (found) {
       // Check if user is blocked individually
