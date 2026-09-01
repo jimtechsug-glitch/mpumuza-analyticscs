@@ -202,7 +202,7 @@ export default function ReportCardView({ studentId, term: initialTerm = 'COMBINE
     return 0;
   });
 
-  const subjectBreakdown = relevantSubjects.map(sub => {
+  const allCalculatedBreakdown = relevantSubjects.map(sub => {
     const markRec = studentMarks.find(m => m.subjectId === sub.id) || {};
 
     const bot = markRec.bot !== undefined && markRec.bot !== null && markRec.bot !== '' ? Number(markRec.bot) : null;
@@ -344,6 +344,24 @@ export default function ReportCardView({ studentId, term: initialTerm = 'COMBINE
       points: gradeObj.points,
       remark: briefRemark
     };
+  });
+
+  // Strict Filter: ONLY display subjects that contain marks for this student
+  const subjectBreakdown = allCalculatedBreakdown.filter(item => {
+    return (
+      item.finalScore !== null ||
+      item.bot !== null ||
+      item.mot !== null ||
+      item.eot !== null ||
+      item.bot1 !== null ||
+      item.bot2 !== null ||
+      item.mot1 !== null ||
+      item.mot2 !== null ||
+      item.eot1 !== null ||
+      item.eot2 !== null ||
+      item.frmtScore !== null ||
+      item.examScore !== null
+    );
   });
 
   // 4. Overall Division / LSC Competency Summary
@@ -953,11 +971,22 @@ _Powered by Mpumuza Analytics Platform_`;
                     )}
                   </thead>
                   <tbody>
-                    {subjectBreakdown.map((row, idx) => {
-                      const twoPapers = isALevelStudent && !isGeneralPaper(row.subject) && !isSubmath(row.subject);
+                    {subjectBreakdown.length === 0 ? (
+                      <tr>
+                        <td
+                          colSpan={10}
+                          className="border border-blue-900 py-6 px-4 text-center text-slate-500 italic text-xs"
+                          style={{ border: '1px solid #1e3a8a', padding: '16px', textAlign: 'center', color: '#64748b' }}
+                        >
+                          No subject marks recorded for this student in the selected term.
+                        </td>
+                      </tr>
+                    ) : (
+                      subjectBreakdown.map((row, idx) => {
+                        const twoPapers = isALevelStudent && !isGeneralPaper(row.subject) && !isSubmath(row.subject);
 
-                      return (
-                        <tr key={idx} className={idx % 2 === 0 ? 'bg-white' : 'bg-slate-50/70'} style={{ backgroundColor: idx % 2 === 0 ? '#ffffff' : '#f8fafc' }}>
+                        return (
+                          <tr key={idx} className={idx % 2 === 0 ? 'bg-white' : 'bg-slate-50/70'} style={{ backgroundColor: idx % 2 === 0 ? '#ffffff' : '#f8fafc' }}>
                           <td
                             className="border border-blue-900 py-1.5 px-2.5 font-bold text-slate-900 text-[12px] w-44"
                             style={{
@@ -1119,7 +1148,7 @@ _Powered by Mpumuza Analytics Platform_`;
                           </td>
                         </tr>
                       );
-                    })}
+                    }))}
                   </tbody>
                 </table>
               </div>
