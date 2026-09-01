@@ -2,21 +2,21 @@ import React, { useState, useEffect } from 'react';
 import LandingPage from './LandingPage';
 import PortalLoginPage from './PortalLoginPage';
 
-export default function LandingLoginPage({ initialView = 'signin' }) {
-  // Check hash or default to standout portal sign in
+export default function LandingLoginPage() {
+  // Default to landing showcase; only switch to signin when user navigates there
   const [view, setView] = useState(() => {
-    if (typeof window !== 'undefined' && window.location.hash === '#showcase') {
-      return 'showcase';
+    if (typeof window !== 'undefined' && window.location.hash === '#login') {
+      return 'signin';
     }
-    return 'signin';
+    return 'showcase';
   });
 
   useEffect(() => {
     const handleHashChange = () => {
-      if (window.location.hash === '#showcase') {
-        setView('showcase');
-      } else {
+      if (window.location.hash === '#login') {
         setView('signin');
+      } else {
+        setView('showcase');
       }
     };
     window.addEventListener('hashchange', handleHashChange);
@@ -29,13 +29,14 @@ export default function LandingLoginPage({ initialView = 'signin' }) {
   };
 
   const goToHome = () => {
-    if (typeof window !== 'undefined') window.location.hash = '#showcase';
+    if (typeof window !== 'undefined') window.location.hash = '';
     setView('showcase');
   };
 
-  if (view === 'showcase') {
-    return <LandingPage onGoToSignIn={goToSignIn} />;
+  if (view === 'signin') {
+    return <PortalLoginPage onBackToHome={goToHome} />;
   }
 
-  return <PortalLoginPage onBackToHome={goToHome} />;
+  return <LandingPage onGoToSignIn={goToSignIn} />;
 }
+
