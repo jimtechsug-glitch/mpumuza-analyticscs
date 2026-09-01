@@ -400,7 +400,7 @@ export default function SuperAdminDashboard() {
         <div className="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
           <div className="flex items-center justify-between mb-4">
             <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Total School Platforms</span>
-            <div className="p-3 bg-amber-50 rounded-xl text-amber-600 border border-amber-200">
+            <div className="p-3 bg-emerald-50 rounded-xl text-emerald-600 border border-emerald-200">
               <School className="w-6 h-6" />
             </div>
           </div>
@@ -495,7 +495,7 @@ export default function SuperAdminDashboard() {
                 className={`rounded-2xl p-6 transition-all shadow-sm hover:shadow-md flex flex-col justify-between group border relative ${
                   isBlocked
                     ? 'bg-rose-50/40 border-rose-300 ring-1 ring-rose-200'
-                    : 'bg-slate-50 border-slate-200 hover:border-amber-500'
+                    : 'bg-slate-50 border-slate-200 hover:border-emerald-500'
                 }`}
               >
                 {/* Blocked Badge Banner */}
@@ -528,7 +528,7 @@ export default function SuperAdminDashboard() {
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-bold text-slate-900 group-hover:text-amber-700 transition-colors font-outfit">
+                  <h3 className="text-lg font-bold text-slate-900 group-hover:text-emerald-700 transition-colors font-outfit">
                     {school.name}
                   </h3>
                   <p className="text-xs text-slate-500 mt-1 italic">"{school.motto || 'No motto set'}"</p>
@@ -536,7 +536,7 @@ export default function SuperAdminDashboard() {
                   <div className="mt-4 pt-4 border-t border-slate-200 space-y-2 text-xs text-slate-700">
                     <div className="flex justify-between">
                       <span className="text-slate-500">School Code/Slug:</span>
-                      <span className="font-mono text-amber-700 font-bold">{school.slug}</span>
+                      <span className="font-mono text-emerald-700 font-bold">{school.slug}</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-slate-500">Head Teacher:</span>
@@ -557,7 +557,7 @@ export default function SuperAdminDashboard() {
                         onChange={(e) => updateSubscriptionStatus(school.id, e.target.value)}
                         className={`text-[10px] font-bold rounded px-2 py-0.5 border ${
                           subStatus === 'ACTIVE' ? 'bg-emerald-100 text-emerald-800 border-emerald-300' :
-                          subStatus === 'TRIAL' ? 'bg-amber-100 text-amber-800 border-amber-300' :
+                          subStatus === 'TRIAL' ? 'bg-teal-100 text-teal-800 border-teal-300' :
                           'bg-rose-100 text-rose-800 border-rose-300'
                         }`}
                       >
@@ -606,7 +606,7 @@ export default function SuperAdminDashboard() {
                       className="text-xs text-slate-700 hover:text-slate-900 font-bold bg-white hover:bg-slate-100 border border-slate-300 px-3 py-1.5 rounded-xl transition-colors flex items-center space-x-1 shadow-xs"
                       title="Edit school details & settings"
                     >
-                      <Edit3 className="w-3.5 h-3.5 text-amber-600" />
+                      <Edit3 className="w-3.5 h-3.5 text-emerald-600" />
                       <span>Edit</span>
                     </button>
 
@@ -687,7 +687,7 @@ export default function SuperAdminDashboard() {
                       {log.category}
                     </span>
                   </td>
-                  <td className="p-3 font-bold text-amber-800">{log.action}</td>
+                  <td className="p-3 font-bold text-emerald-800">{log.action}</td>
                   <td className="p-3 text-slate-700 font-medium">{log.details}</td>
                 </tr>
               ))}
@@ -708,7 +708,7 @@ export default function SuperAdminDashboard() {
               placeholder="e.g. Uganda Martyrs SS Namugongo"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-amber-500"
+              className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-emerald-500"
             />
           </div>
 
@@ -718,7 +718,7 @@ export default function SuperAdminDashboard() {
               <select
                 value={formData.levelType}
                 onChange={(e) => setFormData({ ...formData, levelType: e.target.value })}
-                className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-amber-500"
+                className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-emerald-500"
               >
                 <option value="PRIMARY">PRIMARY SCHOOL (PLE Standard P.1-P.7)</option>
                 <option value="SECONDARY">SECONDARY SCHOOL (O-Level & A-Level Combined)</option>
@@ -732,7 +732,7 @@ export default function SuperAdminDashboard() {
                 placeholder="e.g. Fr. Henry Ssuubi"
                 value={formData.headTeacher}
                 onChange={(e) => setFormData({ ...formData, headTeacher: e.target.value })}
-                className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-amber-500"
+                className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-emerald-500"
               />
             </div>
           </div>
@@ -744,7 +744,7 @@ export default function SuperAdminDashboard() {
               placeholder="e.g. Education for Light and Faith"
               value={formData.motto}
               onChange={(e) => setFormData({ ...formData, motto: e.target.value })}
-              className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-amber-500"
+              className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-emerald-500"
             />
           </div>
 
@@ -760,7 +760,7 @@ export default function SuperAdminDashboard() {
                   placeholder="admin.namugongo@uneb.go.ug"
                   value={formData.adminEmail}
                   onChange={(e) => setFormData({ ...formData, adminEmail: e.target.value })}
-                  className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-amber-500"
+                  className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-emerald-500"
                 />
               </div>
 
@@ -771,7 +771,7 @@ export default function SuperAdminDashboard() {
                   placeholder="admin123"
                   value={formData.adminPassword}
                   onChange={(e) => setFormData({ ...formData, adminPassword: e.target.value })}
-                  className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-amber-500"
+                  className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-emerald-500"
                 />
               </div>
             </div>
@@ -780,7 +780,7 @@ export default function SuperAdminDashboard() {
           <div className="pt-4">
             <button
               type="submit"
-              className="w-full py-3 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-xl shadow-md transition-all text-sm"
+              className="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-md transition-all text-sm"
             >
               Provision School Platform Instance
             </button>
@@ -799,8 +799,8 @@ export default function SuperAdminDashboard() {
           
           {/* Section 1: Core Profile */}
           <div>
-            <h4 className="text-xs font-extrabold uppercase text-amber-800 tracking-wider mb-3 flex items-center space-x-1.5">
-              <School className="w-4 h-4 text-amber-600" />
+            <h4 className="text-xs font-extrabold uppercase text-emerald-800 tracking-wider mb-3 flex items-center space-x-1.5">
+              <School className="w-4 h-4 text-emerald-600" />
               <span>Core Profile & Identity</span>
             </h4>
 
@@ -812,7 +812,7 @@ export default function SuperAdminDashboard() {
                   required
                   value={editFormData.name}
                   onChange={(e) => setEditFormData({ ...editFormData, name: e.target.value })}
-                  className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-amber-500"
+                  className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-emerald-500"
                 />
               </div>
 
@@ -822,7 +822,7 @@ export default function SuperAdminDashboard() {
                   <select
                     value={editFormData.levelType}
                     onChange={(e) => setEditFormData({ ...editFormData, levelType: e.target.value })}
-                    className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:border-amber-500 font-bold"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:border-emerald-500 font-bold"
                   >
                     <option value="PRIMARY">PRIMARY (PLE P.1-P.7)</option>
                     <option value="SECONDARY">SECONDARY (O & A Level)</option>
@@ -835,7 +835,7 @@ export default function SuperAdminDashboard() {
                     type="text"
                     value={editFormData.slug}
                     onChange={(e) => setEditFormData({ ...editFormData, slug: e.target.value })}
-                    className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-900 font-mono focus:outline-none focus:border-amber-500"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-900 font-mono focus:outline-none focus:border-emerald-500"
                   />
                 </div>
               </div>
@@ -846,7 +846,7 @@ export default function SuperAdminDashboard() {
                   type="text"
                   value={editFormData.motto}
                   onChange={(e) => setEditFormData({ ...editFormData, motto: e.target.value })}
-                  className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-amber-500"
+                  className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-emerald-500"
                 />
               </div>
 
@@ -857,7 +857,7 @@ export default function SuperAdminDashboard() {
                   value={editFormData.badgeUrl}
                   onChange={(e) => setEditFormData({ ...editFormData, badgeUrl: e.target.value })}
                   placeholder="https://..."
-                  className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 font-mono text-xs focus:outline-none focus:border-amber-500"
+                  className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 font-mono text-xs focus:outline-none focus:border-emerald-500"
                 />
               </div>
             </div>
@@ -865,8 +865,8 @@ export default function SuperAdminDashboard() {
 
           {/* Section 2: Contact & Location */}
           <div className="border-t border-slate-200 pt-4">
-            <h4 className="text-xs font-extrabold uppercase text-amber-800 tracking-wider mb-3 flex items-center space-x-1.5">
-              <MapPin className="w-4 h-4 text-amber-600" />
+            <h4 className="text-xs font-extrabold uppercase text-emerald-800 tracking-wider mb-3 flex items-center space-x-1.5">
+              <MapPin className="w-4 h-4 text-emerald-600" />
               <span>Contact & Physical Address</span>
             </h4>
 
@@ -878,7 +878,7 @@ export default function SuperAdminDashboard() {
                   value={editFormData.address}
                   onChange={(e) => setEditFormData({ ...editFormData, address: e.target.value })}
                   placeholder="e.g. Plot 14/16 Naguru Road, Kampala"
-                  className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-amber-500"
+                  className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-emerald-500"
                 />
               </div>
 
@@ -890,7 +890,7 @@ export default function SuperAdminDashboard() {
                     value={editFormData.contactPhone}
                     onChange={(e) => setEditFormData({ ...editFormData, contactPhone: e.target.value })}
                     placeholder="+256 700 000000"
-                    className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:border-amber-500"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:border-emerald-500"
                   />
                 </div>
                 <div>
@@ -900,7 +900,7 @@ export default function SuperAdminDashboard() {
                     value={editFormData.contactEmail}
                     onChange={(e) => setEditFormData({ ...editFormData, contactEmail: e.target.value })}
                     placeholder="info@school.ac.ug"
-                    className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:border-amber-500"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:border-emerald-500"
                   />
                 </div>
               </div>
@@ -909,8 +909,8 @@ export default function SuperAdminDashboard() {
 
           {/* Section 3: Leadership & Signatures */}
           <div className="border-t border-slate-200 pt-4">
-            <h4 className="text-xs font-extrabold uppercase text-amber-800 tracking-wider mb-3 flex items-center space-x-1.5">
-              <ShieldCheck className="w-4 h-4 text-amber-600" />
+            <h4 className="text-xs font-extrabold uppercase text-emerald-800 tracking-wider mb-3 flex items-center space-x-1.5">
+              <ShieldCheck className="w-4 h-4 text-emerald-600" />
               <span>School Leadership & Report Signatures</span>
             </h4>
 
@@ -921,7 +921,7 @@ export default function SuperAdminDashboard() {
                   type="text"
                   value={editFormData.headTeacher}
                   onChange={(e) => setEditFormData({ ...editFormData, headTeacher: e.target.value })}
-                  className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:border-amber-500"
+                  className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:border-emerald-500"
                 />
               </div>
 
@@ -932,7 +932,7 @@ export default function SuperAdminDashboard() {
                   value={editFormData.headTeacherSignature}
                   onChange={(e) => setEditFormData({ ...editFormData, headTeacherSignature: e.target.value })}
                   placeholder="e.g. John Kato (Headteacher)"
-                  className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:border-amber-500"
+                  className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:border-emerald-500"
                 />
               </div>
 
@@ -942,7 +942,7 @@ export default function SuperAdminDashboard() {
                   type="text"
                   value={editFormData.dosName}
                   onChange={(e) => setEditFormData({ ...editFormData, dosName: e.target.value })}
-                  className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:border-amber-500"
+                  className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:border-emerald-500"
                 />
               </div>
 
@@ -953,7 +953,7 @@ export default function SuperAdminDashboard() {
                   value={editFormData.dosSignature}
                   onChange={(e) => setEditFormData({ ...editFormData, dosSignature: e.target.value })}
                   placeholder="e.g. Mark Mukasa (DOS)"
-                  className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:border-amber-500"
+                  className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:border-emerald-500"
                 />
               </div>
             </div>
@@ -961,8 +961,8 @@ export default function SuperAdminDashboard() {
 
           {/* Section 4: Term Weights & Grading Config */}
           <div className="border-t border-slate-200 pt-4">
-            <h4 className="text-xs font-extrabold uppercase text-amber-800 tracking-wider mb-3 flex items-center space-x-1.5">
-              <Percent className="w-4 h-4 text-amber-600" />
+            <h4 className="text-xs font-extrabold uppercase text-emerald-800 tracking-wider mb-3 flex items-center space-x-1.5">
+              <Percent className="w-4 h-4 text-emerald-600" />
               <span>Assessment Weights & Report Format</span>
             </h4>
 
@@ -1008,7 +1008,7 @@ export default function SuperAdminDashboard() {
                   type="checkbox"
                   checked={editFormData.showPositionRanking}
                   onChange={(e) => setEditFormData({ ...editFormData, showPositionRanking: e.target.checked })}
-                  className="rounded text-amber-600 focus:ring-amber-500 w-4 h-4"
+                  className="rounded text-emerald-600 focus:ring-emerald-500 w-4 h-4"
                 />
                 <span className="text-xs font-bold text-slate-800">Show Position Ranking</span>
               </label>
@@ -1018,7 +1018,7 @@ export default function SuperAdminDashboard() {
                   type="checkbox"
                   checked={editFormData.useNewCurriculum}
                   onChange={(e) => setEditFormData({ ...editFormData, useNewCurriculum: e.target.checked })}
-                  className="rounded text-amber-600 focus:ring-amber-500 w-4 h-4"
+                  className="rounded text-emerald-600 focus:ring-emerald-500 w-4 h-4"
                 />
                 <span className="text-xs font-bold text-slate-800">New NCDC Competency Format</span>
               </label>
@@ -1053,7 +1053,7 @@ export default function SuperAdminDashboard() {
                   <select
                     value={editFormData.subscriptionStatus}
                     onChange={(e) => setEditFormData({ ...editFormData, subscriptionStatus: e.target.value })}
-                    className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-900 font-bold focus:outline-none focus:border-amber-500"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-900 font-bold focus:outline-none focus:border-emerald-500"
                   >
                     <option value="ACTIVE">ACTIVE</option>
                     <option value="TRIAL">TRIAL</option>
@@ -1109,7 +1109,7 @@ export default function SuperAdminDashboard() {
               </button>
               <button
                 type="submit"
-                className="px-6 py-2.5 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-xl shadow-md transition-all text-sm"
+                className="px-6 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-md transition-all text-sm"
               >
                 Save School Changes
               </button>

@@ -74,7 +74,7 @@ export const INITIAL_SCHOOLS = [
     headTeacherSignature: 'Grace Ssebugwawo (Headteacher)',
     dosName: 'Tr. Ronald Lule',
     dosSignature: 'Ronald Lule (DOS)',
-    themeColor: 'amber',
+    themeColor: 'emerald',
     badgeUrl: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=200&q=80',
     botWeight: 20,
     motWeight: 20,

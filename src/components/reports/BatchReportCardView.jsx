@@ -103,7 +103,7 @@ export default function BatchReportCardView({ classId, term = 'COMBINED', onBack
             <button
               onClick={handleExportPDF}
               disabled={isExporting}
-              className="flex-1 sm:flex-none bg-gradient-to-r from-amber-500 to-yellow-500 text-slate-950 font-bold px-5 py-2.5 rounded-xl shadow-lg shadow-amber-500/20 hover:from-amber-400 hover:to-yellow-400 transition-all flex items-center justify-center space-x-2 text-xs disabled:opacity-60 disabled:cursor-not-allowed min-w-[160px]"
+              className="flex-1 sm:flex-none bg-gradient-to-r from-emerald-600 to-green-700 text-white font-bold px-5 py-2.5 rounded-xl shadow-lg shadow-emerald-500/20 hover:from-emerald-500 hover:to-green-600 transition-all flex items-center justify-center space-x-2 text-xs disabled:opacity-60 disabled:cursor-not-allowed min-w-[160px]"
             >
               {isExporting ? (
                 <>
@@ -128,7 +128,7 @@ export default function BatchReportCardView({ classId, term = 'COMBINED', onBack
         {isExporting && exportProgress.total > 0 && (
           <div className="mt-2 bg-slate-800 rounded-xl overflow-hidden h-1.5">
             <div
-              className="h-full bg-gradient-to-r from-amber-500 to-yellow-400 transition-all duration-300"
+              className="h-full bg-gradient-to-r from-emerald-500 to-green-400 transition-all duration-300"
               style={{ width: `${(exportProgress.current / exportProgress.total) * 100}%` }}
             />
           </div>
@@ -137,7 +137,7 @@ export default function BatchReportCardView({ classId, term = 'COMBINED', onBack
 
       {/* Report Count Badge */}
       <div className="print:hidden flex items-center space-x-2 px-1">
-        <div className="flex items-center space-x-2 bg-amber-50 border border-amber-200 text-amber-800 px-4 py-2 rounded-xl text-xs font-bold">
+        <div className="flex items-center space-x-2 bg-emerald-50 border border-emerald-200 text-emerald-800 px-4 py-2 rounded-xl text-xs font-bold">
           <Users className="w-3.5 h-3.5" />
           <span>{classStudents.length} Report Cards Ready for Print / Export</span>
         </div>

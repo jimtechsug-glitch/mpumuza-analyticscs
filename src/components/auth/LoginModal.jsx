@@ -35,7 +35,7 @@ export default function LoginModal({ isOpen, onClose }) {
         
         {/* Quick Demo Logins */}
         <div className="space-y-3">
-          <label className="block text-xs font-extrabold uppercase text-amber-800 font-outfit tracking-wider">
+          <label className="block text-xs font-extrabold uppercase text-emerald-800 font-outfit tracking-wider">
             Quick One-Click Demo Logins
           </label>
 
@@ -44,61 +44,61 @@ export default function LoginModal({ isOpen, onClose }) {
             <button
               type="button"
               onClick={() => handleQuickLogin('admin@mpumuza.ug', 'Adallyn2290')}
-              className="p-3 bg-slate-50 border border-amber-300 hover:border-amber-500 rounded-xl text-left transition-all group flex items-center justify-between shadow-xs hover:shadow-sm"
+              className="p-3 bg-slate-50 border border-emerald-300 hover:border-emerald-500 rounded-xl text-left transition-all group flex items-center justify-between shadow-xs hover:shadow-sm"
             >
               <div>
-                <div className="font-bold text-slate-900 group-hover:text-amber-800 flex items-center space-x-1.5">
-                  <ShieldCheck className="w-4 h-4 text-amber-600" />
+                <div className="font-bold text-slate-900 group-hover:text-emerald-800 flex items-center space-x-1.5">
+                  <ShieldCheck className="w-4 h-4 text-emerald-600" />
                   <span>Super Admin</span>
                 </div>
                 <span className="text-[10px] text-slate-500">All Platforms Management</span>
               </div>
-              <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-amber-600" />
+              <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-emerald-600" />
             </button>
 
             <button
               type="button"
               onClick={() => handleQuickLogin('admin.kitende@uneb.go.ug', 'admin123')}
-              className="p-3 bg-slate-50 border border-slate-200 hover:border-amber-500 rounded-xl text-left transition-all group flex items-center justify-between shadow-xs hover:shadow-sm"
+              className="p-3 bg-slate-50 border border-slate-200 hover:border-emerald-500 rounded-xl text-left transition-all group flex items-center justify-between shadow-xs hover:shadow-sm"
             >
               <div>
-                <div className="font-bold text-slate-900 group-hover:text-amber-800 flex items-center space-x-1.5">
+                <div className="font-bold text-slate-900 group-hover:text-emerald-800 flex items-center space-x-1.5">
                   <School className="w-4 h-4 text-blue-600" />
                   <span>O-Level Admin</span>
                 </div>
                 <span className="text-[10px] text-slate-500">Kitende UCE Standard</span>
               </div>
-              <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-amber-600" />
+              <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-emerald-600" />
             </button>
 
             <button
               type="button"
               onClick={() => handleQuickLogin('admin.mengo@uneb.go.ug', 'admin123')}
-              className="p-3 bg-slate-50 border border-slate-200 hover:border-amber-500 rounded-xl text-left transition-all group flex items-center justify-between shadow-xs hover:shadow-sm"
+              className="p-3 bg-slate-50 border border-slate-200 hover:border-emerald-500 rounded-xl text-left transition-all group flex items-center justify-between shadow-xs hover:shadow-sm"
             >
               <div>
-                <div className="font-bold text-slate-900 group-hover:text-amber-800 flex items-center space-x-1.5">
+                <div className="font-bold text-slate-900 group-hover:text-emerald-800 flex items-center space-x-1.5">
                   <School className="w-4 h-4 text-emerald-600" />
                   <span>A-Level Admin</span>
                 </div>
                 <span className="text-[10px] text-slate-500">Mengo UACE Points</span>
               </div>
-              <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-amber-600" />
+              <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-emerald-600" />
             </button>
 
             <button
               type="button"
               onClick={() => handleQuickLogin('tr.mukasa@kitende.edu.ug', 'teacher123')}
-              className="p-3 bg-slate-50 border border-slate-200 hover:border-amber-500 rounded-xl text-left transition-all group flex items-center justify-between shadow-xs hover:shadow-sm"
+              className="p-3 bg-slate-50 border border-slate-200 hover:border-emerald-500 rounded-xl text-left transition-all group flex items-center justify-between shadow-xs hover:shadow-sm"
             >
               <div>
-                <div className="font-bold text-slate-900 group-hover:text-amber-800 flex items-center space-x-1.5">
+                <div className="font-bold text-slate-900 group-hover:text-emerald-800 flex items-center space-x-1.5">
                   <Users className="w-4 h-4 text-indigo-600" />
                   <span>Teacher Portal</span>
                 </div>
                 <span className="text-[10px] text-slate-500">Tr. Mukasa (Mark Entry)</span>
               </div>
-              <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-amber-600" />
+              <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-emerald-600" />
             </button>
 
           </div>
@@ -126,7 +126,7 @@ export default function LoginModal({ isOpen, onClose }) {
               placeholder="user@uneb.go.ug"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-amber-500"
+              className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-emerald-500"
             />
           </div>
 
@@ -138,13 +138,13 @@ export default function LoginModal({ isOpen, onClose }) {
               placeholder="••••••••"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-amber-500"
+              className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-emerald-500"
             />
           </div>
 
           <button
             type="submit"
-            className="w-full py-3 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-xl shadow-md transition-all text-sm"
+            className="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-md transition-all text-sm"
           >
             Sign In to Portal
           </button>

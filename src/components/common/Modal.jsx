@@ -11,7 +11,7 @@ export default function Modal({ isOpen, onClose, title, children, maxWidth = 'ma
         {/* Header */}
         <div className="flex items-center justify-between px-4 sm:px-6 py-3.5 sm:py-4 border-b border-slate-200 bg-slate-50/90 shrink-0">
           <div className="flex items-center space-x-2">
-            <div className="w-1.5 h-4 bg-amber-500 rounded-full" />
+            <div className="w-1.5 h-4 bg-emerald-500 rounded-full" />
             <h3 className="text-base sm:text-lg font-bold text-slate-900 font-outfit truncate">{title}</h3>
           </div>
           <button

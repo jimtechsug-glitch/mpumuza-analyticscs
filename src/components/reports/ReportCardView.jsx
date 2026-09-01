@@ -73,7 +73,7 @@ export default function ReportCardView({ studentId, term: initialTerm = 'COMBINE
     return (
       <div className="flex items-center justify-center h-64">
         <div className="text-center text-slate-400">
-          <div className="w-8 h-8 border-4 border-amber-400 border-t-transparent rounded-full animate-spin mx-auto mb-2" />
+          <div className="w-8 h-8 border-4 border-emerald-400 border-t-transparent rounded-full animate-spin mx-auto mb-2" />
           <p className="text-sm">Loading…</p>
         </div>
       </div>
@@ -580,7 +580,7 @@ _Powered by Mpumuza Analytics Platform_`;
                   key={t}
                   onClick={() => setSelectedTerm(t)}
                   className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all ${selectedTerm === t
-                    ? 'bg-amber-500 text-slate-950 shadow-md font-black'
+                    ? 'bg-emerald-600 text-slate-950 shadow-md font-black'
                     : 'text-slate-300 hover:bg-slate-700/60 hover:text-white'
                     }`}
                 >
@@ -609,7 +609,7 @@ _Powered by Mpumuza Analytics Platform_`;
             <button
               onClick={handleExportPDF}
               disabled={isExporting}
-              className="bg-gradient-to-r from-amber-500 to-yellow-500 text-slate-950 font-bold px-4 py-1.5 rounded-xl shadow-md hover:from-amber-400 hover:to-yellow-400 transition-all flex items-center space-x-1.5 text-xs disabled:opacity-50 disabled:cursor-not-allowed active:scale-95"
+              className="bg-gradient-to-r from-emerald-600 to-teal-500 text-slate-950 font-bold px-4 py-1.5 rounded-xl shadow-md hover:from-emerald-400 hover:to-teal-400 transition-all flex items-center space-x-1.5 text-xs disabled:opacity-50 disabled:cursor-not-allowed active:scale-95"
             >
               {isExporting ? (
                 <svg className="w-3.5 h-3.5 animate-spin" viewBox="0 0 24 24" fill="none">
@@ -703,13 +703,13 @@ _Powered by Mpumuza Analytics Platform_`;
             <div style={{ padding: '18px 22px' }} className="space-y-2.5 text-slate-900">
 
               {/* School Official Header */}
-              <div className="border-b-2 border-amber-600 pb-2" style={{ borderBottom: '2.5px solid #0859d3cb', paddingBottom: '8px' }}>
+              <div className="border-b-2 border-emerald-700 pb-2" style={{ borderBottom: '2.5px solid #0859d3cb', paddingBottom: '8px' }}>
                 <div className="flex items-center justify-between gap-3" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '14px' }}>
 
                   {/* School Badge */}
                   <div
-                    className="h-20 w-20 rounded-xl bg-amber-50 border-2 border-amber-600/30 p-1 flex items-center justify-center shrink-0 shadow-xs"
-                    style={{ width: '82px', height: '82px', borderRadius: '12px', backgroundColor: '#fffbeb', border: '2px solid rgba(217, 119, 6, 0.3)', padding: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}
+                    className="h-20 w-20 rounded-xl bg-emerald-50 border-2 border-emerald-700/30 p-1 flex items-center justify-center shrink-0 shadow-xs"
+                    style={{ width: '82px', height: '82px', borderRadius: '12px', backgroundColor: '#f0fdf4', border: '2px solid rgba(217, 119, 6, 0.3)', padding: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}
                   >
                     <img
                       src={currentSchool?.badgeUrl || 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=200&q=80'}
@@ -726,15 +726,15 @@ _Powered by Mpumuza Analytics Platform_`;
                     <h1 className="text-2xl font-black uppercase text-slate-900 tracking-tight font-outfit leading-tight" style={{ fontSize: '22px', fontWeight: 900, textTransform: 'uppercase', color: '#093499ff', margin: 0, letterSpacing: '-0.02em' }}>
                       {currentSchool?.name}
                     </h1>
-                    <p className="text-sm font-bold italic text-amber-700 mt-0.5" style={{ fontSize: '13px', fontWeight: 700, fontStyle: 'italic', color: '#b45309', marginTop: '2px', marginBottom: '2px' }}>
+                    <p className="text-sm font-bold italic text-emerald-800 mt-0.5" style={{ fontSize: '13px', fontWeight: 700, fontStyle: 'italic', color: '#166534', marginTop: '2px', marginBottom: '2px' }}>
                       "{currentSchool?.motto || 'Education for Light, Faith and Character'}"
                     </p>
                     <p className="text-xs text-slate-600 font-medium" style={{ fontSize: '11.5px', color: '#475569', margin: 0, fontWeight: 600 }}>
                       {currentSchool?.address} &bull; Tel: {currentSchool?.contactPhone}
                     </p>
                     <div
-                      className="mt-1 inline-block bg-slate-900 text-amber-400 font-extrabold px-3.5 py-0.5 rounded-full text-xs uppercase tracking-wider border border-amber-500/40 shadow-xs"
-                      style={{ marginTop: '5px', display: 'inline-block', backgroundColor: '#0f172a', color: '#fbbf24', fontWeight: 800, padding: '3px 14px', borderRadius: '9999px', fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.05em', border: '1px solid rgba(245, 158, 11, 0.4)' }}
+                      className="mt-1 inline-block bg-slate-900 text-emerald-400 font-extrabold px-3.5 py-0.5 rounded-full text-xs uppercase tracking-wider border border-emerald-600/40 shadow-xs"
+                      style={{ marginTop: '5px', display: 'inline-block', backgroundColor: '#0f172a', color: '#4ade80', fontWeight: 800, padding: '3px 14px', borderRadius: '9999px', fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.05em', border: '1px solid rgba(245, 158, 11, 0.4)' }}
                     >
                       {getTermBadgeText()}
                     </div>
@@ -763,7 +763,7 @@ _Powered by Mpumuza Analytics Platform_`;
                         </div>
                       )}
                     </div>
-                    <span className="text-[9.5px] font-black text-amber-800 uppercase mt-0.5 tracking-tight" style={{ fontSize: '9.5px', fontWeight: 900, color: '#92400e', textTransform: 'uppercase', marginTop: '3px' }}>
+                    <span className="text-[9.5px] font-black text-emerald-900 uppercase mt-0.5 tracking-tight" style={{ fontSize: '9.5px', fontWeight: 900, color: '#92400e', textTransform: 'uppercase', marginTop: '3px' }}>
                       {isALevelStudent ? 'A-LEVEL' : isPrimaryStudent ? 'PLE PRIMARY' : 'O-LEVEL'}
                     </span>
                   </div>
@@ -791,7 +791,7 @@ _Powered by Mpumuza Analytics Platform_`;
                 </div>
                 <div>
                   <span className="text-slate-500 block uppercase font-bold text-[9.5px] tracking-wide" style={{ color: '#64748b', display: 'block', textTransform: 'uppercase', fontWeight: 700, fontSize: '9.5px' }}>LIN / Reg No.</span>
-                  <span className="font-bold font-mono text-amber-800 text-[12.5px]" style={{ fontWeight: 700, fontFamily: 'monospace', color: '#92400e', fontSize: '12.5px', display: 'block' }}>{student.lin || 'N/A'}</span>
+                  <span className="font-bold font-mono text-emerald-900 text-[12.5px]" style={{ fontWeight: 700, fontFamily: 'monospace', color: '#92400e', fontSize: '12.5px', display: 'block' }}>{student.lin || 'N/A'}</span>
                 </div>
                 <div>
                   <span className="text-slate-500 block uppercase font-bold text-[9.5px] tracking-wide" style={{ color: '#64748b', display: 'block', textTransform: 'uppercase', fontWeight: 700, fontSize: '9.5px' }}>Class</span>
@@ -802,7 +802,7 @@ _Powered by Mpumuza Analytics Platform_`;
                   <>
                     <div>
                       <span className="text-slate-500 block uppercase font-bold text-[9.5px] tracking-wide" style={{ color: '#64748b', display: 'block', textTransform: 'uppercase', fontWeight: 700, fontSize: '9.5px' }}>Stream Pos.</span>
-                      <span className="font-black text-amber-800 text-[12.5px]" style={{ fontWeight: 900, color: '#92400e', fontSize: '12.5px', display: 'block' }}>{streamPositionText}</span>
+                      <span className="font-black text-emerald-900 text-[12.5px]" style={{ fontWeight: 900, color: '#92400e', fontSize: '12.5px', display: 'block' }}>{streamPositionText}</span>
                     </div>
                     <div>
                       <span className="text-slate-500 block uppercase font-bold text-[9.5px] tracking-wide" style={{ color: '#64748b', display: 'block', textTransform: 'uppercase', fontWeight: 700, fontSize: '9.5px' }}>Class Pos.</span>
@@ -813,7 +813,7 @@ _Powered by Mpumuza Analytics Platform_`;
 
                 <div>
                   <span className="text-slate-500 block uppercase font-bold text-[9.5px] tracking-wide" style={{ color: '#64748b', display: 'block', textTransform: 'uppercase', fontWeight: 700, fontSize: '9.5px' }}>Term</span>
-                  <span className="font-extrabold text-amber-900 text-[12.5px]" style={{ fontWeight: 800, color: '#78350f', fontSize: '12.5px', display: 'block' }}>
+                  <span className="font-extrabold text-emerald-950 text-[12.5px]" style={{ fontWeight: 800, color: '#78350f', fontSize: '12.5px', display: 'block' }}>
                     {selectedTerm === 'COMBINED' ? 'Term 1' : `Term 1 (${selectedTerm})`}
                   </span>
                 </div>
@@ -844,22 +844,22 @@ _Powered by Mpumuza Analytics Platform_`;
                           </th>
 
                           {(selectedTerm === 'COMBINED' || selectedTerm === 'BOT') && (
-                            <th colSpan={2} className={`border border-blue-900 py-1 px-1 text-center text-xs ${selectedTerm === 'BOT' ? 'bg-amber-600 text-white font-extrabold' : ''}`} style={{ border: '1px solid #1e3a8a', padding: '4px 6px', textAlign: 'center', fontSize: '11px', backgroundColor: selectedTerm === 'BOT' ? '#d97706' : '#1e293b' }}>
+                            <th colSpan={2} className={`border border-blue-900 py-1 px-1 text-center text-xs ${selectedTerm === 'BOT' ? 'bg-emerald-700 text-white font-extrabold' : ''}`} style={{ border: '1px solid #1e3a8a', padding: '4px 6px', textAlign: 'center', fontSize: '11px', backgroundColor: selectedTerm === 'BOT' ? '#15803d' : '#1e293b' }}>
                               BOT ({currentSchool.botWeight || 20}%)
                             </th>
                           )}
                           {(selectedTerm === 'COMBINED' || selectedTerm === 'MOT') && (
-                            <th colSpan={2} className={`border border-blue-900 py-1 px-1 text-center text-xs ${selectedTerm === 'MOT' ? 'bg-amber-600 text-white font-extrabold' : ''}`} style={{ border: '1px solid #1e3a8a', padding: '4px 6px', textAlign: 'center', fontSize: '11px', backgroundColor: selectedTerm === 'MOT' ? '#d97706' : '#1e293b' }}>
+                            <th colSpan={2} className={`border border-blue-900 py-1 px-1 text-center text-xs ${selectedTerm === 'MOT' ? 'bg-emerald-700 text-white font-extrabold' : ''}`} style={{ border: '1px solid #1e3a8a', padding: '4px 6px', textAlign: 'center', fontSize: '11px', backgroundColor: selectedTerm === 'MOT' ? '#15803d' : '#1e293b' }}>
                               MOT ({currentSchool.motWeight || 20}%)
                             </th>
                           )}
                           {(selectedTerm === 'COMBINED' || selectedTerm === 'EOT') && (
-                            <th colSpan={2} className={`border border-blue-900 py-1 px-1 text-center text-xs ${selectedTerm === 'EOT' ? 'bg-amber-600 text-white font-extrabold' : ''}`} style={{ border: '1px solid #1e3a8a', padding: '4px 6px', textAlign: 'center', fontSize: '11px', backgroundColor: selectedTerm === 'EOT' ? '#d97706' : '#1e293b' }}>
+                            <th colSpan={2} className={`border border-blue-900 py-1 px-1 text-center text-xs ${selectedTerm === 'EOT' ? 'bg-emerald-700 text-white font-extrabold' : ''}`} style={{ border: '1px solid #1e3a8a', padding: '4px 6px', textAlign: 'center', fontSize: '11px', backgroundColor: selectedTerm === 'EOT' ? '#15803d' : '#1e293b' }}>
                               EOT ({currentSchool.eotWeight || 60}%)
                             </th>
                           )}
 
-                          <th rowSpan={2} className="border border-blue-900 py-1.5 px-2 text-center w-16 bg-slate-800 text-amber-300 text-xs font-bold" style={{ border: '1px solid #1e3a8a', padding: '6px 8px', textAlign: 'center', width: '56px', backgroundColor: '#1e293b', color: '#fcd34d', fontSize: '11.5px' }}>
+                          <th rowSpan={2} className="border border-blue-900 py-1.5 px-2 text-center w-16 bg-slate-800 text-emerald-300 text-xs font-bold" style={{ border: '1px solid #1e3a8a', padding: '6px 8px', textAlign: 'center', width: '56px', backgroundColor: '#1e293b', color: '#fcd34d', fontSize: '11.5px' }}>
                             {selectedTerm === 'COMBINED' ? 'Final %' : `${selectedTerm} %`}
                           </th>
 
@@ -908,7 +908,7 @@ _Powered by Mpumuza Analytics Platform_`;
                           Exam (80)
                         </th>
 
-                        <th className="border border-blue-900 py-1.5 px-2 text-center w-16 bg-slate-800 text-amber-300 text-xs font-bold" style={{ border: '1px solid #1e3a8a', padding: '6px 8px', textAlign: 'center', width: '64px', backgroundColor: '#1e293b', color: '#fcd34d', fontSize: '11.5px' }}>
+                        <th className="border border-blue-900 py-1.5 px-2 text-center w-16 bg-slate-800 text-emerald-300 text-xs font-bold" style={{ border: '1px solid #1e3a8a', padding: '6px 8px', textAlign: 'center', width: '64px', backgroundColor: '#1e293b', color: '#fcd34d', fontSize: '11.5px' }}>
                           Total (100)
                         </th>
 
@@ -925,22 +925,22 @@ _Powered by Mpumuza Analytics Platform_`;
                         </th>
 
                         {(selectedTerm === 'COMBINED' || selectedTerm === 'BOT') && (
-                          <th className={`border border-blue-900 py-1.5 px-2 text-center w-14 text-xs ${selectedTerm === 'BOT' ? 'bg-amber-600 text-white font-extrabold' : ''}`} style={{ border: '1px solid #1e3a8a', padding: '6px 8px', textAlign: 'center', width: '58px', fontSize: '11.5px', backgroundColor: selectedTerm === 'BOT' ? '#d97706' : 'transparent' }}>
+                          <th className={`border border-blue-900 py-1.5 px-2 text-center w-14 text-xs ${selectedTerm === 'BOT' ? 'bg-emerald-700 text-white font-extrabold' : ''}`} style={{ border: '1px solid #1e3a8a', padding: '6px 8px', textAlign: 'center', width: '58px', fontSize: '11.5px', backgroundColor: selectedTerm === 'BOT' ? '#15803d' : 'transparent' }}>
                             BOT ({currentSchool.botWeight || 20}%)
                           </th>
                         )}
                         {(selectedTerm === 'COMBINED' || selectedTerm === 'MOT') && (
-                          <th className={`border border-blue-900 py-1.5 px-2 text-center w-14 text-xs ${selectedTerm === 'MOT' ? 'bg-amber-600 text-white font-extrabold' : ''}`} style={{ border: '1px solid #1e3a8a', padding: '6px 8px', textAlign: 'center', width: '58px', fontSize: '11.5px', backgroundColor: selectedTerm === 'MOT' ? '#d97706' : 'transparent' }}>
+                          <th className={`border border-blue-900 py-1.5 px-2 text-center w-14 text-xs ${selectedTerm === 'MOT' ? 'bg-emerald-700 text-white font-extrabold' : ''}`} style={{ border: '1px solid #1e3a8a', padding: '6px 8px', textAlign: 'center', width: '58px', fontSize: '11.5px', backgroundColor: selectedTerm === 'MOT' ? '#15803d' : 'transparent' }}>
                             MOT ({currentSchool.motWeight || 20}%)
                           </th>
                         )}
                         {(selectedTerm === 'COMBINED' || selectedTerm === 'EOT') && (
-                          <th className={`border border-blue-900 py-1.5 px-2 text-center w-14 text-xs ${selectedTerm === 'EOT' ? 'bg-amber-600 text-white font-extrabold' : ''}`} style={{ border: '1px solid #1e3a8a', padding: '6px 8px', textAlign: 'center', width: '58px', fontSize: '11.5px', backgroundColor: selectedTerm === 'EOT' ? '#d97706' : 'transparent' }}>
+                          <th className={`border border-blue-900 py-1.5 px-2 text-center w-14 text-xs ${selectedTerm === 'EOT' ? 'bg-emerald-700 text-white font-extrabold' : ''}`} style={{ border: '1px solid #1e3a8a', padding: '6px 8px', textAlign: 'center', width: '58px', fontSize: '11.5px', backgroundColor: selectedTerm === 'EOT' ? '#15803d' : 'transparent' }}>
                             EOT ({currentSchool.eotWeight || 60}%)
                           </th>
                         )}
 
-                        <th className="border border-blue-900 py-1.5 px-2 text-center w-16 bg-slate-800 text-amber-300 text-xs font-bold" style={{ border: '1px solid #1e3a8a', padding: '6px 8px', textAlign: 'center', width: '60px', backgroundColor: '#1e293b', color: '#fcd34d', fontSize: '11.5px' }}>
+                        <th className="border border-blue-900 py-1.5 px-2 text-center w-16 bg-slate-800 text-emerald-300 text-xs font-bold" style={{ border: '1px solid #1e3a8a', padding: '6px 8px', textAlign: 'center', width: '60px', backgroundColor: '#1e293b', color: '#fcd34d', fontSize: '11.5px' }}>
                           {selectedTerm === 'COMBINED' ? 'Final %' : `${selectedTerm} %`}
                         </th>
 
@@ -1029,7 +1029,7 @@ _Powered by Mpumuza Analytics Platform_`;
                                 )
                               )}
 
-                              <td className="border border-blue-900 py-1.5 px-2 text-center font-black text-amber-950 bg-amber-50/50 text-[12.5px]" style={{ border: '1px solid #1e3a8a', padding: '4px 8px', textAlign: 'center', fontWeight: 900, color: '#78350f', backgroundColor: '#fffbeb', fontSize: '12.5px' }}>
+                              <td className="border border-blue-900 py-1.5 px-2 text-center font-black text-emerald-950 bg-emerald-50/50 text-[12.5px]" style={{ border: '1px solid #1e3a8a', padding: '4px 8px', textAlign: 'center', fontWeight: 900, color: '#78350f', backgroundColor: '#f0fdf4', fontSize: '12.5px' }}>
                                 {row.finalScore !== null ? `${row.finalScore}%` : '-'}
                               </td>
                             </>
@@ -1051,29 +1051,29 @@ _Powered by Mpumuza Analytics Platform_`;
                               </td>
 
                               {/* Total (100) */}
-                              <td className="border border-blue-900 py-1.5 px-2 text-center font-black text-amber-950 bg-amber-50/50 text-[12.5px]" style={{ border: '1px solid #1e3a8a', padding: '4px 8px', textAlign: 'center', fontWeight: 900, color: '#78350f', backgroundColor: '#fffbeb', fontSize: '12.5px' }}>
+                              <td className="border border-blue-900 py-1.5 px-2 text-center font-black text-emerald-950 bg-emerald-50/50 text-[12.5px]" style={{ border: '1px solid #1e3a8a', padding: '4px 8px', textAlign: 'center', fontWeight: 900, color: '#78350f', backgroundColor: '#f0fdf4', fontSize: '12.5px' }}>
                                 {row.finalScore !== null ? `${row.finalScore}%` : '-'}
                               </td>
                             </>
                           ) : (
                             <>
                               {(selectedTerm === 'COMBINED' || selectedTerm === 'BOT') && (
-                                <td className={`border border-blue-900 py-1.5 px-2 text-center text-slate-700 text-[12.5px] ${selectedTerm === 'BOT' ? 'font-bold bg-amber-50/40 text-amber-900' : ''}`} style={{ border: '1px solid #1e3a8a', padding: '4px 8px', textAlign: 'center', color: selectedTerm === 'BOT' ? '#78350f' : '#334155', fontSize: '12.5px', backgroundColor: selectedTerm === 'BOT' ? '#fffbeb' : 'transparent', fontWeight: selectedTerm === 'BOT' ? 700 : 500 }}>
+                                <td className={`border border-blue-900 py-1.5 px-2 text-center text-slate-700 text-[12.5px] ${selectedTerm === 'BOT' ? 'font-bold bg-emerald-50/40 text-emerald-950' : ''}`} style={{ border: '1px solid #1e3a8a', padding: '4px 8px', textAlign: 'center', color: selectedTerm === 'BOT' ? '#78350f' : '#334155', fontSize: '12.5px', backgroundColor: selectedTerm === 'BOT' ? '#f0fdf4' : 'transparent', fontWeight: selectedTerm === 'BOT' ? 700 : 500 }}>
                                   {row.bot !== null ? row.bot : '-'}
                                 </td>
                               )}
                               {(selectedTerm === 'COMBINED' || selectedTerm === 'MOT') && (
-                                <td className={`border border-blue-900 py-1.5 px-2 text-center text-slate-700 text-[12.5px] ${selectedTerm === 'MOT' ? 'font-bold bg-amber-50/40 text-amber-900' : ''}`} style={{ border: '1px solid #1e3a8a', padding: '4px 8px', textAlign: 'center', color: selectedTerm === 'MOT' ? '#78350f' : '#334155', fontSize: '12.5px', backgroundColor: selectedTerm === 'MOT' ? '#fffbeb' : 'transparent', fontWeight: selectedTerm === 'MOT' ? 700 : 500 }}>
+                                <td className={`border border-blue-900 py-1.5 px-2 text-center text-slate-700 text-[12.5px] ${selectedTerm === 'MOT' ? 'font-bold bg-emerald-50/40 text-emerald-950' : ''}`} style={{ border: '1px solid #1e3a8a', padding: '4px 8px', textAlign: 'center', color: selectedTerm === 'MOT' ? '#78350f' : '#334155', fontSize: '12.5px', backgroundColor: selectedTerm === 'MOT' ? '#f0fdf4' : 'transparent', fontWeight: selectedTerm === 'MOT' ? 700 : 500 }}>
                                   {row.mot !== null ? row.mot : '-'}
                                 </td>
                               )}
                               {(selectedTerm === 'COMBINED' || selectedTerm === 'EOT') && (
-                                <td className={`border border-blue-900 py-1.5 px-2 text-center text-slate-700 text-[12.5px] ${selectedTerm === 'EOT' ? 'font-bold bg-amber-50/40 text-amber-900' : ''}`} style={{ border: '1px solid #1e3a8a', padding: '4px 8px', textAlign: 'center', color: selectedTerm === 'EOT' ? '#78350f' : '#334155', fontSize: '12.5px', backgroundColor: selectedTerm === 'EOT' ? '#fffbeb' : 'transparent', fontWeight: selectedTerm === 'EOT' ? 700 : 500 }}>
+                                <td className={`border border-blue-900 py-1.5 px-2 text-center text-slate-700 text-[12.5px] ${selectedTerm === 'EOT' ? 'font-bold bg-emerald-50/40 text-emerald-950' : ''}`} style={{ border: '1px solid #1e3a8a', padding: '4px 8px', textAlign: 'center', color: selectedTerm === 'EOT' ? '#78350f' : '#334155', fontSize: '12.5px', backgroundColor: selectedTerm === 'EOT' ? '#f0fdf4' : 'transparent', fontWeight: selectedTerm === 'EOT' ? 700 : 500 }}>
                                   {row.eot !== null ? row.eot : '-'}
                                 </td>
                               )}
 
-                              <td className="border border-blue-900 py-1.5 px-2 text-center font-black text-amber-950 bg-amber-50/50 text-[12.5px]" style={{ border: '1px solid #1e3a8a', padding: '4px 8px', textAlign: 'center', fontWeight: 900, color: '#78350f', backgroundColor: '#fffbeb', fontSize: '12.5px' }}>
+                              <td className="border border-blue-900 py-1.5 px-2 text-center font-black text-emerald-950 bg-emerald-50/50 text-[12.5px]" style={{ border: '1px solid #1e3a8a', padding: '4px 8px', textAlign: 'center', fontWeight: 900, color: '#78350f', backgroundColor: '#f0fdf4', fontSize: '12.5px' }}>
                                 {row.finalScore !== null ? `${row.finalScore}%` : '-'}
                               </td>
                             </>
@@ -1086,7 +1086,7 @@ _Powered by Mpumuza Analytics Platform_`;
                                 : row.grade === 'B' || row.grade?.startsWith('C')
                                   ? 'text-blue-800 bg-blue-100'
                                   : row.grade === 'C' || row.grade?.startsWith('P')
-                                    ? 'text-amber-800 bg-amber-100'
+                                    ? 'text-emerald-900 bg-emerald-100'
                                     : 'text-slate-700'
                                 }`}
                               style={{
@@ -1094,7 +1094,7 @@ _Powered by Mpumuza Analytics Platform_`;
                                 borderRadius: '4px',
                                 fontWeight: 900,
                                 fontSize: '12.5px',
-                                backgroundColor: row.grade === 'A' || row.grade === 'D1' || row.grade === 'D2' ? '#d1fae5' : row.grade === 'B' || row.grade?.startsWith('C') ? '#dbeafe' : '#fef3c7',
+                                backgroundColor: row.grade === 'A' || row.grade === 'D1' || row.grade === 'D2' ? '#d1fae5' : row.grade === 'B' || row.grade?.startsWith('C') ? '#dbeafe' : '#dcfce7',
                                 color: row.grade === 'A' || row.grade === 'D1' || row.grade === 'D2' ? '#065f46' : row.grade === 'B' || row.grade?.startsWith('C') ? '#1e40af' : '#92400e',
                                 display: 'inline-block'
                               }}
@@ -1126,15 +1126,15 @@ _Powered by Mpumuza Analytics Platform_`;
 
               {/* Aggregate / Division / Result Summary Cards - 3 Columns & Compact */}
               <div className="grid grid-cols-3 gap-2" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: '8px', width: '100%' }}>
-                <div className="bg-amber-50 border border-amber-600/30 p-1.5 rounded-lg text-center" style={{ backgroundColor: '#fffbeb', border: '1px solid rgba(217, 119, 6, 0.35)', padding: '5px 8px', borderRadius: '8px', textAlign: 'center' }}>
-                  <span className="text-[9.5px] font-extrabold uppercase text-amber-800 tracking-wide block" style={{ fontSize: '9.5px', fontWeight: 800, textTransform: 'uppercase', color: '#92400e', display: 'block' }}>
+                <div className="bg-emerald-50 border border-emerald-700/30 p-1.5 rounded-lg text-center" style={{ backgroundColor: '#f0fdf4', border: '1px solid rgba(217, 119, 6, 0.35)', padding: '5px 8px', borderRadius: '8px', textAlign: 'center' }}>
+                  <span className="text-[9.5px] font-extrabold uppercase text-emerald-900 tracking-wide block" style={{ fontSize: '9.5px', fontWeight: 800, textTransform: 'uppercase', color: '#92400e', display: 'block' }}>
                     {selectedTerm} OVERALL AVERAGE
                   </span>
-                  <div className="text-base font-black text-amber-900 font-outfit mt-0.5" style={{ fontSize: '15px', fontWeight: 900, color: '#78350f', marginTop: '1px' }}>{overallAvg}%</div>
+                  <div className="text-base font-black text-emerald-950 font-outfit mt-0.5" style={{ fontSize: '15px', fontWeight: 900, color: '#78350f', marginTop: '1px' }}>{overallAvg}%</div>
                 </div>
 
                 <div className="bg-slate-900 text-white p-1.5 rounded-lg text-center" style={{ backgroundColor: '#0f172a', color: '#ffffff', padding: '5px 8px', borderRadius: '8px', textAlign: 'center' }}>
-                  <span className="text-[9.5px] font-extrabold uppercase text-amber-400 tracking-wide block" style={{ fontSize: '9.5px', fontWeight: 800, textTransform: 'uppercase', color: '#fbbf24', display: 'block' }}>
+                  <span className="text-[9.5px] font-extrabold uppercase text-emerald-400 tracking-wide block" style={{ fontSize: '9.5px', fontWeight: 800, textTransform: 'uppercase', color: '#4ade80', display: 'block' }}>
                     {isOLevelStudent ? 'AVERAGE SCORE (3.0)' : isALevelStudent ? 'POINTS' : 'AGGREGATES'}
                   </span>
                   <div className="text-base font-black text-white font-outfit mt-0.5" style={{ fontSize: '15px', fontWeight: 900, color: '#ffffff', marginTop: '1px' }}>
@@ -1171,7 +1171,7 @@ _Powered by Mpumuza Analytics Platform_`;
                       <strong className="text-blue-700" style={{ color: '#1d4ed8' }}>1.5 – 2.4: Grade B</strong> &bull; Moderate
                     </div>
                     <div className="bg-white px-2 py-1 rounded border border-slate-200" style={{ backgroundColor: '#ffffff', padding: '3px 8px', borderRadius: '4px', border: '1px solid #cbd5e1' }}>
-                      <strong className="text-amber-700" style={{ color: '#b45309' }}>0.9 – 1.4: Grade C</strong> &bull; Basic
+                      <strong className="text-emerald-800" style={{ color: '#166534' }}>0.9 – 1.4: Grade C</strong> &bull; Basic
                     </div>
                     <div className="bg-white px-2 py-1 rounded border border-slate-200" style={{ backgroundColor: '#ffffff', padding: '3px 8px', borderRadius: '4px', border: '1px solid #cbd5e1' }}>
                       <strong className="text-rose-700" style={{ color: '#be123c' }}>0.0 – 0.8: Grade D</strong> &bull; Below Basic
@@ -1197,10 +1197,10 @@ _Powered by Mpumuza Analytics Platform_`;
                       <strong className="text-blue-700" style={{ color: '#1d4ed8' }}>60 – 74% → C (3 pts)</strong> &bull; Principal Pass
                     </div>
                     <div className="bg-white px-2 py-0.5 rounded border border-slate-200" style={{ backgroundColor: '#ffffff', padding: '3px 8px', borderRadius: '4px', border: '1px solid #cbd5e1' }}>
-                      <strong className="text-amber-700" style={{ color: '#b45309' }}>50 – 59% → D (2 pts)</strong> &bull; Principal Pass
+                      <strong className="text-emerald-800" style={{ color: '#166534' }}>50 – 59% → D (2 pts)</strong> &bull; Principal Pass
                     </div>
                     <div className="bg-white px-2 py-0.5 rounded border border-slate-200" style={{ backgroundColor: '#ffffff', padding: '3px 8px', borderRadius: '4px', border: '1px solid #cbd5e1' }}>
-                      <strong className="text-orange-600" style={{ color: '#ea580c' }}>0 – 49% → E (1 pt)</strong> &bull; Pass E
+                      <strong className="text-emerald-700" style={{ color: '#ea580c' }}>0 – 49% → E (1 pt)</strong> &bull; Pass E
                     </div>
                     <div className="bg-white px-2 py-0.5 rounded border border-indigo-200" style={{ backgroundColor: '#ffffff', padding: '3px 8px', borderRadius: '4px', border: '1px solid #c7d2fe' }}>
                       <strong className="text-indigo-700" style={{ color: '#4338ca' }}>Subsidiaries:</strong> A = Pass (≥50%), E = Fail (&lt;50%)
@@ -1237,7 +1237,7 @@ _Powered by Mpumuza Analytics Platform_`;
 
                   <div className="text-center" style={{ textAlign: 'center' }}>
                     <span className="text-[9.5px] font-bold text-slate-500 uppercase block tracking-wider" style={{ fontSize: '9.5px', fontWeight: 700, color: '#64748b', textTransform: 'uppercase', display: 'block' }}>Head Teacher Stamp</span>
-                    <div className="text-[12px] font-extrabold text-amber-900 font-outfit border-b border-dashed border-slate-400 pb-0.5 inline-block" style={{ fontSize: '12px', fontWeight: 800, color: '#78350f', borderBottom: '1px dashed #94a3b8', paddingBottom: '2px', display: 'inline-block' }}>
+                    <div className="text-[12px] font-extrabold text-emerald-950 font-outfit border-b border-dashed border-slate-400 pb-0.5 inline-block" style={{ fontSize: '12px', fontWeight: 800, color: '#78350f', borderBottom: '1px dashed #94a3b8', paddingBottom: '2px', display: 'inline-block' }}>
                       {currentSchool?.headTeacherSignature || currentSchool?.headTeacher || 'Head Teacher'}
                     </div>
                   </div>

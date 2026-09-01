@@ -51,10 +51,10 @@ export default function Header({ onOpenLoginModal }) {
           
           {/* Logo & School Branding */}
           <div className="flex items-center space-x-2.5 sm:space-x-4 min-w-0">
-            <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 p-0.5 shadow-md flex items-center justify-center shrink-0">
+            <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-xl bg-gradient-to-br from-emerald-600 to-green-700 p-0.5 shadow-md flex items-center justify-center shrink-0">
               <div className="h-full w-full bg-white rounded-[9px] sm:rounded-[10px] p-0.5 sm:p-1 flex items-center justify-center overflow-hidden">
                 {isSuperAdmin ? (
-                  <BarChart3 className="w-5 h-5 sm:w-6 sm:h-6 text-amber-600" />
+                  <BarChart3 className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-600" />
                 ) : (
                   <img
                     src={currentSchool?.badgeUrl || 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=200&q=80'}
@@ -104,8 +104,8 @@ export default function Header({ onOpenLoginModal }) {
                   <span>Cloud Synced</span>
                 </div>
               ) : (
-                <div className="flex items-center space-x-1.5 text-amber-700 font-bold">
-                  <WifiOff className="w-3.5 h-3.5 text-amber-600" />
+                <div className="flex items-center space-x-1.5 text-slate-700 font-bold">
+                  <WifiOff className="w-3.5 h-3.5 text-slate-500" />
                   <span>Offline (Local)</span>
                 </div>
               )}
@@ -117,17 +117,17 @@ export default function Header({ onOpenLoginModal }) {
                 onClick={handleManualSync}
                 disabled={isSyncing}
                 title="Sync local data with cloud"
-                className="p-1 text-slate-500 hover:text-amber-600 hover:bg-slate-200/60 rounded-lg transition-colors flex items-center space-x-1"
+                className="p-1 text-slate-500 hover:text-emerald-600 hover:bg-slate-200/60 rounded-lg transition-colors flex items-center space-x-1"
               >
-                <RefreshCw className={`w-3.5 h-3.5 ${isSyncing ? 'animate-spin text-amber-600' : ''}`} />
-                {syncFeedback && <span className="text-[10px] font-bold text-amber-700">{syncFeedback}</span>}
+                <RefreshCw className={`w-3.5 h-3.5 ${isSyncing ? 'animate-spin text-emerald-600' : ''}`} />
+                {syncFeedback && <span className="text-[10px] font-bold text-emerald-700">{syncFeedback}</span>}
               </button>
             </div>
             
             {/* Tenant Switcher — Super Admin ONLY */}
             {isSuperAdmin && (
               <div className="flex items-center bg-slate-100 border border-slate-200 rounded-xl px-3 py-1.5 space-x-2 text-xs">
-                <ArrowRightLeft className="w-3.5 h-3.5 text-amber-600 shrink-0" />
+                <ArrowRightLeft className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                 <span className="text-slate-600 font-medium">Tenant:</span>
                 <select
                   value={activeTenantId}
@@ -146,15 +146,15 @@ export default function Header({ onOpenLoginModal }) {
             {/* Current User Profile Badge */}
             {currentUser ? (
               <div className="flex items-center space-x-3 bg-slate-100 border border-slate-200 px-3.5 py-1.5 rounded-xl">
-                <div className="h-8 w-8 rounded-lg bg-amber-500 flex items-center justify-center text-white font-black text-xs shrink-0 shadow-sm">
+                <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-emerald-600 to-green-700 flex items-center justify-center text-white font-black text-xs shrink-0 shadow-sm">
                   {currentUser.name.charAt(0)}
                 </div>
                 <div className="text-left">
                   <div className="text-xs font-bold text-slate-900 flex items-center space-x-1">
                     <span className="truncate max-w-[120px]">{currentUser.name}</span>
-                    {isSuperAdmin && <ShieldCheck className="w-3.5 h-3.5 text-amber-600 shrink-0" />}
+                    {isSuperAdmin && <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />}
                   </div>
-                  <div className="text-[10px] text-amber-700 font-bold uppercase tracking-wider">
+                  <div className="text-[10px] text-emerald-700 font-bold uppercase tracking-wider">
                     {currentUser.role.replace('_', ' ')}
                   </div>
                 </div>
@@ -170,7 +170,7 @@ export default function Header({ onOpenLoginModal }) {
             ) : (
               <button
                 onClick={onOpenLoginModal}
-                className="bg-amber-500 hover:bg-amber-600 text-white font-bold px-4 py-2 rounded-xl text-xs shadow-md transition-all flex items-center space-x-2"
+                className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-2 rounded-xl text-xs shadow-md transition-all flex items-center space-x-2"
               >
                 <User className="w-4 h-4" />
                 <span>Sign In</span>
@@ -187,9 +187,9 @@ export default function Header({ onOpenLoginModal }) {
               aria-label="Sync status"
               className="p-2 bg-slate-100 border border-slate-200 rounded-xl text-slate-700 active:scale-95 flex items-center space-x-1 text-xs"
             >
-              <RefreshCw className={`w-3.5 h-3.5 ${isSyncing ? 'animate-spin text-amber-600' : isOnline ? 'text-emerald-600' : 'text-amber-600'}`} />
+              <RefreshCw className={`w-3.5 h-3.5 ${isSyncing ? 'animate-spin text-emerald-600' : isOnline ? 'text-emerald-600' : 'text-slate-500'}`} />
               {syncFeedback ? (
-                <span className="text-[10px] font-bold text-amber-700">{syncFeedback}</span>
+                <span className="text-[10px] font-bold text-emerald-700">{syncFeedback}</span>
               ) : (
                 <span className="text-[10px] font-bold text-slate-600">{isOnline ? 'Online' : 'Offline'}</span>
               )}
@@ -214,11 +214,11 @@ export default function Header({ onOpenLoginModal }) {
             {currentSchool && (
               <div className="bg-slate-50 border border-slate-200 p-3 rounded-2xl flex items-center justify-between">
                 <div className="min-w-0">
-                  <span className="text-[10px] text-amber-800 font-extrabold uppercase tracking-wider block">Active School Tenant</span>
+                  <span className="text-[10px] text-emerald-800 font-extrabold uppercase tracking-wider block">Active School Tenant</span>
                   <span className="text-xs font-bold text-slate-900 truncate block">{currentSchool.name}</span>
                   <span className="text-[10px] text-slate-500 italic truncate block">"{currentSchool.motto}"</span>
                 </div>
-                <span className="text-[9px] px-2 py-0.5 rounded-full font-bold bg-amber-100 text-amber-800 border border-amber-300 shrink-0 ml-2">
+                <span className="text-[9px] px-2 py-0.5 rounded-full font-bold bg-emerald-100 text-emerald-800 border border-emerald-300 shrink-0 ml-2">
                   {currentSchool.levelType}
                 </span>
               </div>
@@ -226,9 +226,9 @@ export default function Header({ onOpenLoginModal }) {
 
             {/* Tenant switcher — Super Admin ONLY on mobile */}
             {isSuperAdmin && (
-              <div className="bg-amber-50/70 border border-amber-200 p-3 rounded-2xl space-y-1.5">
-                <span className="text-[11px] text-amber-900 font-bold flex items-center space-x-1">
-                  <ArrowRightLeft className="w-3.5 h-3.5 text-amber-600" />
+              <div className="bg-emerald-50/70 border border-emerald-200 p-3 rounded-2xl space-y-1.5">
+                <span className="text-[11px] text-emerald-900 font-bold flex items-center space-x-1">
+                  <ArrowRightLeft className="w-3.5 h-3.5 text-emerald-600" />
                   <span>Switch School Tenant:</span>
                 </span>
                 <select
@@ -252,12 +252,12 @@ export default function Header({ onOpenLoginModal }) {
             {currentUser ? (
               <div className="flex items-center justify-between bg-slate-100 border border-slate-200 p-3 rounded-2xl">
                 <div className="flex items-center space-x-2.5 min-w-0">
-                  <div className="h-9 w-9 rounded-xl bg-amber-500 flex items-center justify-center text-white font-black text-xs shrink-0 shadow-xs">
+                  <div className="h-9 w-9 rounded-xl bg-gradient-to-br from-emerald-600 to-green-700 flex items-center justify-center text-white font-black text-xs shrink-0 shadow-xs">
                     {currentUser.name.charAt(0)}
                   </div>
                   <div className="min-w-0">
                     <div className="text-xs font-bold text-slate-900 truncate">{currentUser.name}</div>
-                    <div className="text-[10px] text-amber-700 uppercase font-extrabold">{currentUser.role.replace('_', ' ')}</div>
+                    <div className="text-[10px] text-emerald-700 uppercase font-extrabold">{currentUser.role.replace('_', ' ')}</div>
                   </div>
                 </div>
                 <button
@@ -277,7 +277,7 @@ export default function Header({ onOpenLoginModal }) {
                   onOpenLoginModal();
                   setMobileMenuOpen(false);
                 }}
-                className="w-full py-2.5 bg-amber-500 text-white font-bold rounded-xl text-xs shadow-md flex items-center justify-center space-x-2"
+                className="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs shadow-md flex items-center justify-center space-x-2"
               >
                 <User className="w-4 h-4" />
                 <span>Sign In to Account</span>

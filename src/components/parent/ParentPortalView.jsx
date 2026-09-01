@@ -12,10 +12,10 @@ export default function ParentPortalView() {
   if (!student) {
     return (
       <div className="p-12 text-center text-slate-500 bg-white rounded-2xl border border-slate-200 max-w-lg mx-auto mt-12">
-        <ShieldAlert className="w-12 h-12 text-amber-500 mx-auto mb-3" />
+        <ShieldAlert className="w-12 h-12 text-emerald-600 mx-auto mb-3" />
         <h3 className="text-lg font-bold text-slate-800">No Student Profile Found</h3>
         <p className="text-xs text-slate-500 mt-1">We could not match this session with an active student record. Please verify your LIN and PIN.</p>
-        <button onClick={logout} className="mt-5 px-5 py-2.5 bg-amber-500 text-white font-bold rounded-xl text-xs shadow-sm hover:bg-amber-600 transition-colors">
+        <button onClick={logout} className="mt-5 px-5 py-2.5 bg-emerald-600 text-white font-bold rounded-xl text-xs shadow-sm hover:bg-emerald-700 transition-colors">
           Back to Login
         </button>
       </div>
@@ -100,7 +100,7 @@ ${portalUrl}`;
           <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block">Learner Profile</span>
           <div>
             <h3 className="text-xl font-extrabold text-slate-900 font-outfit">{student.name}</h3>
-            <span className="font-mono text-amber-700 font-bold text-xs">LIN: {student.lin}</span>
+            <span className="font-mono text-emerald-800 font-bold text-xs">LIN: {student.lin}</span>
           </div>
           <div className="text-xs text-slate-600 pt-2 border-t border-slate-200 space-y-1.5">
             <div className="flex justify-between"><span className="text-slate-400">Stream:</span> <span className="font-bold text-slate-800">{student.stream || 'A'}</span></div>
@@ -164,13 +164,13 @@ ${portalUrl}`;
 
       {/* School Pay Payment Instructions Box (If balance remains) */}
       {!isCleared && (
-        <div className="bg-gradient-to-br from-amber-50 to-orange-50/60 border border-amber-200 rounded-2xl p-5 space-y-3">
-          <div className="flex items-center space-x-2 text-amber-950 font-bold text-sm">
-            <CreditCard className="w-4 h-4 text-amber-600" />
+        <div className="bg-gradient-to-br from-emerald-50 to-emerald-50/60 border border-emerald-200 rounded-2xl p-5 space-y-3">
+          <div className="flex items-center space-x-2 text-emerald-950 font-bold text-sm">
+            <CreditCard className="w-4 h-4 text-emerald-700" />
             <span>School Pay &amp; Mobile Money Payment Guidelines</span>
           </div>
-          <p className="text-xs text-amber-900">
-            To clear outstanding fees, pay using <strong>SchoolPay</strong>, <strong>MTN MoMo (*165#)</strong> or <strong>Airtel Money (*185#)</strong> using student payment code: <strong className="font-mono bg-white px-2 py-0.5 rounded border border-amber-300 text-amber-950 font-bold">{student.lin.replace(/[^0-9]/g, '') || '987654'}</strong>.
+          <p className="text-xs text-emerald-950">
+            To clear outstanding fees, pay using <strong>SchoolPay</strong>, <strong>MTN MoMo (*165#)</strong> or <strong>Airtel Money (*185#)</strong> using student payment code: <strong className="font-mono bg-white px-2 py-0.5 rounded border border-emerald-300 text-emerald-950 font-bold">{student.lin.replace(/[^0-9]/g, '') || '987654'}</strong>.
           </p>
         </div>
       )}
@@ -192,7 +192,7 @@ ${portalUrl}`;
                 onClick={() => setSelectedTerm(t)}
                 className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
                   selectedTerm === t
-                    ? 'bg-amber-500 text-white shadow-xs font-black'
+                    ? 'bg-emerald-600 text-white shadow-xs font-black'
                     : 'text-slate-600 hover:text-slate-900'
                 }`}
               >

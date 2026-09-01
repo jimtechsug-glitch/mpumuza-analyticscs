@@ -512,17 +512,17 @@ export default function TeacherDashboard() {
             className="flex-1 py-2.5 px-3.5 bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-xl text-xs font-bold flex items-center justify-between shadow-sm active:scale-98 transition-all"
           >
             <div className="flex items-center space-x-2">
-              <Layers className="w-4 h-4 text-amber-400" />
+              <Layers className="w-4 h-4 text-emerald-400" />
               <span>Teacher Menu &amp; Class Switcher</span>
             </div>
-            <span className="text-[10px] bg-amber-500 text-slate-950 px-2 py-0.5 rounded-full font-black uppercase">
+            <span className="text-[10px] bg-emerald-600 text-slate-950 px-2 py-0.5 rounded-full font-black uppercase">
               {activeTab}
             </span>
           </button>
 
           <button
             onClick={handleSaveAll}
-            className="px-3.5 py-2.5 bg-amber-500 text-white rounded-xl text-xs font-bold shadow-xs active:scale-95 flex items-center space-x-1.5 shrink-0"
+            className="px-3.5 py-2.5 bg-emerald-600 text-white rounded-xl text-xs font-bold shadow-xs active:scale-95 flex items-center space-x-1.5 shrink-0"
             title="Save All Marks"
           >
             <Save className="w-4 h-4" />
@@ -548,7 +548,7 @@ export default function TeacherDashboard() {
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all shrink-0 ${
                   isActive
-                    ? 'bg-amber-500 text-white shadow-sm font-extrabold'
+                    ? 'bg-emerald-600 text-white shadow-sm font-extrabold'
                     : 'bg-slate-50 text-slate-700 hover:bg-slate-100 border border-slate-200'
                 }`}
               >
@@ -574,7 +574,7 @@ export default function TeacherDashboard() {
             {/* Drawer Header */}
             <div className="flex items-center justify-between border-b border-slate-200 pb-3">
               <div className="flex items-center space-x-2">
-                <div className="h-8 w-8 rounded-lg bg-amber-500 flex items-center justify-center text-white font-bold text-xs">
+                <div className="h-8 w-8 rounded-lg bg-emerald-600 flex items-center justify-center text-white font-bold text-xs">
                   <Users className="w-4 h-4" />
                 </div>
                 <div>
@@ -603,13 +603,13 @@ export default function TeacherDashboard() {
                   handleSaveAll();
                   setIsMobileSidebarOpen(false);
                 }}
-                className="w-full px-3 py-2 bg-amber-500 text-white rounded-xl text-xs font-bold flex items-center justify-between shadow-xs"
+                className="w-full px-3 py-2 bg-emerald-600 text-white rounded-xl text-xs font-bold flex items-center justify-between shadow-xs"
               >
                 <div className="flex items-center space-x-2">
                   <Save className="w-3.5 h-3.5" />
                   <span>Save All Marks</span>
                 </div>
-                <Sparkles className="w-3.5 h-3.5 text-amber-200" />
+                <Sparkles className="w-3.5 h-3.5 text-emerald-200" />
               </button>
 
               <button
@@ -620,17 +620,17 @@ export default function TeacherDashboard() {
                 className="w-full px-3 py-2 bg-slate-900 text-white rounded-xl text-xs font-bold flex items-center justify-between border border-slate-800"
               >
                 <div className="flex items-center space-x-2">
-                  <FileSpreadsheet className="w-3.5 h-3.5 text-amber-400" />
+                  <FileSpreadsheet className="w-3.5 h-3.5 text-emerald-400" />
                   <span>Excel Import &amp; Template</span>
                 </div>
-                <DownloadCloud className="w-3.5 h-3.5 text-amber-400" />
+                <DownloadCloud className="w-3.5 h-3.5 text-emerald-400" />
               </button>
             </div>
 
             {/* Active Class & Stream Switcher */}
             <div className="bg-gradient-to-br from-slate-900 to-slate-800 text-white border border-slate-800 rounded-2xl p-3.5 space-y-2.5">
               <div className="flex items-center justify-between">
-                <span className="text-[10px] font-extrabold uppercase tracking-wider text-amber-400">
+                <span className="text-[10px] font-extrabold uppercase tracking-wider text-emerald-400">
                   Active Context
                 </span>
                 <span className="text-[10px] bg-white/10 px-2 py-0.5 rounded-full font-bold">
@@ -644,7 +644,7 @@ export default function TeacherDashboard() {
                   <select
                     value={selectedClassId}
                     onChange={(e) => setSelectedClassId(e.target.value)}
-                    className="w-full bg-slate-800 border border-slate-700 rounded-xl px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-amber-500"
+                    className="w-full bg-slate-800 border border-slate-700 rounded-xl px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-emerald-600"
                   >
                     {schoolClasses.map(cls => (
                       <option key={cls.id} value={cls.id}>
@@ -660,7 +660,7 @@ export default function TeacherDashboard() {
                     <select
                       value={selectedStream}
                       onChange={(e) => setSelectedStream(e.target.value)}
-                      className="w-full bg-slate-800 border border-slate-700 rounded-xl px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-amber-500"
+                      className="w-full bg-slate-800 border border-slate-700 rounded-xl px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-emerald-600"
                     >
                       {availableStreams.map(st => (
                         <option key={st} value={st}>Stream {st}</option>
@@ -673,7 +673,7 @@ export default function TeacherDashboard() {
                     <select
                       value={selectedStudentId}
                       onChange={(e) => setSelectedStudentId(e.target.value)}
-                      className="w-full bg-slate-800 border border-slate-700 rounded-xl px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-amber-500 truncate"
+                      className="w-full bg-slate-800 border border-slate-700 rounded-xl px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-emerald-600 truncate"
                     >
                       {enrolledStudents.length === 0
                         ? <option value="">No students</option>
@@ -710,7 +710,7 @@ export default function TeacherDashboard() {
                     }}
                     className={`w-full flex items-center space-x-3 px-3 py-2.5 rounded-xl text-xs font-bold transition-all text-left ${
                       isActive
-                        ? 'bg-amber-500 text-white font-extrabold shadow-sm'
+                        ? 'bg-emerald-600 text-white font-extrabold shadow-sm'
                         : 'text-slate-700 hover:bg-slate-100'
                     }`}
                   >
@@ -737,7 +737,7 @@ export default function TeacherDashboard() {
             </span>
             <button
               onClick={handleSaveAll}
-              className="w-full px-3.5 py-2.5 bg-amber-500 hover:bg-amber-600 text-white rounded-xl text-xs font-bold transition-all flex items-center justify-between shadow-sm group"
+              className="w-full px-3.5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition-all flex items-center justify-between shadow-sm group"
             >
               <div className="flex items-center space-x-2">
                 <Save className="w-4 h-4" />
@@ -750,7 +750,7 @@ export default function TeacherDashboard() {
           {/* Current Selection Context Card */}
           <div className="bg-gradient-to-br from-slate-900 to-slate-800 text-white border border-slate-800 rounded-2xl p-4 shadow-sm space-y-3">
             <div className="flex items-center justify-between">
-              <span className="text-[10px] font-extrabold uppercase tracking-wider text-amber-400">
+              <span className="text-[10px] font-extrabold uppercase tracking-wider text-emerald-400">
                 Active Context
               </span>
               <span className="text-[10px] bg-white/10 px-2 py-0.5 rounded-full font-bold">
@@ -774,7 +774,7 @@ export default function TeacherDashboard() {
                 <select
                   value={selectedClassId}
                   onChange={(e) => setSelectedClassId(e.target.value)}
-                  className="w-full bg-slate-800 border border-slate-700 rounded-xl px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-amber-500"
+                  className="w-full bg-slate-800 border border-slate-700 rounded-xl px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-emerald-600"
                 >
                   {schoolClasses.map(cls => (
                     <option key={cls.id} value={cls.id}>
@@ -790,7 +790,7 @@ export default function TeacherDashboard() {
                   <select
                     value={selectedStream}
                     onChange={(e) => setSelectedStream(e.target.value)}
-                    className="w-full bg-slate-800 border border-slate-700 rounded-xl px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-amber-500"
+                    className="w-full bg-slate-800 border border-slate-700 rounded-xl px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-emerald-600"
                   >
                     {availableStreams.map(st => (
                       <option key={st} value={st}>Stream {st}</option>
@@ -803,7 +803,7 @@ export default function TeacherDashboard() {
                   <select
                     value={selectedStudentId}
                     onChange={(e) => setSelectedStudentId(e.target.value)}
-                    className="w-full bg-slate-800 border border-slate-700 rounded-xl px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-amber-500 truncate"
+                    className="w-full bg-slate-800 border border-slate-700 rounded-xl px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-emerald-600 truncate"
                   >
                     {enrolledStudents.length === 0
                       ? <option value="">No students</option>
@@ -821,7 +821,7 @@ export default function TeacherDashboard() {
             
             {/* Group 1: Mark Sheet & Grading */}
             <div>
-              <span className="text-[10px] font-extrabold uppercase text-amber-800 tracking-wider px-3 py-1 block font-outfit">
+              <span className="text-[10px] font-extrabold uppercase text-emerald-900 tracking-wider px-3 py-1 block font-outfit">
                 Mark Entry & Analysis
               </span>
               <div className="space-y-1 mt-1">
@@ -830,12 +830,12 @@ export default function TeacherDashboard() {
                   onClick={() => setActiveTab('marks')}
                   className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all ${
                     activeTab === 'marks'
-                      ? 'bg-amber-500 text-white shadow-sm font-extrabold'
+                      ? 'bg-emerald-600 text-white shadow-sm font-extrabold'
                       : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
                   }`}
                 >
                   <div className="flex items-center space-x-2.5">
-                    <FileSpreadsheet className={`w-4 h-4 ${activeTab === 'marks' ? 'text-white' : 'text-amber-600'}`} />
+                    <FileSpreadsheet className={`w-4 h-4 ${activeTab === 'marks' ? 'text-white' : 'text-emerald-700'}`} />
                     <span>Mark Entry Grid</span>
                   </div>
                   <span className={`text-[10px] px-2 py-0.5 rounded-full font-extrabold ${
@@ -850,7 +850,7 @@ export default function TeacherDashboard() {
                   onClick={() => setActiveTab('ncdc')}
                   className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all ${
                     activeTab === 'ncdc'
-                      ? 'bg-amber-500 text-white shadow-sm font-extrabold'
+                      ? 'bg-emerald-600 text-white shadow-sm font-extrabold'
                       : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
                   }`}
                 >
@@ -870,12 +870,12 @@ export default function TeacherDashboard() {
                   onClick={() => setActiveTab('remarks')}
                   className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all ${
                     activeTab === 'remarks'
-                      ? 'bg-amber-500 text-white shadow-sm font-extrabold'
+                      ? 'bg-emerald-600 text-white shadow-sm font-extrabold'
                       : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
                   }`}
                 >
                   <div className="flex items-center space-x-2.5">
-                    <MessageSquareQuote className={`w-4 h-4 ${activeTab === 'remarks' ? 'text-white' : 'text-amber-600'}`} />
+                    <MessageSquareQuote className={`w-4 h-4 ${activeTab === 'remarks' ? 'text-white' : 'text-emerald-700'}`} />
                     <span>Class Remarks</span>
                   </div>
                   <span className={`text-[10px] px-2 py-0.5 rounded-full font-extrabold ${
@@ -890,7 +890,7 @@ export default function TeacherDashboard() {
                   onClick={() => setActiveTab('analytics')}
                   className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all ${
                     activeTab === 'analytics'
-                      ? 'bg-amber-500 text-white shadow-sm font-extrabold'
+                      ? 'bg-emerald-600 text-white shadow-sm font-extrabold'
                       : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
                   }`}
                 >
@@ -909,7 +909,7 @@ export default function TeacherDashboard() {
 
             {/* Group 2: Student Rosters & Standards */}
             <div className="border-t border-slate-100 pt-3">
-              <span className="text-[10px] font-extrabold uppercase text-amber-800 tracking-wider px-3 py-1 block font-outfit">
+              <span className="text-[10px] font-extrabold uppercase text-emerald-900 tracking-wider px-3 py-1 block font-outfit">
                 Roster & References
               </span>
               <div className="space-y-1 mt-1">
@@ -918,7 +918,7 @@ export default function TeacherDashboard() {
                   onClick={() => setActiveTab('roster')}
                   className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all ${
                     activeTab === 'roster'
-                      ? 'bg-amber-500 text-white shadow-sm font-extrabold'
+                      ? 'bg-emerald-600 text-white shadow-sm font-extrabold'
                       : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
                   }`}
                 >
@@ -938,7 +938,7 @@ export default function TeacherDashboard() {
                   onClick={() => setActiveTab('grading')}
                   className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all ${
                     activeTab === 'grading'
-                      ? 'bg-amber-500 text-white shadow-sm font-extrabold'
+                      ? 'bg-emerald-600 text-white shadow-sm font-extrabold'
                       : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
                   }`}
                 >
@@ -973,7 +973,7 @@ export default function TeacherDashboard() {
                   </h3>
                   {selectedStudent && (
                     <div className="flex items-center gap-2 mt-1">
-                      <span className="text-xs font-mono text-amber-700 font-bold bg-amber-50 border border-amber-200 px-2 py-0.5 rounded">{selectedStudent.lin}</span>
+                      <span className="text-xs font-mono text-emerald-800 font-bold bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded">{selectedStudent.lin}</span>
                       <span className="text-sm font-bold text-slate-800">{selectedStudent.name}</span>
                     </div>
                   )}
@@ -1024,7 +1024,7 @@ export default function TeacherDashboard() {
                     type="button"
                     onClick={handleSaveAll}
                     disabled={!selectedStudentId}
-                    className="px-4 py-2 bg-amber-500 hover:bg-amber-600 disabled:opacity-40 text-white rounded-xl text-xs font-bold transition-all flex items-center space-x-1.5 shadow-sm shrink-0"
+                    className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 disabled:opacity-40 text-white rounded-xl text-xs font-bold transition-all flex items-center space-x-1.5 shadow-sm shrink-0"
                   >
                     <Save className="w-3.5 h-3.5" />
                     <span>Save All Marks</span>
@@ -1055,7 +1055,7 @@ export default function TeacherDashboard() {
                         <th colSpan={2} className="p-2 text-center border border-slate-700 bg-purple-900 text-purple-200 font-bold text-[11px]">
                           EOT ({currentSchool.eotWeight || 60}%)
                         </th>
-                        <th rowSpan={2} className="p-2.5 text-center border border-slate-700 bg-amber-700 text-amber-100 font-bold text-[11px] w-16">
+                        <th rowSpan={2} className="p-2.5 text-center border border-slate-700 bg-emerald-800 text-emerald-100 font-bold text-[11px] w-16">
                           Final %
                         </th>
                         <th rowSpan={2} className="p-2.5 text-center border border-slate-700 font-bold text-[11px] w-14">
@@ -1119,10 +1119,10 @@ export default function TeacherDashboard() {
                         const isSubsidiarySub = !twoPapers;
                         const rowBg = idx % 2 === 0 ? '#ffffff' : '#f8fafc';
 
-                        const inputCls = "w-12 bg-white border border-slate-300 text-center font-bold text-slate-900 rounded p-1 text-xs focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-400";
+                        const inputCls = "w-12 bg-white border border-slate-300 text-center font-bold text-slate-900 rounded p-1 text-xs focus:outline-none focus:border-emerald-600 focus:ring-1 focus:ring-emerald-400";
 
                         return (
-                          <tr key={sub.id} style={{ backgroundColor: rowBg }} className="hover:bg-amber-50/30 transition-colors">
+                          <tr key={sub.id} style={{ backgroundColor: rowBg }} className="hover:bg-emerald-50/30 transition-colors">
                             {/* Subject Name */}
                             <td className="border border-slate-200 px-2.5 py-1.5 font-bold text-slate-800 text-xs" style={{ fontFamily: "'Cambria', serif" }}>
                               <div className="flex items-center gap-1.5">
@@ -1182,7 +1182,7 @@ export default function TeacherDashboard() {
                             </td>
 
                             {/* Final Score */}
-                            <td className="border border-slate-200 p-2 text-center font-black text-amber-900 bg-amber-50/50 text-xs">
+                            <td className="border border-slate-200 p-2 text-center font-black text-emerald-950 bg-emerald-50/50 text-xs">
                               {finalScore !== null ? finalScore.toFixed(1) : '—'}
                             </td>
 
@@ -1191,7 +1191,7 @@ export default function TeacherDashboard() {
                               <span className={`px-2 py-0.5 rounded text-xs font-black ${
                                 ['D1', 'D2', 'A'].includes(liveGrade) ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' :
                                 ['C3', 'C4', 'C5', 'C6', 'B', 'C'].includes(liveGrade) ? 'bg-blue-100 text-blue-800 border border-blue-300' :
-                                ['P7', 'P8', 'D', 'E', 'O'].includes(liveGrade) ? 'bg-amber-100 text-amber-800 border border-amber-300' :
+                                ['P7', 'P8', 'D', 'E', 'O'].includes(liveGrade) ? 'bg-emerald-100 text-emerald-900 border border-emerald-300' :
                                 liveGrade === '-' ? 'bg-slate-100 text-slate-400' : 'bg-rose-100 text-rose-800 border border-rose-300'
                               }`}>
                                 {liveGrade}
@@ -1205,7 +1205,7 @@ export default function TeacherDashboard() {
                                 placeholder="Teacher remark…"
                                 value={data.comment ?? ''}
                                 onChange={(e) => handleCellChange(sub.id, 'comment', e.target.value)}
-                                className="w-full bg-white border border-slate-200 text-xs text-slate-700 rounded p-1.5 focus:outline-none focus:border-amber-400"
+                                className="w-full bg-white border border-slate-200 text-xs text-slate-700 rounded p-1.5 focus:outline-none focus:border-emerald-400"
                               />
                             </td>
                           </tr>
@@ -1244,7 +1244,7 @@ export default function TeacherDashboard() {
 
                 <div className="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm">
                   <span className="text-xs text-slate-500 font-bold uppercase">Passes & Fails</span>
-                  <div className="text-3xl font-extrabold text-amber-600 font-outfit mt-1">{passesCount + failsCount}</div>
+                  <div className="text-3xl font-extrabold text-emerald-700 font-outfit mt-1">{passesCount + failsCount}</div>
                   <div className="text-xs text-slate-500 mt-1">{passesCount} Pass &bull; {failsCount} Fail</div>
                 </div>
               </div>
@@ -1278,12 +1278,12 @@ export default function TeacherDashboard() {
                         .map((item, idx) => (
                           <tr key={item.student.id} className="hover:bg-slate-50">
                             <td className="p-3 text-center font-bold font-mono text-slate-600">{idx + 1}</td>
-                            <td className="p-3 font-mono text-amber-700 font-bold">{item.student.lin}</td>
+                            <td className="p-3 font-mono text-emerald-800 font-bold">{item.student.lin}</td>
                             <td className="p-3 font-bold text-slate-900">{item.student.name}</td>
                             <td className="p-3 text-center font-medium">{gridData[item.student.id]?.bot || '-'}</td>
                             <td className="p-3 text-center font-medium">{gridData[item.student.id]?.mot || '-'}</td>
                             <td className="p-3 text-center font-medium">{gridData[item.student.id]?.eot || '-'}</td>
-                            <td className="p-3 text-center font-black text-amber-900 bg-amber-50/50">
+                            <td className="p-3 text-center font-black text-emerald-950 bg-emerald-50/50">
                               {item.finalScore !== null ? `${item.finalScore}%` : '-'}
                             </td>
                             <td className="p-3 text-center">
@@ -1311,7 +1311,7 @@ export default function TeacherDashboard() {
                   </h3>
                   <p className="text-xs text-slate-500">Official student roster for the active teaching class.</p>
                 </div>
-                <span className="text-xs bg-amber-100 text-amber-800 px-3 py-1 rounded-full font-bold border border-amber-300">
+                <span className="text-xs bg-emerald-100 text-emerald-900 px-3 py-1 rounded-full font-bold border border-emerald-300">
                   {enrolledStudents.length} Students
                 </span>
               </div>
@@ -1333,7 +1333,7 @@ export default function TeacherDashboard() {
                     {enrolledStudents.map((std, idx) => (
                       <tr key={std.id} className="hover:bg-slate-50">
                         <td className="p-3 text-center text-slate-400 font-mono">{idx + 1}</td>
-                        <td className="p-3 font-mono text-amber-700 font-bold">{std.lin}</td>
+                        <td className="p-3 font-mono text-emerald-800 font-bold">{std.lin}</td>
                         <td className="p-3 font-bold text-slate-900">{std.name}</td>
                         <td className="p-3 text-slate-600">{std.gender === 'M' ? 'Male' : 'Female'}</td>
                         <td className="p-3 text-slate-700 font-semibold">{std.combination || currentClass?.level || 'O-Level'}</td>
@@ -1355,7 +1355,7 @@ export default function TeacherDashboard() {
               <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-4 border-b border-slate-200">
                 <div>
                   <h3 className="text-xl font-bold text-slate-900 font-outfit flex items-center gap-2">
-                    <MessageSquareQuote className="w-5 h-5 text-amber-500" />
+                    <MessageSquareQuote className="w-5 h-5 text-emerald-600" />
                     <span>Class Teacher &amp; Head Teacher Remarks</span>
                   </h3>
                   <p className="text-xs text-slate-500 mt-0.5">
@@ -1367,9 +1367,9 @@ export default function TeacherDashboard() {
                     type="button"
                     onClick={handleAutoGenerateAllRemarks}
                     title="Auto-generate holistic Class Teacher & Head Teacher remarks for all students based on their computed grades and performance"
-                    className="px-4 py-2.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white rounded-xl text-xs font-bold transition-all flex items-center space-x-1.5 shadow-sm shrink-0"
+                    className="px-4 py-2.5 bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white rounded-xl text-xs font-bold transition-all flex items-center space-x-1.5 shadow-sm shrink-0"
                   >
-                    <Sparkles className="w-4 h-4 text-amber-200" />
+                    <Sparkles className="w-4 h-4 text-emerald-200" />
                     <span>✨ Auto-Generate All Remarks</span>
                   </button>
                   <button
@@ -1391,11 +1391,11 @@ export default function TeacherDashboard() {
               )}
 
               {/* Bulk Remarks Generator Box */}
-              <div className="bg-gradient-to-br from-amber-50 to-orange-50/60 border border-amber-200 rounded-2xl p-5 space-y-4">
+              <div className="bg-gradient-to-br from-emerald-50 to-emerald-50/60 border border-emerald-200 rounded-2xl p-5 space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-2">
-                    <Sparkles className="w-4 h-4 text-amber-600" />
-                    <h4 className="text-xs font-extrabold text-amber-950 uppercase tracking-wide">
+                    <Sparkles className="w-4 h-4 text-emerald-700" />
+                    <h4 className="text-xs font-extrabold text-emerald-950 uppercase tracking-wide">
                       Bulk Group Remarks Tool ({enrolledStudents.length} Students)
                     </h4>
                   </div>
@@ -1406,8 +1406,8 @@ export default function TeacherDashboard() {
                       onClick={() => setBulkRemarkType('classTeacher')}
                       className={`px-2.5 py-1 rounded-lg font-bold transition-all ${
                         bulkRemarkType === 'classTeacher'
-                          ? 'bg-amber-500 text-white shadow-2xs'
-                          : 'bg-white text-slate-700 border border-amber-200'
+                          ? 'bg-emerald-600 text-white shadow-2xs'
+                          : 'bg-white text-slate-700 border border-emerald-200'
                       }`}
                     >
                       Class Teacher Remark
@@ -1417,8 +1417,8 @@ export default function TeacherDashboard() {
                       onClick={() => setBulkRemarkType('headTeacher')}
                       className={`px-2.5 py-1 rounded-lg font-bold transition-all ${
                         bulkRemarkType === 'headTeacher'
-                          ? 'bg-amber-500 text-white shadow-2xs'
-                          : 'bg-white text-slate-700 border border-amber-200'
+                          ? 'bg-emerald-600 text-white shadow-2xs'
+                          : 'bg-white text-slate-700 border border-emerald-200'
                       }`}
                     >
                       Head Teacher Comment
@@ -1432,12 +1432,12 @@ export default function TeacherDashboard() {
                     value={bulkRemarkText}
                     onChange={(e) => setBulkRemarkText(e.target.value)}
                     placeholder="Enter custom remark text to apply across all students..."
-                    className="w-full bg-white border border-amber-300 rounded-xl p-3 text-xs text-slate-900 focus:outline-none focus:border-amber-500 font-medium shadow-2xs"
+                    className="w-full bg-white border border-emerald-300 rounded-xl p-3 text-xs text-slate-900 focus:outline-none focus:border-emerald-600 font-medium shadow-2xs"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <span className="text-[10px] text-amber-900 font-extrabold uppercase tracking-wider block">
+                  <span className="text-[10px] text-emerald-950 font-extrabold uppercase tracking-wider block">
                     Quick Preset Remark Suggestions (Click to insert &amp; apply):
                   </span>
                   <div className="flex flex-wrap gap-1.5">
@@ -1455,7 +1455,7 @@ export default function TeacherDashboard() {
                           setBulkRemarkText(preset);
                           handleApplyBulkRemark(preset);
                         }}
-                        className="text-[10px] px-2.5 py-1 bg-white hover:bg-amber-500 hover:text-white border border-amber-300 rounded-lg text-amber-950 font-medium transition-all shadow-2xs text-left"
+                        className="text-[10px] px-2.5 py-1 bg-white hover:bg-emerald-600 hover:text-white border border-emerald-300 rounded-lg text-emerald-950 font-medium transition-all shadow-2xs text-left"
                       >
                         "{preset.slice(0, 48)}..."
                       </button>
@@ -1467,7 +1467,7 @@ export default function TeacherDashboard() {
                   <button
                     type="button"
                     onClick={() => handleApplyBulkRemark()}
-                    className="px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-xl text-xs font-bold shadow-sm transition-all flex items-center space-x-1.5"
+                    className="px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl text-xs font-bold shadow-sm transition-all flex items-center space-x-1.5"
                   >
                     <Send className="w-3.5 h-3.5" />
                     <span>Apply Custom Text to All ({enrolledStudents.length}) Students</span>
@@ -1503,7 +1503,7 @@ export default function TeacherDashboard() {
                               <div>
                                 <span className="font-bold text-slate-900 text-sm font-outfit">{std.name}</span>
                                 <div className="flex items-center gap-2 text-[10px] text-slate-400 font-mono">
-                                  <span>LIN: <strong className="text-amber-700">{std.lin}</strong></span>
+                                  <span>LIN: <strong className="text-emerald-800">{std.lin}</strong></span>
                                   {std.combination && <span className="text-indigo-600 font-semibold bg-indigo-50 px-1.5 rounded">[{std.combination}]</span>}
                                 </div>
                               </div>
@@ -1512,7 +1512,7 @@ export default function TeacherDashboard() {
                             <button
                               type="button"
                               onClick={() => handleSaveSingleRemark(std.id)}
-                              className="px-3 py-1.5 bg-slate-100 hover:bg-amber-500 hover:text-white border border-slate-200 text-slate-700 rounded-lg text-xs font-bold transition-all flex items-center space-x-1 shrink-0 self-end sm:self-auto shadow-2xs"
+                              className="px-3 py-1.5 bg-slate-100 hover:bg-emerald-600 hover:text-white border border-slate-200 text-slate-700 rounded-lg text-xs font-bold transition-all flex items-center space-x-1 shrink-0 self-end sm:self-auto shadow-2xs"
                             >
                               <Save className="w-3 h-3" />
                               <span>Save Remark</span>
@@ -1530,7 +1530,7 @@ export default function TeacherDashboard() {
                                 value={rem.classTeacherRemark || ''}
                                 onChange={(e) => handleRemarkFieldChange(std.id, 'classTeacherRemark', e.target.value)}
                                 placeholder={`e.g. ${std.name} is polite, disciplined, and very hard working.`}
-                                className="w-full bg-white border border-slate-300 rounded-xl p-2 text-xs text-slate-900 focus:outline-none focus:border-amber-500"
+                                className="w-full bg-white border border-slate-300 rounded-xl p-2 text-xs text-slate-900 focus:outline-none focus:border-emerald-600"
                               />
                             </div>
 
@@ -1544,7 +1544,7 @@ export default function TeacherDashboard() {
                                 value={rem.headTeacherRemark || ''}
                                 onChange={(e) => handleRemarkFieldChange(std.id, 'headTeacherRemark', e.target.value)}
                                 placeholder="e.g. An encouraging performance recorded this term."
-                                className="w-full bg-white border border-slate-300 rounded-xl p-2 text-xs text-slate-900 focus:outline-none focus:border-amber-500"
+                                className="w-full bg-white border border-slate-300 rounded-xl p-2 text-xs text-slate-900 focus:outline-none focus:border-emerald-600"
                               />
                             </div>
                           </div>
@@ -1562,7 +1562,7 @@ export default function TeacherDashboard() {
                                 key={pIdx}
                                 type="button"
                                 onClick={() => handleRemarkFieldChange(std.id, 'classTeacherRemark', preset)}
-                                className="text-[9.5px] px-2 py-0.5 bg-slate-50 hover:bg-amber-100 hover:text-amber-900 text-slate-600 rounded border border-slate-200 transition-colors"
+                                className="text-[9.5px] px-2 py-0.5 bg-slate-50 hover:bg-emerald-100 hover:text-emerald-950 text-slate-600 rounded border border-slate-200 transition-colors"
                               >
                                 {preset.slice(0, 32)}...
                               </button>
@@ -1699,7 +1699,7 @@ export default function TeacherDashboard() {
                         <th rowSpan={2} className="p-2 text-center border border-slate-700 bg-blue-900 text-blue-200 font-bold w-20">
                           Summative (80%)
                         </th>
-                        <th rowSpan={2} className="p-2 text-center border border-slate-700 bg-amber-800 text-amber-100 font-bold w-20">
+                        <th rowSpan={2} className="p-2 text-center border border-slate-700 bg-emerald-900 text-emerald-100 font-bold w-20">
                           Total (100%)
                         </th>
                         <th rowSpan={2} className="p-2 text-center border border-slate-700 font-bold w-16">
@@ -1726,7 +1726,7 @@ export default function TeacherDashboard() {
                             <td className="p-2 text-center text-slate-400 font-mono border border-slate-200">{idx + 1}</td>
                             <td className="p-2 border border-slate-200">
                               <div className="font-bold text-slate-900">{std.name}</div>
-                              <div className="text-[10px] font-mono text-amber-700">LIN: {std.lin}</div>
+                              <div className="text-[10px] font-mono text-emerald-800">LIN: {std.lin}</div>
                             </td>
 
                             {/* AoI 1 */}
@@ -1795,7 +1795,7 @@ export default function TeacherDashboard() {
                             </td>
 
                             {/* Composite 100% */}
-                            <td className="p-2 border border-slate-200 text-center font-black text-amber-900 bg-amber-50/60">
+                            <td className="p-2 border border-slate-200 text-center font-black text-emerald-950 bg-emerald-50/60">
                               {result.compositeScore100 !== null ? `${result.compositeScore100}%` : '—'}
                             </td>
 
@@ -1809,7 +1809,7 @@ export default function TeacherDashboard() {
                               <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-extrabold block text-center truncate ${
                                 result.badgeColor === 'emerald' ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' :
                                 result.badgeColor === 'blue' ? 'bg-blue-100 text-blue-800 border border-blue-300' :
-                                result.badgeColor === 'amber' ? 'bg-amber-100 text-amber-800 border border-amber-300' :
+                                result.badgeColor === 'amber' ? 'bg-emerald-100 text-emerald-900 border border-emerald-300' :
                                 'bg-slate-100 text-slate-500'
                               }`}>
                                 {result.band}
@@ -1839,7 +1839,7 @@ export default function TeacherDashboard() {
                 
                 {/* Scale 1: O-Level Classic / PLE */}
                 <div className="bg-slate-50 border border-slate-200 p-5 rounded-2xl space-y-3">
-                  <h4 className="text-sm font-bold text-amber-900 font-outfit uppercase tracking-wider">
+                  <h4 className="text-sm font-bold text-emerald-950 font-outfit uppercase tracking-wider">
                     PLE &amp; Classic UCE O-Level (9-Point Scale)
                   </h4>
                   <div className="overflow-x-auto">
@@ -1858,8 +1858,8 @@ export default function TeacherDashboard() {
                         <tr><td className="p-2">60% &ndash; 65%</td><td className="p-2 text-center font-bold text-blue-700">C4</td><td className="p-2 text-slate-600">Credit 4</td></tr>
                         <tr><td className="p-2">55% &ndash; 59%</td><td className="p-2 text-center font-bold text-blue-700">C5</td><td className="p-2 text-slate-600">Credit 5</td></tr>
                         <tr><td className="p-2">50% &ndash; 54%</td><td className="p-2 text-center font-bold text-blue-700">C6</td><td className="p-2 text-slate-600">Credit 6</td></tr>
-                        <tr><td className="p-2">45% &ndash; 49%</td><td className="p-2 text-center font-bold text-amber-700">P7</td><td className="p-2 text-slate-600">Pass 7</td></tr>
-                        <tr><td className="p-2">35% &ndash; 44%</td><td className="p-2 text-center font-bold text-amber-700">P8</td><td className="p-2 text-slate-600">Pass 8</td></tr>
+                        <tr><td className="p-2">45% &ndash; 49%</td><td className="p-2 text-center font-bold text-emerald-800">P7</td><td className="p-2 text-slate-600">Pass 7</td></tr>
+                        <tr><td className="p-2">35% &ndash; 44%</td><td className="p-2 text-center font-bold text-emerald-800">P8</td><td className="p-2 text-slate-600">Pass 8</td></tr>
                         <tr><td className="p-2">0% &ndash; 34%</td><td className="p-2 text-center font-bold text-rose-700">F9</td><td className="p-2 text-slate-600">Fail 9</td></tr>
                       </tbody>
                     </table>
@@ -1868,7 +1868,7 @@ export default function TeacherDashboard() {
 
                 {/* Scale 2: A-Level UACE 20-Point Scale */}
                 <div className="bg-slate-50 border border-slate-200 p-5 rounded-2xl space-y-3">
-                  <h4 className="text-sm font-bold text-amber-900 font-outfit uppercase tracking-wider">
+                  <h4 className="text-sm font-bold text-emerald-950 font-outfit uppercase tracking-wider">
                     UACE A-Level (Principal &amp; Subsidiary)
                   </h4>
                   <div className="overflow-x-auto">
@@ -1886,8 +1886,8 @@ export default function TeacherDashboard() {
                         <tr><td className="p-2">70% &ndash; 79%</td><td className="p-2 text-center font-bold text-emerald-700">B</td><td className="p-2 text-center font-bold text-emerald-700">5 pts</td><td className="p-2 text-slate-600">Principal Pass</td></tr>
                         <tr><td className="p-2">60% &ndash; 69%</td><td className="p-2 text-center font-bold text-blue-700">C</td><td className="p-2 text-center font-bold text-blue-700">4 pts</td><td className="p-2 text-slate-600">Principal Pass</td></tr>
                         <tr><td className="p-2">50% &ndash; 59%</td><td className="p-2 text-center font-bold text-blue-700">D</td><td className="p-2 text-center font-bold text-blue-700">3 pts</td><td className="p-2 text-slate-600">Principal Pass</td></tr>
-                        <tr><td className="p-2">40% &ndash; 49%</td><td className="p-2 text-center font-bold text-amber-700">E</td><td className="p-2 text-center font-bold text-amber-700">2 pts</td><td className="p-2 text-slate-600">Principal Pass</td></tr>
-                        <tr><td className="p-2">35% &ndash; 39%</td><td className="p-2 text-center font-bold text-amber-700">O</td><td className="p-2 text-center font-bold text-amber-700">1 pt</td><td className="p-2 text-slate-600">Subsidiary Pass</td></tr>
+                        <tr><td className="p-2">40% &ndash; 49%</td><td className="p-2 text-center font-bold text-emerald-800">E</td><td className="p-2 text-center font-bold text-emerald-800">2 pts</td><td className="p-2 text-slate-600">Principal Pass</td></tr>
+                        <tr><td className="p-2">35% &ndash; 39%</td><td className="p-2 text-center font-bold text-emerald-800">O</td><td className="p-2 text-center font-bold text-emerald-800">1 pt</td><td className="p-2 text-slate-600">Subsidiary Pass</td></tr>
                         <tr><td className="p-2">0% &ndash; 34%</td><td className="p-2 text-center font-bold text-rose-700">F</td><td className="p-2 text-center font-bold text-rose-700">0 pts</td><td className="p-2 text-slate-600">Fail</td></tr>
                       </tbody>
                     </table>
@@ -1961,8 +1961,8 @@ export default function TeacherDashboard() {
                   </div>
                 </div>
 
-                <div className="bg-amber-50 border border-amber-200 rounded-2xl p-3.5 flex items-start space-x-2.5 text-xs text-amber-900">
-                  <Sparkles className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+                <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-3.5 flex items-start space-x-2.5 text-xs text-emerald-950">
+                  <Sparkles className="w-4 h-4 text-emerald-700 shrink-0 mt-0.5" />
                   <div>
                     <span className="font-bold block">Tip for fastest results:</span>
                     <span>Download the pre-formatted mark sheet template using the <strong>"Download Sheet"</strong> button first, fill in your marks, and upload it here.</span>

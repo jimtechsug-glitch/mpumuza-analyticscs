@@ -490,7 +490,7 @@ export function getNCDCCompetencyBand(scoreOutOf3) {
   }
   return {
     band: 'Basic Competency (Needs Support)',
-    badgeColor: 'amber',
+    badgeColor: 'emerald',
     descriptor: 'Acquires fundamental familiarity with basic concepts but requires targeted remedial reinforcement and structured guidance to master required skills.',
     levelCode: 'Level 1 (0.9 - 1.4)'
   };

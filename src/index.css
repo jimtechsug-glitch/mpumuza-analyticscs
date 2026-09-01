@@ -50,7 +50,8 @@
 }
 
 /* Button & Badge Custom Styling */
-.btn-amber {
+.btn-amber,
+.btn-green {
   background: linear-gradient(135deg, #178337 0%, #014d0e 100%);
   color: #ffffff;
   font-weight: 700;
@@ -58,13 +59,15 @@
   transition: all 0.2s ease-in-out;
 }
 
-.btn-amber:hover {
+.btn-amber:hover,
+.btn-green:hover {
   background: linear-gradient(135deg, #05c42d 0%, #014d0e 100%);
   transform: translateY(-1px);
-  box-shadow: 0 10px 25px -5px rgba(245, 158, 11, 0.4);
+  box-shadow: 0 10px 25px -5px rgba(5, 196, 45, 0.4);
 }
 
-.btn-amber:active {
+.btn-amber:active,
+.btn-green:active {
   transform: scale(0.98);
 }
 

@@ -75,7 +75,7 @@ export default function SchoolAdminDashboard() {
     return (
       <div className="flex items-center justify-center h-screen">
         <div className="text-center text-slate-500">
-          <div className="w-10 h-10 border-4 border-amber-400 border-t-transparent rounded-full animate-spin mx-auto mb-3" />
+          <div className="w-10 h-10 border-4 border-emerald-400 border-t-transparent rounded-full animate-spin mx-auto mb-3" />
           <p className="text-sm font-medium">Loading school data…</p>
         </div>
       </div>
@@ -541,7 +541,7 @@ _Powered by Mpumuza Analytics Platform_`;
                   {currentSchool?.levelType === 'PRIMARY' ? 'Primary School' : 'Secondary School (O & A Level)'}
                 </span>
               </div>
-              <p className="text-amber-100 text-sm font-medium">
+              <p className="text-emerald-100 text-sm font-medium">
                 Manage student rosters, DOS template settings, fees clearance locks, SMS result broadcasts, and batch report cards.
               </p>
             </div>
@@ -552,7 +552,7 @@ _Powered by Mpumuza Analytics Platform_`;
               onClick={() => setIsStudentModalOpen(true)}
               className="px-4 py-2.5 bg-white text-slate-900 hover:bg-slate-100 rounded-xl text-xs font-bold transition-all flex items-center space-x-2 shadow-sm"
             >
-              <UserPlus className="w-4 h-4 text-amber-600" />
+              <UserPlus className="w-4 h-4 text-emerald-700" />
               <span>Add Student</span>
             </button>
 
@@ -560,7 +560,7 @@ _Powered by Mpumuza Analytics Platform_`;
               onClick={() => setIsBatchReportModalOpen(true)}
               className="bg-slate-900 hover:bg-slate-950 text-white font-bold px-5 py-2.5 rounded-xl text-xs shadow-md transition-all flex items-center space-x-2 border border-slate-800"
             >
-              <Printer className="w-4 h-4 text-amber-400" />
+              <Printer className="w-4 h-4 text-emerald-400" />
               <span>One-Click Batch PDF Reports</span>
             </button>
           </div>
@@ -574,7 +574,7 @@ _Powered by Mpumuza Analytics Platform_`;
             <span className="text-xs text-slate-500 font-bold uppercase">Enrolled Students</span>
             <div className="text-2xl font-extrabold text-slate-900 font-outfit mt-1">{schoolStudents.length}</div>
           </div>
-          <div className="p-3 bg-amber-50 rounded-xl text-amber-600 border border-amber-200">
+          <div className="p-3 bg-emerald-50 rounded-xl text-emerald-700 border border-emerald-200">
             <GraduationCap className="w-6 h-6" />
           </div>
         </div>
@@ -618,17 +618,17 @@ _Powered by Mpumuza Analytics Platform_`;
             className="flex-1 py-2.5 px-3.5 bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-xl text-xs font-bold flex items-center justify-between shadow-sm active:scale-98 transition-all"
           >
             <div className="flex items-center space-x-2">
-              <Layers className="w-4 h-4 text-amber-400" />
+              <Layers className="w-4 h-4 text-emerald-400" />
               <span>Menu &amp; Actions Sidebar</span>
             </div>
-            <span className="text-[10px] bg-amber-500 text-slate-950 px-2 py-0.5 rounded-full font-black uppercase">
+            <span className="text-[10px] bg-emerald-600 text-slate-950 px-2 py-0.5 rounded-full font-black uppercase">
               {activeTab}
             </span>
           </button>
 
           <button
             onClick={() => setIsStudentModalOpen(true)}
-            className="p-2.5 bg-amber-500 text-white rounded-xl shadow-xs active:scale-95 flex items-center justify-center shrink-0"
+            className="p-2.5 bg-emerald-600 text-white rounded-xl shadow-xs active:scale-95 flex items-center justify-center shrink-0"
             title="Enroll Student"
           >
             <UserPlus className="w-4 h-4" />
@@ -657,7 +657,7 @@ _Powered by Mpumuza Analytics Platform_`;
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all shrink-0 ${
                   isActive
-                    ? 'bg-amber-500 text-white shadow-sm font-extrabold'
+                    ? 'bg-emerald-600 text-white shadow-sm font-extrabold'
                     : 'bg-slate-50 text-slate-700 hover:bg-slate-100 border border-slate-200'
                 }`}
               >
@@ -684,7 +684,7 @@ _Powered by Mpumuza Analytics Platform_`;
             {/* Drawer Header */}
             <div className="flex items-center justify-between border-b border-slate-200 pb-3">
               <div className="flex items-center space-x-2">
-                <div className="h-8 w-8 rounded-lg bg-amber-500 flex items-center justify-center text-white font-bold text-xs">
+                <div className="h-8 w-8 rounded-lg bg-emerald-600 flex items-center justify-center text-white font-bold text-xs">
                   <School className="w-4 h-4" />
                 </div>
                 <div>
@@ -713,7 +713,7 @@ _Powered by Mpumuza Analytics Platform_`;
                   setIsStudentModalOpen(true);
                   setIsMobileSidebarOpen(false);
                 }}
-                className="w-full px-3 py-2 bg-amber-500 text-white rounded-xl text-xs font-bold flex items-center justify-between shadow-xs"
+                className="w-full px-3 py-2 bg-emerald-600 text-white rounded-xl text-xs font-bold flex items-center justify-between shadow-xs"
               >
                 <div className="flex items-center space-x-2">
                   <UserPlus className="w-3.5 h-3.5" />
@@ -730,10 +730,10 @@ _Powered by Mpumuza Analytics Platform_`;
                 className="w-full px-3 py-2 bg-slate-900 text-white rounded-xl text-xs font-bold flex items-center justify-between border border-slate-800"
               >
                 <div className="flex items-center space-x-2">
-                  <Printer className="w-3.5 h-3.5 text-amber-400" />
+                  <Printer className="w-3.5 h-3.5 text-emerald-400" />
                   <span>Batch PDF Reports</span>
                 </div>
-                <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
               </button>
             </div>
 
@@ -741,12 +741,12 @@ _Powered by Mpumuza Analytics Platform_`;
             <nav className="space-y-4 flex-1">
               {/* 1. Academic Management */}
               <div>
-                <span className="text-[10px] font-extrabold uppercase text-amber-800 tracking-wider px-2 py-1 block font-outfit">
+                <span className="text-[10px] font-extrabold uppercase text-emerald-900 tracking-wider px-2 py-1 block font-outfit">
                   Academic Management
                 </span>
                 <div className="space-y-1 mt-1">
                   {[
-                    { id: 'students', label: 'Students Roster', icon: GraduationCap, count: schoolStudents.length, color: 'text-amber-600' },
+                    { id: 'students', label: 'Students Roster', icon: GraduationCap, count: schoolStudents.length, color: 'text-emerald-700' },
                     { id: 'subjects', label: 'Subjects Setup', icon: BookOpen, count: schoolSubjects.length, color: 'text-indigo-600' },
                     { id: 'teachers', label: 'Teachers Staff', icon: Users, count: schoolTeachers.length, color: 'text-blue-600' },
                     { id: 'classes', label: 'Classes & Streams', icon: Layers, count: schoolClasses.length, color: 'text-emerald-600' },
@@ -762,7 +762,7 @@ _Powered by Mpumuza Analytics Platform_`;
                         }}
                         className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-bold transition-all ${
                           isActive
-                            ? 'bg-amber-500 text-white shadow-sm font-extrabold'
+                            ? 'bg-emerald-600 text-white shadow-sm font-extrabold'
                             : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
                         }`}
                       >
@@ -783,7 +783,7 @@ _Powered by Mpumuza Analytics Platform_`;
 
               {/* 2. Finance & Communications */}
               <div className="border-t border-slate-100 pt-3">
-                <span className="text-[10px] font-extrabold uppercase text-amber-800 tracking-wider px-2 py-1 block font-outfit">
+                <span className="text-[10px] font-extrabold uppercase text-emerald-900 tracking-wider px-2 py-1 block font-outfit">
                   Finance &amp; Communication
                 </span>
                 <div className="space-y-1 mt-1">
@@ -803,7 +803,7 @@ _Powered by Mpumuza Analytics Platform_`;
                         }}
                         className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-bold transition-all ${
                           isActive
-                            ? 'bg-amber-500 text-white shadow-sm font-extrabold'
+                            ? 'bg-emerald-600 text-white shadow-sm font-extrabold'
                             : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
                         }`}
                       >
@@ -826,7 +826,7 @@ _Powered by Mpumuza Analytics Platform_`;
 
               {/* 3. Reports & Settings */}
               <div className="border-t border-slate-100 pt-3">
-                <span className="text-[10px] font-extrabold uppercase text-amber-800 tracking-wider px-2 py-1 block font-outfit">
+                <span className="text-[10px] font-extrabold uppercase text-emerald-900 tracking-wider px-2 py-1 block font-outfit">
                   Reports &amp; Settings
                 </span>
                 <div className="space-y-1 mt-1">
@@ -846,7 +846,7 @@ _Powered by Mpumuza Analytics Platform_`;
                         }}
                         className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-bold transition-all ${
                           isActive
-                            ? 'bg-amber-500 text-white shadow-sm font-extrabold'
+                            ? 'bg-emerald-600 text-white shadow-sm font-extrabold'
                             : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
                         }`}
                       >
@@ -878,7 +878,7 @@ _Powered by Mpumuza Analytics Platform_`;
             </span>
             <button
               onClick={() => setIsStudentModalOpen(true)}
-              className="w-full px-3.5 py-2.5 bg-amber-500 hover:bg-amber-600 text-white rounded-xl text-xs font-bold transition-all flex items-center justify-between shadow-sm group"
+              className="w-full px-3.5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition-all flex items-center justify-between shadow-sm group"
             >
               <div className="flex items-center space-x-2">
                 <UserPlus className="w-4 h-4" />
@@ -892,10 +892,10 @@ _Powered by Mpumuza Analytics Platform_`;
               className="w-full px-3.5 py-2.5 bg-slate-900 hover:bg-slate-950 text-white rounded-xl text-xs font-bold transition-all flex items-center justify-between shadow-sm group border border-slate-800"
             >
               <div className="flex items-center space-x-2">
-                <Printer className="w-4 h-4 text-amber-400" />
+                <Printer className="w-4 h-4 text-emerald-400" />
                 <span>Batch PDF Reports</span>
               </div>
-              <Sparkles className="w-3.5 h-3.5 text-amber-400 opacity-70 group-hover:opacity-100" />
+              <Sparkles className="w-3.5 h-3.5 text-emerald-400 opacity-70 group-hover:opacity-100" />
             </button>
           </div>
 
@@ -904,12 +904,12 @@ _Powered by Mpumuza Analytics Platform_`;
             
             {/* 1. Academic Management */}
             <div>
-              <span className="text-[10px] font-extrabold uppercase text-amber-800 tracking-wider px-3 py-1 block font-outfit">
+              <span className="text-[10px] font-extrabold uppercase text-emerald-900 tracking-wider px-3 py-1 block font-outfit">
                 Academic Management
               </span>
               <div className="space-y-1 mt-1">
                 {[
-                  { id: 'students', label: 'Students Roster', icon: GraduationCap, count: schoolStudents.length, color: 'text-amber-600' },
+                  { id: 'students', label: 'Students Roster', icon: GraduationCap, count: schoolStudents.length, color: 'text-emerald-700' },
                   { id: 'subjects', label: 'Subjects Setup', icon: BookOpen, count: schoolSubjects.length, color: 'text-indigo-600' },
                   { id: 'teachers', label: 'Teachers Staff', icon: Users, count: schoolTeachers.length, color: 'text-blue-600' },
                   { id: 'classes', label: 'Classes & Streams', icon: Layers, count: schoolClasses.length, color: 'text-emerald-600' },
@@ -922,7 +922,7 @@ _Powered by Mpumuza Analytics Platform_`;
                       onClick={() => setActiveTab(tab.id)}
                       className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all ${
                         isActive
-                          ? 'bg-amber-500 text-white shadow-sm font-extrabold'
+                          ? 'bg-emerald-600 text-white shadow-sm font-extrabold'
                           : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
                       }`}
                     >
@@ -943,7 +943,7 @@ _Powered by Mpumuza Analytics Platform_`;
 
             {/* 2. Finance & Communications */}
             <div className="border-t border-slate-100 pt-3">
-              <span className="text-[10px] font-extrabold uppercase text-amber-800 tracking-wider px-3 py-1 block font-outfit">
+              <span className="text-[10px] font-extrabold uppercase text-emerald-900 tracking-wider px-3 py-1 block font-outfit">
                 Finance & Communication
               </span>
               <div className="space-y-1 mt-1">
@@ -960,7 +960,7 @@ _Powered by Mpumuza Analytics Platform_`;
                       onClick={() => setActiveTab(tab.id)}
                       className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all ${
                         isActive
-                          ? 'bg-amber-500 text-white shadow-sm font-extrabold'
+                          ? 'bg-emerald-600 text-white shadow-sm font-extrabold'
                           : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
                       }`}
                     >
@@ -983,7 +983,7 @@ _Powered by Mpumuza Analytics Platform_`;
 
             {/* 3. Reports & Settings */}
             <div className="border-t border-slate-100 pt-3">
-              <span className="text-[10px] font-extrabold uppercase text-amber-800 tracking-wider px-3 py-1 block font-outfit">
+              <span className="text-[10px] font-extrabold uppercase text-emerald-900 tracking-wider px-3 py-1 block font-outfit">
                 Reports & Settings
               </span>
               <div className="space-y-1 mt-1">
@@ -1000,7 +1000,7 @@ _Powered by Mpumuza Analytics Platform_`;
                       onClick={() => setActiveTab(tab.id)}
                       className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all ${
                         isActive
-                          ? 'bg-amber-500 text-white shadow-sm font-extrabold'
+                          ? 'bg-emerald-600 text-white shadow-sm font-extrabold'
                           : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
                       }`}
                     >
@@ -1033,13 +1033,13 @@ _Powered by Mpumuza Analytics Platform_`;
                 onClick={() => setIsStudentModalOpen(true)}
                 className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-xl text-xs font-bold transition-all flex items-center space-x-2 border border-slate-300"
               >
-                <Plus className="w-4 h-4 text-amber-600" />
+                <Plus className="w-4 h-4 text-emerald-700" />
                 <span>Single Student Entry</span>
               </button>
 
               <button
                 onClick={() => setIsBulkModalOpen(true)}
-                className="px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white rounded-xl text-xs font-bold transition-all flex items-center space-x-2 shadow-sm"
+                className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition-all flex items-center space-x-2 shadow-sm"
               >
                 <Upload className="w-4 h-4" />
                 <span>Upload Spreadsheet</span>
@@ -1069,7 +1069,7 @@ _Powered by Mpumuza Analytics Platform_`;
 
                   return (
                     <tr key={std.id} className="hover:bg-slate-50 transition-colors">
-                      <td className="p-3 font-mono text-amber-700 font-bold">{std.lin}</td>
+                      <td className="p-3 font-mono text-emerald-800 font-bold">{std.lin}</td>
                       <td className="p-3 font-bold text-slate-900 text-sm">{std.name}</td>
                       <td className="p-3 text-slate-700">{std.gender === 'M' ? 'Male' : 'Female'}</td>
                       <td className="p-3 font-semibold text-slate-800">
@@ -1087,15 +1087,15 @@ _Powered by Mpumuza Analytics Platform_`;
                         )}
                       </td>
                       <td className="p-3">
-                        <span className="px-2.5 py-1 rounded-md text-xs font-mono font-bold bg-amber-50 text-amber-900 border border-amber-300 inline-flex items-center space-x-1 shadow-2xs">
-                          <Lock className="w-3 h-3 text-amber-600" />
+                        <span className="px-2.5 py-1 rounded-md text-xs font-mono font-bold bg-emerald-50 text-emerald-950 border border-emerald-300 inline-flex items-center space-x-1 shadow-2xs">
+                          <Lock className="w-3 h-3 text-emerald-700" />
                           <span>{std.parentPin || '1234'}</span>
                         </span>
                       </td>
                       <td className="p-3">
                         <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${
                           std.feeBalanceUGX <= 0 ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' :
-                          std.feeOverride ? 'bg-amber-100 text-amber-800 border border-amber-300' :
+                          std.feeOverride ? 'bg-emerald-100 text-emerald-900 border border-emerald-300' :
                           'bg-rose-100 text-rose-800 border border-rose-300'
                         }`}>
                           {std.feeBalanceUGX <= 0 ? 'Cleared' : std.feeOverride ? 'Waiver' : `Bal: ${std.feeBalanceUGX.toLocaleString()} UGX`}
@@ -1118,7 +1118,7 @@ _Powered by Mpumuza Analytics Platform_`;
                           </button>
                           <button
                             onClick={() => setSelectedStudentForReport(std.id)}
-                            className="px-3 py-1.5 bg-amber-50 text-amber-800 border border-amber-300 hover:bg-amber-100 rounded-lg text-xs font-bold transition-all flex items-center space-x-1"
+                            className="px-3 py-1.5 bg-emerald-50 text-emerald-900 border border-emerald-300 hover:bg-emerald-100 rounded-lg text-xs font-bold transition-all flex items-center space-x-1"
                           >
                             <Printer className="w-3.5 h-3.5" />
                             <span>Report</span>
@@ -1143,7 +1143,7 @@ _Powered by Mpumuza Analytics Platform_`;
                             <button
                               title="Block student portal access"
                               onClick={() => setConfirmAction({ type: 'block', entity: 'student', record: std })}
-                              className="p-1.5 rounded-lg bg-orange-50 hover:bg-orange-100 text-orange-700 border border-orange-200 transition-colors"
+                              className="p-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 transition-colors"
                             >
                               <Lock className="w-3.5 h-3.5" />
                             </button>
@@ -1175,7 +1175,7 @@ _Powered by Mpumuza Analytics Platform_`;
             <div>
               <div className="flex items-center space-x-2">
                 <h3 className="text-lg font-bold text-slate-900 font-outfit">School Subjects Directory</h3>
-                <span className="text-xs bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded-full border border-amber-200">
+                <span className="text-xs bg-emerald-100 text-emerald-900 font-bold px-2 py-0.5 rounded-full border border-emerald-200">
                   {schoolSubjects.length} Subjects Total
                 </span>
               </div>
@@ -1183,7 +1183,7 @@ _Powered by Mpumuza Analytics Platform_`;
             </div>
             <button
               onClick={() => setIsSubjectModalOpen(true)}
-              className="px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white rounded-xl text-xs font-bold transition-all flex items-center space-x-2 shadow-sm shrink-0"
+              className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition-all flex items-center space-x-2 shadow-sm shrink-0"
             >
               <Plus className="w-4 h-4" />
               <span>Add More Subjects</span>
@@ -1241,12 +1241,12 @@ _Powered by Mpumuza Analytics Platform_`;
                 onClick={() => setSubjectLevelFilter('Primary')}
                 className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center space-x-1.5 ${
                   subjectLevelFilter === 'Primary'
-                    ? 'bg-amber-700 text-white shadow-sm'
-                    : 'bg-amber-50 text-amber-800 border border-amber-200 hover:bg-amber-100'
+                    ? 'bg-emerald-800 text-white shadow-sm'
+                    : 'bg-emerald-50 text-emerald-900 border border-emerald-200 hover:bg-emerald-100'
                 }`}
               >
                 <span>Primary (PLE)</span>
-                <span className={`px-1.5 py-0.2 rounded-full text-[10px] font-black ${subjectLevelFilter === 'Primary' ? 'bg-white/25 text-white' : 'bg-amber-200 text-amber-900'}`}>
+                <span className={`px-1.5 py-0.2 rounded-full text-[10px] font-black ${subjectLevelFilter === 'Primary' ? 'bg-white/25 text-white' : 'bg-emerald-200 text-emerald-950'}`}>
                   {primarySubjectsCount}
                 </span>
               </button>
@@ -1258,7 +1258,7 @@ _Powered by Mpumuza Analytics Platform_`;
               const level = getSubjectLevel(sub);
               const levelBadgeStyle =
                 level === 'A-Level' ? 'bg-purple-100 text-purple-900 border-purple-300' :
-                level === 'Primary' ? 'bg-amber-100 text-amber-900 border-amber-300' :
+                level === 'Primary' ? 'bg-emerald-100 text-emerald-950 border-emerald-300' :
                 'bg-sky-100 text-sky-900 border-sky-300';
 
               return (
@@ -1266,7 +1266,7 @@ _Powered by Mpumuza Analytics Platform_`;
                   <div>
                     <div className="flex items-center justify-between gap-1.5">
                       <div className="flex items-center space-x-1.5">
-                        <span className="font-mono text-amber-800 font-extrabold text-xs bg-white px-2 py-0.5 rounded-lg border border-slate-200">
+                        <span className="font-mono text-emerald-900 font-extrabold text-xs bg-white px-2 py-0.5 rounded-lg border border-slate-200">
                           [{sub.code}]
                         </span>
                         <span className={`text-[10px] font-black px-1.5 py-0.5 rounded border ${levelBadgeStyle}`}>
@@ -1316,7 +1316,7 @@ _Powered by Mpumuza Analytics Platform_`;
             </div>
             <button
               onClick={() => setIsTeacherModalOpen(true)}
-              className="px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white rounded-xl text-xs font-bold transition-all flex items-center space-x-2 shadow-sm"
+              className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition-all flex items-center space-x-2 shadow-sm"
             >
               <Plus className="w-4 h-4" />
               <span>Add Teacher</span>
@@ -1350,7 +1350,7 @@ _Powered by Mpumuza Analytics Platform_`;
                       <div className="text-[10px] text-slate-400 font-mono">{tr.email}</div>
                     </td>
                     <td className="px-4 py-3">
-                      <div className="font-mono text-amber-700 font-semibold">{tr.phone || <span className="text-slate-400 font-normal italic">No Phone</span>}</div>
+                      <div className="font-mono text-emerald-800 font-semibold">{tr.phone || <span className="text-slate-400 font-normal italic">No Phone</span>}</div>
                     </td>
                     <td className="px-4 py-3">
                       {(tr.assignedClasses && tr.assignedClasses.length > 0) ? (
@@ -1358,7 +1358,7 @@ _Powered by Mpumuza Analytics Platform_`;
                           {tr.assignedClasses.map((acId, i) => {
                             const c = schoolClasses.find(cl => cl.id === acId);
                             return c ? (
-                              <span key={i} className="bg-amber-50 border border-amber-200 px-2 py-0.5 rounded text-[10px] text-amber-900 font-semibold">
+                              <span key={i} className="bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded text-[10px] text-emerald-950 font-semibold">
                                 {c.name}
                               </span>
                             ) : null;
@@ -1401,7 +1401,7 @@ _Powered by Mpumuza Analytics Platform_`;
                         <button
                           title="Edit teacher details"
                           onClick={() => handleOpenEditTeacher(tr)}
-                          className="p-1.5 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-700 border border-amber-200 transition-colors"
+                          className="p-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 transition-colors"
                         >
                           <Pencil className="w-3.5 h-3.5" />
                         </button>
@@ -1418,7 +1418,7 @@ _Powered by Mpumuza Analytics Platform_`;
                           <button
                             title="Block teacher login"
                             onClick={() => setConfirmAction({ type: 'block', entity: 'teacher', record: tr })}
-                            className="p-1.5 rounded-lg bg-orange-50 hover:bg-orange-100 text-orange-700 border border-orange-200 transition-colors"
+                            className="p-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 transition-colors"
                           >
                             <Lock className="w-3.5 h-3.5" />
                           </button>
@@ -1452,7 +1452,7 @@ _Powered by Mpumuza Analytics Platform_`;
             </div>
             <button
               onClick={() => setIsClassModalOpen(true)}
-              className="px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white rounded-xl text-xs font-bold transition-all flex items-center space-x-2 shadow-sm"
+              className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition-all flex items-center space-x-2 shadow-sm"
             >
               <Plus className="w-4 h-4" />
               <span>Add Class Level</span>
@@ -1518,7 +1518,7 @@ _Powered by Mpumuza Analytics Platform_`;
 
                   {/* Add Custom Stream Section */}
                   <div className="pt-3 border-t border-slate-200 space-y-2.5">
-                    <span className="block text-[11px] font-extrabold text-amber-800 uppercase tracking-wider">
+                    <span className="block text-[11px] font-extrabold text-emerald-900 uppercase tracking-wider">
                       + Add Custom Stream:
                     </span>
 
@@ -1534,12 +1534,12 @@ _Powered by Mpumuza Analytics Platform_`;
                             handleAddStreamToClass(cls.id);
                           }
                         }}
-                        className="w-full bg-white border border-slate-300 rounded-xl px-3 py-1.5 text-xs text-slate-900 font-semibold focus:outline-none focus:border-amber-500"
+                        className="w-full bg-white border border-slate-300 rounded-xl px-3 py-1.5 text-xs text-slate-900 font-semibold focus:outline-none focus:border-emerald-600"
                       />
                       <button
                         type="button"
                         onClick={() => handleAddStreamToClass(cls.id)}
-                        className="px-3 py-1.5 bg-amber-500 hover:bg-amber-600 text-white rounded-xl text-xs font-bold shadow-xs transition-all shrink-0"
+                        className="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-xs transition-all shrink-0"
                       >
                         Add
                       </button>
@@ -1553,7 +1553,7 @@ _Powered by Mpumuza Analytics Platform_`;
                           key={sug}
                           type="button"
                           onClick={() => addStreamToClass(cls.id, sug)}
-                          className="text-[10px] px-2 py-0.5 bg-slate-200/70 hover:bg-amber-100 hover:text-amber-900 rounded font-bold text-slate-700 transition-colors"
+                          className="text-[10px] px-2 py-0.5 bg-slate-200/70 hover:bg-emerald-100 hover:text-emerald-950 rounded font-bold text-slate-700 transition-colors"
                         >
                           +{sug}
                         </button>
@@ -1608,7 +1608,7 @@ _Powered by Mpumuza Analytics Platform_`;
                 </div>
 
                 <div className="bg-white border border-slate-200 p-5 rounded-2xl shadow-xs">
-                  <span className="text-[11px] font-bold text-amber-700 uppercase tracking-wider block mb-1">
+                  <span className="text-[11px] font-bold text-emerald-800 uppercase tracking-wider block mb-1">
                     Report Card Clearance
                   </span>
                   <span className="text-xl font-extrabold text-slate-900">
@@ -1620,14 +1620,14 @@ _Powered by Mpumuza Analytics Platform_`;
           })()}
 
           {/* Fee Structure Determination Tool */}
-          <div className="bg-gradient-to-r from-amber-50 to-yellow-50 border border-amber-200 rounded-3xl p-6 shadow-xs space-y-4">
+          <div className="bg-gradient-to-r from-emerald-50 to-emerald-50 border border-emerald-200 rounded-3xl p-6 shadow-xs space-y-4">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
               <div>
-                <h3 className="text-lg font-bold text-amber-950 font-outfit flex items-center space-x-2">
-                  <DollarSign className="w-5 h-5 text-amber-600" />
+                <h3 className="text-lg font-bold text-emerald-950 font-outfit flex items-center space-x-2">
+                  <DollarSign className="w-5 h-5 text-emerald-700" />
                   <span>Determine Required Term Tuition / School Fees</span>
                 </h3>
-                <p className="text-xs text-amber-900/80">
+                <p className="text-xs text-emerald-950/80">
                   Set standard required term fees across an entire class or specific stream in one click.
                 </p>
               </div>
@@ -1650,7 +1650,7 @@ _Powered by Mpumuza Analytics Platform_`;
                       setFeeConfigClassId(e.target.value);
                       setFeeConfigStream('ALL');
                     }}
-                    className="w-full bg-white border border-amber-300 rounded-xl px-3 py-2 text-xs font-bold text-slate-900 focus:outline-none focus:border-amber-500"
+                    className="w-full bg-white border border-emerald-300 rounded-xl px-3 py-2 text-xs font-bold text-slate-900 focus:outline-none focus:border-emerald-600"
                   >
                     <option value="ALL">All School Classes (Global)</option>
                     {schoolClasses.map(cls => (
@@ -1670,7 +1670,7 @@ _Powered by Mpumuza Analytics Platform_`;
                         value={feeConfigStream}
                         onChange={(e) => setFeeConfigStream(e.target.value)}
                         disabled={feeConfigClassId === 'ALL'}
-                        className="w-full bg-white border border-amber-300 rounded-xl px-3 py-2 text-xs font-semibold text-slate-900 disabled:opacity-50"
+                        className="w-full bg-white border border-emerald-300 rounded-xl px-3 py-2 text-xs font-semibold text-slate-900 disabled:opacity-50"
                       >
                         <option value="ALL">All Streams in Class</option>
                         {selectedCls?.streams?.map(st => (
@@ -1691,14 +1691,14 @@ _Powered by Mpumuza Analytics Platform_`;
                     placeholder="e.g. 1450000"
                     value={feeConfigAmount}
                     onChange={(e) => setFeeConfigAmount(Number(e.target.value))}
-                    className="w-full bg-white border border-amber-300 rounded-xl px-3 py-2 text-xs font-mono font-bold text-amber-900 focus:outline-none focus:border-amber-500"
+                    className="w-full bg-white border border-emerald-300 rounded-xl px-3 py-2 text-xs font-mono font-bold text-emerald-950 focus:outline-none focus:border-emerald-600"
                   />
                 </div>
               </div>
 
               {/* Quick Fee Presets */}
               <div className="flex flex-wrap gap-2 items-center pt-1">
-                <span className="text-[10px] text-amber-900/70 font-extrabold uppercase tracking-wider">Quick Presets:</span>
+                <span className="text-[10px] text-emerald-950/70 font-extrabold uppercase tracking-wider">Quick Presets:</span>
                 {[
                   { label: '650,000 UGX (Primary Tuition)', amount: 650000 },
                   { label: '850,000 UGX (Day Students)', amount: 850000 },
@@ -1710,7 +1710,7 @@ _Powered by Mpumuza Analytics Platform_`;
                     key={preset.label}
                     type="button"
                     onClick={() => setFeeConfigAmount(preset.amount)}
-                    className="text-[10px] px-2.5 py-1 bg-white hover:bg-amber-500 hover:text-white border border-amber-300 rounded-lg font-mono font-bold text-amber-950 transition-all shadow-2xs"
+                    className="text-[10px] px-2.5 py-1 bg-white hover:bg-emerald-600 hover:text-white border border-emerald-300 rounded-lg font-mono font-bold text-emerald-950 transition-all shadow-2xs"
                   >
                     {preset.label}
                   </button>
@@ -1718,7 +1718,7 @@ _Powered by Mpumuza Analytics Platform_`;
 
                 <button
                   type="submit"
-                  className="ml-auto px-5 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-xl text-xs font-bold shadow-md transition-all flex items-center space-x-1.5"
+                  className="ml-auto px-5 py-2 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl text-xs font-bold shadow-md transition-all flex items-center space-x-1.5"
                 >
                   <CheckCircle2 className="w-3.5 h-3.5" />
                   <span>Apply Required Fee to Group</span>
@@ -1761,7 +1761,7 @@ _Powered by Mpumuza Analytics Platform_`;
                     return (
                       <tr key={std.id} className="hover:bg-slate-50 transition-colors">
                         <td className="p-3 font-bold text-slate-900 text-sm">{std.name}</td>
-                        <td className="p-3 font-mono text-amber-700 font-bold">{std.lin}</td>
+                        <td className="p-3 font-mono text-emerald-800 font-bold">{std.lin}</td>
                         <td className="p-3 font-semibold text-slate-800">
                           {cls?.name || 'Class'} <span className="text-slate-500 font-normal">({std.stream})</span>
                         </td>
@@ -1774,7 +1774,7 @@ _Powered by Mpumuza Analytics Platform_`;
                             step="50000"
                             value={req}
                             onChange={(e) => updateFeeRecord(std.id, Number(e.target.value), paid, std.feeOverride)}
-                            className="w-32 bg-white border border-amber-300 focus:border-amber-500 text-right font-mono font-bold text-amber-900 rounded-lg p-1.5 focus:outline-none shadow-2xs"
+                            className="w-32 bg-white border border-emerald-300 focus:border-emerald-600 text-right font-mono font-bold text-emerald-950 rounded-lg p-1.5 focus:outline-none shadow-2xs"
                           />
                         </td>
 
@@ -1809,11 +1809,11 @@ _Powered by Mpumuza Analytics Platform_`;
                             onClick={() => updateFeeRecord(std.id, req, paid, !std.feeOverride)}
                             className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center space-x-1 ml-auto border ${
                               std.feeOverride
-                                ? 'bg-amber-100 text-amber-900 border-amber-300 hover:bg-amber-200'
+                                ? 'bg-emerald-100 text-emerald-950 border-emerald-300 hover:bg-emerald-200'
                                 : 'bg-slate-100 text-slate-700 border-slate-300 hover:bg-slate-200'
                             }`}
                           >
-                            {std.feeOverride ? <Unlock className="w-3.5 h-3.5 text-amber-700" /> : <Lock className="w-3.5 h-3.5 text-slate-500" />}
+                            {std.feeOverride ? <Unlock className="w-3.5 h-3.5 text-emerald-800" /> : <Lock className="w-3.5 h-3.5 text-slate-500" />}
                             <span>{std.feeOverride ? 'Waiver Active' : 'Apply Waiver'}</span>
                           </button>
                         </td>
@@ -1896,7 +1896,7 @@ _Powered by Mpumuza Analytics Platform_`;
 
             <button
               type="submit"
-              className="px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white rounded-xl text-xs font-bold shadow-md transition-all flex items-center space-x-2"
+              className="px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-md transition-all flex items-center space-x-2"
             >
               <Send className="w-4 h-4" />
               <span>Broadcast SMS Results to Parents</span>
@@ -1927,7 +1927,7 @@ _Powered by Mpumuza Analytics Platform_`;
                       <tr key={idx} className="hover:bg-slate-50">
                         <td className="p-3 font-mono text-slate-500">{new Date(log.timestamp).toLocaleTimeString()}</td>
                         <td className="p-3 font-bold text-slate-900">{log.recipientName}</td>
-                        <td className="p-3 font-mono text-amber-700">{log.phone}</td>
+                        <td className="p-3 font-mono text-emerald-800">{log.phone}</td>
                         <td className="p-3 font-mono text-slate-600">{log.cost}</td>
                         <td className="p-3 text-right font-bold text-emerald-700">{log.status}</td>
                       </tr>
@@ -1970,7 +1970,7 @@ _Powered by Mpumuza Analytics Platform_`;
                         {log.category}
                       </span>
                     </td>
-                    <td className="p-3 font-bold text-amber-800">{log.action}</td>
+                    <td className="p-3 font-bold text-emerald-900">{log.action}</td>
                     <td className="p-3 text-slate-700 font-medium">{log.details}</td>
                   </tr>
                 ))}
@@ -1993,7 +1993,7 @@ _Powered by Mpumuza Analytics Platform_`;
               onClick={() => setIsBatchReportModalOpen(true)}
               className="px-5 py-2.5 bg-slate-900 hover:bg-slate-950 text-white rounded-xl text-xs font-bold shadow-md transition-all flex items-center space-x-2"
             >
-              <Printer className="w-4 h-4 text-amber-400" />
+              <Printer className="w-4 h-4 text-emerald-400" />
               <span>One-Click Batch PDF Reports</span>
             </button>
           </div>
@@ -2006,7 +2006,7 @@ _Powered by Mpumuza Analytics Platform_`;
                 onClick={() => setReportTerm(t)}
                 className={`px-4 py-1.5 rounded-xl text-xs font-bold transition-all ${
                   reportTerm === t
-                    ? 'bg-amber-500 text-white shadow-sm'
+                    ? 'bg-emerald-600 text-white shadow-sm'
                     : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100'
                 }`}
               >
@@ -2031,14 +2031,14 @@ _Powered by Mpumuza Analytics Platform_`;
                   const cls = schoolClasses.find(c => c.id === std.classId);
                   return (
                     <tr key={std.id} className="hover:bg-slate-50">
-                      <td className="p-3 font-mono text-amber-700 font-bold">{std.lin}</td>
+                      <td className="p-3 font-mono text-emerald-800 font-bold">{std.lin}</td>
                       <td className="p-3 font-bold text-slate-900 text-sm">{std.name}</td>
                       <td className="p-3 font-semibold text-slate-800">{cls?.name || 'Class'}</td>
                       <td className="p-3 text-slate-600">{std.stream}</td>
                       <td className="p-3 text-right">
                         <button
                           onClick={() => setSelectedStudentForReport(std.id)}
-                          className="px-4 py-1.5 bg-amber-500 hover:bg-amber-600 text-white rounded-xl text-xs font-bold shadow-sm transition-all ml-auto flex items-center space-x-1"
+                          className="px-4 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-sm transition-all ml-auto flex items-center space-x-1"
                         >
                           <Printer className="w-3.5 h-3.5" />
                           <span>Generate {reportTerm} Report</span>
@@ -2063,7 +2063,7 @@ _Powered by Mpumuza Analytics Platform_`;
             </div>
             <button
               onClick={handleSaveSettings}
-              className="px-5 py-2.5 bg-amber-500 hover:bg-amber-600 text-white rounded-xl text-xs font-bold shadow-md transition-all flex items-center space-x-2 shrink-0"
+              className="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-md transition-all flex items-center space-x-2 shrink-0"
             >
               <CheckCircle2 className="w-4 h-4" />
               <span>Save All Settings</span>
@@ -2081,8 +2081,8 @@ _Powered by Mpumuza Analytics Platform_`;
             
             {/* 1. Official School Particulars */}
             <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-4">
-              <div className="flex items-center space-x-2 text-amber-900 font-bold text-sm">
-                <School className="w-4 h-4 text-amber-600" />
+              <div className="flex items-center space-x-2 text-emerald-950 font-bold text-sm">
+                <School className="w-4 h-4 text-emerald-700" />
                 <h4 className="font-outfit">Official School Particulars</h4>
               </div>
 
@@ -2095,7 +2095,7 @@ _Powered by Mpumuza Analytics Platform_`;
                     value={settingsForm.name}
                     onChange={(e) => setSettingsForm({ ...settingsForm, name: e.target.value })}
                     placeholder="e.g. St. Mary's Secondary School"
-                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 font-bold focus:outline-none focus:border-amber-500"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 font-bold focus:outline-none focus:border-emerald-600"
                   />
                 </div>
 
@@ -2106,7 +2106,7 @@ _Powered by Mpumuza Analytics Platform_`;
                     value={settingsForm.motto}
                     onChange={(e) => setSettingsForm({ ...settingsForm, motto: e.target.value })}
                     placeholder="e.g. Look Forward with Faith and Perseverance"
-                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-amber-500"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-emerald-600"
                   />
                 </div>
 
@@ -2117,7 +2117,7 @@ _Powered by Mpumuza Analytics Platform_`;
                     value={settingsForm.address}
                     onChange={(e) => setSettingsForm({ ...settingsForm, address: e.target.value })}
                     placeholder="e.g. Mengo Hill, Kampala Central"
-                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-amber-500"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-emerald-600"
                   />
                 </div>
 
@@ -2128,7 +2128,7 @@ _Powered by Mpumuza Analytics Platform_`;
                     value={settingsForm.contactPhone}
                     onChange={(e) => setSettingsForm({ ...settingsForm, contactPhone: e.target.value })}
                     placeholder="e.g. +256 414 987654 / 0772000000"
-                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-amber-500"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-emerald-600"
                   />
                 </div>
 
@@ -2139,32 +2139,32 @@ _Powered by Mpumuza Analytics Platform_`;
                     value={settingsForm.contactEmail}
                     onChange={(e) => setSettingsForm({ ...settingsForm, contactEmail: e.target.value })}
                     placeholder="e.g. info@school.ac.ug"
-                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-amber-500"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-emerald-600"
                   />
                 </div>
               </div>
             </div>
 
             {/* 2. Term Calendar & Next Term Date */}
-            <div className="bg-amber-50/80 p-5 rounded-2xl border border-amber-200 space-y-3">
-              <div className="flex items-center space-x-2 text-amber-900 font-bold text-sm">
-                <Calendar className="w-4 h-4 text-amber-600" />
+            <div className="bg-emerald-50/80 p-5 rounded-2xl border border-emerald-200 space-y-3">
+              <div className="flex items-center space-x-2 text-emerald-950 font-bold text-sm">
+                <Calendar className="w-4 h-4 text-emerald-700" />
                 <h4 className="font-outfit">School Term Calendar &amp; Schedule</h4>
               </div>
-              <p className="text-xs text-amber-900/80">This date is dynamically printed on all student report cards and included in parent SMS result broadcasts.</p>
+              <p className="text-xs text-emerald-950/80">This date is dynamically printed on all student report cards and included in parent SMS result broadcasts.</p>
 
               <div>
-                <label className="block text-xs font-bold text-amber-950 mb-1">Next Term Beginning Date *</label>
+                <label className="block text-xs font-bold text-emerald-950 mb-1">Next Term Beginning Date *</label>
                 <input
                   type="text"
                   required
                   value={settingsForm.nextTermBegins}
                   onChange={(e) => setSettingsForm({ ...settingsForm, nextTermBegins: e.target.value })}
                   placeholder="e.g. Monday, 14th September 2026"
-                  className="w-full bg-white border border-amber-300 rounded-xl px-4 py-2 text-sm font-bold text-amber-950 focus:outline-none focus:border-amber-500"
+                  className="w-full bg-white border border-emerald-300 rounded-xl px-4 py-2 text-sm font-bold text-emerald-950 focus:outline-none focus:border-emerald-600"
                 />
                 <div className="flex flex-wrap gap-1.5 mt-2">
-                  <span className="text-[10px] text-amber-800/80 font-bold">Quick Presets:</span>
+                  <span className="text-[10px] text-emerald-900/80 font-bold">Quick Presets:</span>
                   {[
                     'Monday, 14th September 2026',
                     'Monday, 21st September 2026',
@@ -2175,7 +2175,7 @@ _Powered by Mpumuza Analytics Platform_`;
                       key={d}
                       type="button"
                       onClick={() => setSettingsForm({ ...settingsForm, nextTermBegins: d })}
-                      className="text-[10px] px-2.5 py-0.5 bg-white border border-amber-200 rounded-lg text-amber-900 font-bold hover:bg-amber-100 transition-colors"
+                      className="text-[10px] px-2.5 py-0.5 bg-white border border-emerald-200 rounded-lg text-emerald-950 font-bold hover:bg-emerald-100 transition-colors"
                     >
                       {d}
                     </button>
@@ -2186,8 +2186,8 @@ _Powered by Mpumuza Analytics Platform_`;
 
             {/* 3. Administrative Sign-off Particulars & Stamps */}
             <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-4">
-              <div className="flex items-center space-x-2 text-amber-900 font-bold text-sm">
-                <Award className="w-4 h-4 text-amber-600" />
+              <div className="flex items-center space-x-2 text-emerald-950 font-bold text-sm">
+                <Award className="w-4 h-4 text-emerald-700" />
                 <h4 className="font-outfit">Administrative Signatures &amp; Stamps</h4>
               </div>
               
@@ -2199,7 +2199,7 @@ _Powered by Mpumuza Analytics Platform_`;
                     value={settingsForm.headTeacher}
                     onChange={(e) => setSettingsForm({ ...settingsForm, headTeacher: e.target.value })}
                     placeholder="e.g. Grace Ssebugwawo"
-                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-amber-500"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-emerald-600"
                   />
                 </div>
 
@@ -2210,7 +2210,7 @@ _Powered by Mpumuza Analytics Platform_`;
                     value={settingsForm.headTeacherSignature}
                     onChange={(e) => setSettingsForm({ ...settingsForm, headTeacherSignature: e.target.value })}
                     placeholder="e.g. Grace Ssebugwawo (Headteacher)"
-                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-amber-500"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-emerald-600"
                   />
                 </div>
 
@@ -2221,7 +2221,7 @@ _Powered by Mpumuza Analytics Platform_`;
                     value={settingsForm.dosName}
                     onChange={(e) => setSettingsForm({ ...settingsForm, dosName: e.target.value })}
                     placeholder="e.g. Tr. Ronald Lule"
-                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-amber-500"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-emerald-600"
                   />
                 </div>
 
@@ -2232,7 +2232,7 @@ _Powered by Mpumuza Analytics Platform_`;
                     value={settingsForm.dosSignature}
                     onChange={(e) => setSettingsForm({ ...settingsForm, dosSignature: e.target.value })}
                     placeholder="e.g. Ronald Lule (DOS)"
-                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-amber-500"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-emerald-600"
                   />
                 </div>
               </div>
@@ -2240,8 +2240,8 @@ _Powered by Mpumuza Analytics Platform_`;
 
             {/* 4. Term Mark Weightings & Ranking */}
             <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-4">
-              <div className="flex items-center space-x-2 text-amber-900 font-bold text-sm">
-                <Layers className="w-4 h-4 text-amber-600" />
+              <div className="flex items-center space-x-2 text-emerald-950 font-bold text-sm">
+                <Layers className="w-4 h-4 text-emerald-700" />
                 <h4 className="font-outfit">Term Mark Weightings &amp; Rankings</h4>
               </div>
               
@@ -2254,7 +2254,7 @@ _Powered by Mpumuza Analytics Platform_`;
                     max="100"
                     value={settingsForm.botWeight}
                     onChange={(e) => setSettingsForm({ ...settingsForm, botWeight: Number(e.target.value) })}
-                    className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:border-amber-500"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:border-emerald-600"
                   />
                 </div>
 
@@ -2266,7 +2266,7 @@ _Powered by Mpumuza Analytics Platform_`;
                     max="100"
                     value={settingsForm.motWeight}
                     onChange={(e) => setSettingsForm({ ...settingsForm, motWeight: Number(e.target.value) })}
-                    className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:border-amber-500"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:border-emerald-600"
                   />
                 </div>
 
@@ -2278,7 +2278,7 @@ _Powered by Mpumuza Analytics Platform_`;
                     max="100"
                     value={settingsForm.eotWeight}
                     onChange={(e) => setSettingsForm({ ...settingsForm, eotWeight: Number(e.target.value) })}
-                    className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:border-amber-500"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:border-emerald-600"
                   />
                 </div>
               </div>
@@ -2289,7 +2289,7 @@ _Powered by Mpumuza Analytics Platform_`;
                     type="checkbox"
                     checked={settingsForm.showPositionRanking}
                     onChange={(e) => setSettingsForm({ ...settingsForm, showPositionRanking: e.target.checked })}
-                    className="h-4 w-4 rounded accent-amber-500"
+                    className="h-4 w-4 rounded accent-emerald-600"
                   />
                   <span>Display Numerical Position/Class Ranking on Report Cards (Toggle OFF for NCDC Competency Curriculum)</span>
                 </label>
@@ -2298,8 +2298,8 @@ _Powered by Mpumuza Analytics Platform_`;
 
             {/* 5. School Logo / Badge Upload */}
             <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-3">
-              <div className="flex items-center space-x-2 text-amber-900 font-bold text-sm">
-                <Sparkles className="w-4 h-4 text-amber-600" />
+              <div className="flex items-center space-x-2 text-emerald-950 font-bold text-sm">
+                <Sparkles className="w-4 h-4 text-emerald-700" />
                 <h4 className="font-outfit">School Logo &amp; Watermark Image</h4>
               </div>
               <p className="text-xs text-slate-500">Upload your official school logo badge (PNG/JPG). It will display on all generated Report Cards, Header Badges, and as a watermark.</p>
@@ -2326,14 +2326,14 @@ _Powered by Mpumuza Analytics Platform_`;
                       reader.readAsDataURL(file);
                     }
                   }}
-                  className="block w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-amber-100 file:text-amber-800 hover:file:bg-amber-200 cursor-pointer"
+                  className="block w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-emerald-100 file:text-emerald-900 hover:file:bg-emerald-200 cursor-pointer"
                 />
               </div>
             </div>
 
             <button
               type="submit"
-              className="px-8 py-3.5 bg-amber-500 hover:bg-amber-600 text-white rounded-xl text-sm font-bold shadow-md transition-all flex items-center space-x-2"
+              className="px-8 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-sm font-bold shadow-md transition-all flex items-center space-x-2"
             >
               <Save className="w-4 h-4" />
               <span>Save Configuration &amp; Report Template</span>
@@ -2349,7 +2349,7 @@ _Powered by Mpumuza Analytics Platform_`;
       {/* Modal: Batch PDF Generator */}
       <Modal isOpen={isBatchReportModalOpen} onClose={() => setIsBatchReportModalOpen(false)} title="One-Click Batch Class PDF Report Generator">
         <div className="space-y-4 text-left">
-          <div className="bg-amber-50 border border-amber-200 p-4 rounded-xl text-xs text-amber-900">
+          <div className="bg-emerald-50 border border-emerald-200 p-4 rounded-xl text-xs text-emerald-950">
             <p className="font-bold">Batch Generation Summary:</p>
             <p className="mt-1">Generates report cards for all enrolled students in the selected class in a single batch print preview.</p>
           </div>
@@ -2390,7 +2390,7 @@ _Powered by Mpumuza Analytics Platform_`;
               setReportTerm(batchTerm);
               setIsBatchReportModalOpen(false);
             }}
-            className="w-full py-3 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-xl shadow-md flex items-center justify-center space-x-2"
+            className="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-md flex items-center justify-center space-x-2"
           >
             <Printer className="w-4 h-4" />
             <span>Launch Batch Report Cards Printer</span>
@@ -2440,7 +2440,7 @@ _Powered by Mpumuza Analytics Platform_`;
                   placeholder="e.g. Agriculture or Economics"
                   value={subjectForm.name}
                   onChange={(e) => setSubjectForm({ ...subjectForm, name: e.target.value })}
-                  className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 font-semibold focus:outline-none focus:border-amber-500"
+                  className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 font-semibold focus:outline-none focus:border-emerald-600"
                 />
               </div>
 
@@ -2453,7 +2453,7 @@ _Powered by Mpumuza Analytics Platform_`;
                     placeholder="e.g. 527 or P220"
                     value={subjectForm.code}
                     onChange={(e) => setSubjectForm({ ...subjectForm, code: e.target.value })}
-                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 font-mono focus:outline-none focus:border-amber-500"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 font-mono focus:outline-none focus:border-emerald-600"
                   />
                 </div>
 
@@ -2497,8 +2497,8 @@ _Powered by Mpumuza Analytics Platform_`;
               </div>
 
               {/* 1-Click Popular Subject Presets */}
-              <div className="bg-amber-50/70 border border-amber-200 p-3 rounded-2xl space-y-2">
-                <span className="text-[11px] font-extrabold text-amber-900 uppercase tracking-wider block">
+              <div className="bg-emerald-50/70 border border-emerald-200 p-3 rounded-2xl space-y-2">
+                <span className="text-[11px] font-extrabold text-emerald-950 uppercase tracking-wider block">
                   Quick Select Common Ugandan Subjects:
                 </span>
                 <div className="flex flex-wrap gap-1.5 max-h-32 overflow-y-auto pr-1">
@@ -2513,16 +2513,16 @@ _Powered by Mpumuza Analytics Platform_`;
                         isSubsidiary: preset.isSubsidiary || false,
                         category: preset.category
                       })}
-                      className="text-[10px] px-2.5 py-1 bg-white hover:bg-amber-100 hover:text-amber-900 border border-slate-200 rounded-lg font-bold text-slate-700 transition-colors flex items-center space-x-1"
+                      className="text-[10px] px-2.5 py-1 bg-white hover:bg-emerald-100 hover:text-emerald-950 border border-slate-200 rounded-lg font-bold text-slate-700 transition-colors flex items-center space-x-1"
                     >
-                      <span className="font-mono text-amber-700">[{preset.code}]</span>
+                      <span className="font-mono text-emerald-800">[{preset.code}]</span>
                       <span>{preset.name}</span>
                     </button>
                   ))}
                 </div>
               </div>
 
-              <button type="submit" className="w-full py-3 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-xl shadow-md transition-all text-sm">
+              <button type="submit" className="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-md transition-all text-sm">
                 Save & Add Subject to School
               </button>
             </form>
@@ -2541,7 +2541,7 @@ _Powered by Mpumuza Analytics Platform_`;
               placeholder="e.g. Tr. Mukasa Peter"
               value={teacherForm.name}
               onChange={(e) => setTeacherForm({ ...teacherForm, name: e.target.value })}
-              className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-amber-500"
+              className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-emerald-600"
             />
           </div>
           <div className="grid grid-cols-2 gap-4">
@@ -2553,7 +2553,7 @@ _Powered by Mpumuza Analytics Platform_`;
                 placeholder="tr.mukasa@school.edu.ug"
                 value={teacherForm.email}
                 onChange={(e) => setTeacherForm({ ...teacherForm, email: e.target.value })}
-                className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-amber-500"
+                className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-emerald-600"
               />
             </div>
             <div>
@@ -2563,7 +2563,7 @@ _Powered by Mpumuza Analytics Platform_`;
                 placeholder="e.g. +256 700 000000"
                 value={teacherForm.phone || ''}
                 onChange={(e) => setTeacherForm({ ...teacherForm, phone: e.target.value })}
-                className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-amber-500"
+                className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-emerald-600"
               />
             </div>
           </div>
@@ -2575,7 +2575,7 @@ _Powered by Mpumuza Analytics Platform_`;
               placeholder="e.g. teacher123"
               value={teacherForm.password}
               onChange={(e) => setTeacherForm({ ...teacherForm, password: e.target.value })}
-              className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-amber-500"
+              className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-emerald-600"
             />
             <p className="text-[10px] text-slate-500 mt-1">This is the default password they will use to login to the portal.</p>
           </div>
@@ -2598,7 +2598,7 @@ _Powered by Mpumuza Analytics Platform_`;
                             : prev.assignedClasses.filter(id => id !== cls.id)
                         }));
                       }}
-                      className="rounded border-slate-300 text-amber-500 focus:ring-amber-500"
+                      className="rounded border-slate-300 text-emerald-600 focus:ring-emerald-600"
                     />
                     <span>{cls.name}</span>
                   </label>
@@ -2623,7 +2623,7 @@ _Powered by Mpumuza Analytics Platform_`;
                             : prev.assignedSubjects.filter(id => id !== sub.id)
                         }));
                       }}
-                      className="rounded border-slate-300 text-amber-500 focus:ring-amber-500"
+                      className="rounded border-slate-300 text-emerald-600 focus:ring-emerald-600"
                     />
                     <span className="truncate" title={sub.name}>[{getSubjectLevel(sub)}] [{sub.code}] {sub.name}</span>
                   </label>
@@ -2632,7 +2632,7 @@ _Powered by Mpumuza Analytics Platform_`;
             </div>
           </div>
 
-          <button type="submit" className="w-full py-3 mt-4 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-xl shadow-sm transition-colors text-sm">
+          <button type="submit" className="w-full py-3 mt-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-sm transition-colors text-sm">
             Save & Register Teacher
           </button>
         </form>
@@ -2666,7 +2666,7 @@ _Powered by Mpumuza Analytics Platform_`;
                   placeholder="e.g. Kateregga Paul"
                   value={studentForm.name}
                   onChange={(e) => setStudentForm({ ...studentForm, name: e.target.value })}
-                  className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-amber-500"
+                  className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-emerald-600"
                 />
               </div>
 
@@ -2845,12 +2845,12 @@ _Powered by Mpumuza Analytics Platform_`;
                         reader.readAsDataURL(file);
                       }
                     }}
-                    className="block w-full text-xs text-slate-500 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-amber-100 file:text-amber-800 hover:file:bg-amber-200 cursor-pointer"
+                    className="block w-full text-xs text-slate-500 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-emerald-100 file:text-emerald-900 hover:file:bg-emerald-200 cursor-pointer"
                   />
                 </div>
               </div>
 
-              <button type="submit" className="w-full py-3 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-xl shadow-md transition-all text-sm">
+              <button type="submit" className="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-md transition-all text-sm">
                 Enroll Student
               </button>
             </form>
@@ -2884,7 +2884,7 @@ _Powered by Mpumuza Analytics Platform_`;
                   required
                   value={editStudentForm.name}
                   onChange={(e) => setEditStudentForm({ ...editStudentForm, name: e.target.value })}
-                  className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-amber-500 font-semibold"
+                  className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-emerald-600 font-semibold"
                 />
               </div>
 
@@ -3049,9 +3049,9 @@ _Powered by Mpumuza Analytics Platform_`;
               </div>
 
               {/* Parent Credentials Box */}
-              <div className="bg-amber-50/70 border border-amber-200 p-3.5 rounded-2xl space-y-3">
-                <div className="flex items-center space-x-2 text-amber-900 font-bold text-xs">
-                  <Lock className="w-3.5 h-3.5 text-amber-600" />
+              <div className="bg-emerald-50/70 border border-emerald-200 p-3.5 rounded-2xl space-y-3">
+                <div className="flex items-center space-x-2 text-emerald-950 font-bold text-xs">
+                  <Lock className="w-3.5 h-3.5 text-emerald-700" />
                   <span>Parent Portal Credentials</span>
                 </div>
                 <div className="grid grid-cols-2 gap-3">
@@ -3063,7 +3063,7 @@ _Powered by Mpumuza Analytics Platform_`;
                       placeholder="e.g. 1234"
                       value={editStudentForm.parentPin}
                       onChange={(e) => setEditStudentForm({ ...editStudentForm, parentPin: e.target.value })}
-                      className="w-full bg-white border border-amber-300 rounded-xl px-3 py-2 text-sm font-mono font-bold text-slate-900 focus:outline-none focus:border-amber-500"
+                      className="w-full bg-white border border-emerald-300 rounded-xl px-3 py-2 text-sm font-mono font-bold text-slate-900 focus:outline-none focus:border-emerald-600"
                     />
                   </div>
                   <div>
@@ -3073,7 +3073,7 @@ _Powered by Mpumuza Analytics Platform_`;
                       placeholder="e.g. 0772123456"
                       value={editStudentForm.parentPhone}
                       onChange={(e) => setEditStudentForm({ ...editStudentForm, parentPhone: e.target.value })}
-                      className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:border-amber-500"
+                      className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-900 focus:outline-none focus:border-emerald-600"
                     />
                   </div>
                 </div>
@@ -3106,7 +3106,7 @@ _Powered by Mpumuza Analytics Platform_`;
                         reader.readAsDataURL(file);
                       }
                     }}
-                    className="block w-full text-xs text-slate-500 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-amber-100 file:text-amber-800 hover:file:bg-amber-200 cursor-pointer"
+                    className="block w-full text-xs text-slate-500 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-emerald-100 file:text-emerald-900 hover:file:bg-emerald-200 cursor-pointer"
                   />
                 </div>
               </div>
@@ -3121,7 +3121,7 @@ _Powered by Mpumuza Analytics Platform_`;
                 </button>
                 <button
                   type="submit"
-                  className="w-1/2 py-2.5 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-xl shadow-md text-sm transition-all"
+                  className="w-1/2 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-md text-sm transition-all"
                 >
                   Save Student Details
                 </button>
@@ -3134,7 +3134,7 @@ _Powered by Mpumuza Analytics Platform_`;
       {/* Modal: Bulk Excel Upload */}
       <Modal isOpen={isBulkModalOpen} onClose={() => setIsBulkModalOpen(false)} title="Bulk Student & Marks Excel Upload">
         <form onSubmit={handleUploadExcel} className="space-y-4 text-left">
-          <div className="bg-amber-50 border border-amber-200 p-4 rounded-xl text-xs text-amber-900 space-y-2">
+          <div className="bg-emerald-50 border border-emerald-200 p-4 rounded-xl text-xs text-emerald-950 space-y-2">
             <p className="font-bold">Instructions:</p>
             <p>1. Download the pre-formatted Excel template pre-filled with your school's current subject columns.</p>
             <p>2. Fill in student names, LINs, and marks in Excel.</p>
@@ -3142,7 +3142,7 @@ _Powered by Mpumuza Analytics Platform_`;
             <button
               type="button"
               onClick={handleDownloadTemplate}
-              className="mt-2 px-3 py-1.5 bg-amber-500 text-white font-bold rounded-lg flex items-center space-x-1 hover:bg-amber-600 transition-colors"
+              className="mt-2 px-3 py-1.5 bg-emerald-600 text-white font-bold rounded-lg flex items-center space-x-1 hover:bg-emerald-700 transition-colors"
             >
               <Download className="w-3.5 h-3.5" />
               <span>Download Excel Template (.xlsx)</span>
@@ -3159,7 +3159,7 @@ _Powered by Mpumuza Analytics Platform_`;
             />
           </div>
 
-          <button type="submit" className="w-full py-2.5 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-xl shadow-md">
+          <button type="submit" className="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-md">
             Process & Enroll Students
           </button>
         </form>
@@ -3182,7 +3182,7 @@ _Powered by Mpumuza Analytics Platform_`;
                   : (['S.5', 'S.6'].some(s => val.toUpperCase().includes(s)) ? 'A-Level' : 'O-Level');
                 setClassForm({ ...classForm, name: val, level: autoLevel });
               }}
-              className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-amber-500"
+              className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-emerald-600"
             />
           </div>
 
@@ -3214,7 +3214,7 @@ _Powered by Mpumuza Analytics Platform_`;
               placeholder="e.g. North, South, East, West"
               value={classForm.streams}
               onChange={(e) => setClassForm({ ...classForm, streams: e.target.value })}
-              className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-amber-500"
+              className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-emerald-600"
             />
 
             <div className="mt-2 space-y-1">
@@ -3223,28 +3223,28 @@ _Powered by Mpumuza Analytics Platform_`;
                 <button
                   type="button"
                   onClick={() => setClassForm({ ...classForm, streams: 'North, South, East, West' })}
-                  className="text-[10px] px-2 py-1 bg-slate-100 hover:bg-amber-100 hover:text-amber-900 border border-slate-200 rounded-md font-bold text-slate-700"
+                  className="text-[10px] px-2 py-1 bg-slate-100 hover:bg-emerald-100 hover:text-emerald-950 border border-slate-200 rounded-md font-bold text-slate-700"
                 >
                   Compass (North, South, East, West)
                 </button>
                 <button
                   type="button"
                   onClick={() => setClassForm({ ...classForm, streams: 'Blue, Red, Yellow, Green' })}
-                  className="text-[10px] px-2 py-1 bg-slate-100 hover:bg-amber-100 hover:text-amber-900 border border-slate-200 rounded-md font-bold text-slate-700"
+                  className="text-[10px] px-2 py-1 bg-slate-100 hover:bg-emerald-100 hover:text-emerald-950 border border-slate-200 rounded-md font-bold text-slate-700"
                 >
                   Colors (Blue, Red, Yellow, Green)
                 </button>
                 <button
                   type="button"
                   onClick={() => setClassForm({ ...classForm, streams: 'Sciences, Arts, Commercial' })}
-                  className="text-[10px] px-2 py-1 bg-slate-100 hover:bg-amber-100 hover:text-amber-900 border border-slate-200 rounded-md font-bold text-slate-700"
+                  className="text-[10px] px-2 py-1 bg-slate-100 hover:bg-emerald-100 hover:text-emerald-950 border border-slate-200 rounded-md font-bold text-slate-700"
                 >
                   A-Level Tracks (Sciences, Arts, Commercial)
                 </button>
                 <button
                   type="button"
                   onClick={() => setClassForm({ ...classForm, streams: 'A, B, C, D' })}
-                  className="text-[10px] px-2 py-1 bg-slate-100 hover:bg-amber-100 hover:text-amber-900 border border-slate-200 rounded-md font-bold text-slate-700"
+                  className="text-[10px] px-2 py-1 bg-slate-100 hover:bg-emerald-100 hover:text-emerald-950 border border-slate-200 rounded-md font-bold text-slate-700"
                 >
                   Letters (A, B, C, D)
                 </button>
@@ -3252,7 +3252,7 @@ _Powered by Mpumuza Analytics Platform_`;
             </div>
           </div>
 
-          <button type="submit" className="w-full py-3 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-xl shadow-md transition-all text-sm mt-2">
+          <button type="submit" className="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-md transition-all text-sm mt-2">
             Create Class & Streams
           </button>
         </form>
@@ -3265,7 +3265,7 @@ _Powered by Mpumuza Analytics Platform_`;
             <label className="block text-xs font-bold text-slate-700 mb-1">Full Name *</label>
             <input type="text" required placeholder="e.g. Tr. Mukasa Peter" value={editTeacherForm.name}
               onChange={(e) => setEditTeacherForm({ ...editTeacherForm, name: e.target.value })}
-              className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-amber-500"
+              className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-emerald-600"
             />
           </div>
           <div className="grid grid-cols-2 gap-4">
@@ -3273,14 +3273,14 @@ _Powered by Mpumuza Analytics Platform_`;
               <label className="block text-xs font-bold text-slate-700 mb-1">Email Login *</label>
               <input type="email" required value={editTeacherForm.email}
                 onChange={(e) => setEditTeacherForm({ ...editTeacherForm, email: e.target.value })}
-                className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-amber-500"
+                className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-emerald-600"
               />
             </div>
             <div>
               <label className="block text-xs font-bold text-slate-700 mb-1">Phone</label>
               <input type="text" placeholder="+256 7XX XXX XXX" value={editTeacherForm.phone}
                 onChange={(e) => setEditTeacherForm({ ...editTeacherForm, phone: e.target.value })}
-                className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-amber-500"
+                className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-emerald-600"
               />
             </div>
           </div>
@@ -3288,7 +3288,7 @@ _Powered by Mpumuza Analytics Platform_`;
             <label className="block text-xs font-bold text-slate-700 mb-1">Login Password</label>
             <input type="text" placeholder="Leave unchanged or enter new password" value={editTeacherForm.password}
               onChange={(e) => setEditTeacherForm({ ...editTeacherForm, password: e.target.value })}
-              className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-amber-500"
+              className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm text-slate-900 focus:outline-none focus:border-emerald-600"
             />
           </div>
           <div className="space-y-3 pt-2 border-t border-slate-200">
@@ -3306,7 +3306,7 @@ _Powered by Mpumuza Analytics Platform_`;
                           assignedClasses: checked ? [...prev.assignedClasses, cls.id] : prev.assignedClasses.filter(id => id !== cls.id)
                         }));
                       }}
-                      className="rounded border-slate-300 text-amber-500 focus:ring-amber-500"
+                      className="rounded border-slate-300 text-emerald-600 focus:ring-emerald-600"
                     />
                     <span>{cls.name}</span>
                   </label>
@@ -3327,7 +3327,7 @@ _Powered by Mpumuza Analytics Platform_`;
                           assignedSubjects: checked ? [...prev.assignedSubjects, sub.id] : prev.assignedSubjects.filter(id => id !== sub.id)
                         }));
                       }}
-                      className="rounded border-slate-300 text-amber-500 focus:ring-amber-500"
+                      className="rounded border-slate-300 text-emerald-600 focus:ring-emerald-600"
                     />
                     <span className="truncate">[{getSubjectLevel(sub)}] [{sub.code}] {sub.name}</span>
                   </label>
@@ -3335,7 +3335,7 @@ _Powered by Mpumuza Analytics Platform_`;
               </div>
             </div>
           </div>
-          <button type="submit" className="w-full py-3 mt-2 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-xl shadow-sm transition-colors text-sm">
+          <button type="submit" className="w-full py-3 mt-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-sm transition-colors text-sm">
             Save Teacher Changes
           </button>
         </form>
@@ -3347,11 +3347,11 @@ _Powered by Mpumuza Analytics Platform_`;
           <div className="bg-white rounded-3xl shadow-2xl max-w-sm w-full p-6 space-y-5">
             <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mx-auto ${
               confirmAction.type === 'delete' ? 'bg-rose-100' :
-              confirmAction.type === 'block' ? 'bg-orange-100' :
+              confirmAction.type === 'block' ? 'bg-emerald-100' :
               'bg-emerald-100'
             }`}>
               {confirmAction.type === 'delete' ? <Trash2 className="w-7 h-7 text-rose-600" /> :
-               confirmAction.type === 'block' ? <Ban className="w-7 h-7 text-orange-600" /> :
+               confirmAction.type === 'block' ? <Ban className="w-7 h-7 text-emerald-700" /> :
                <Unlock className="w-7 h-7 text-emerald-600" />}
             </div>
             <div className="text-center space-y-1.5">
@@ -3364,7 +3364,7 @@ _Powered by Mpumuza Analytics Platform_`;
                 {confirmAction.type === 'delete'
                   ? <>Are you sure you want to <span className="text-rose-600 font-bold">permanently delete</span> the record for <span className="font-bold text-slate-800">{confirmAction.record.name}</span>? This action cannot be undone.</>
                   : confirmAction.type === 'block'
-                  ? <>This will <span className="text-orange-600 font-bold">block login access</span> for <span className="font-bold text-slate-800">{confirmAction.record.name}</span>. They will not be able to sign in until unblocked.</>
+                  ? <>This will <span className="text-emerald-700 font-bold">block login access</span> for <span className="font-bold text-slate-800">{confirmAction.record.name}</span>. They will not be able to sign in until unblocked.</>
                   : <>This will <span className="text-emerald-600 font-bold">restore login access</span> for <span className="font-bold text-slate-800">{confirmAction.record.name}</span>.</>
                 }
               </p>
@@ -3382,7 +3382,7 @@ _Powered by Mpumuza Analytics Platform_`;
                 onClick={handleConfirmAction}
                 className={`flex-1 py-2.5 rounded-xl text-white font-bold text-sm transition-colors ${
                   confirmAction.type === 'delete' ? 'bg-rose-500 hover:bg-rose-600' :
-                  confirmAction.type === 'block' ? 'bg-orange-500 hover:bg-orange-600' :
+                  confirmAction.type === 'block' ? 'bg-emerald-600 hover:bg-emerald-700' :
                   'bg-emerald-500 hover:bg-emerald-600'
                 }`}
               >
