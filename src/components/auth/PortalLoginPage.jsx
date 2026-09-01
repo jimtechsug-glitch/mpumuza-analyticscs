@@ -54,12 +54,18 @@ export default function PortalLoginPage({ onBackToHome }) {
 
   const handleQuickLogin = (demoEmail, demoPass) => {
     setError(null);
-    login(demoEmail, demoPass);
+    const result = login(demoEmail, demoPass);
+    if (!result?.success) {
+      setError(result?.message || 'Failed to login with demo credentials.');
+    }
   };
 
   const handleQuickParent = (demoLin, demoPin) => {
     setError(null);
-    parentLogin(demoLin, demoPin);
+    const result = parentLogin(demoLin, demoPin);
+    if (!result?.success) {
+      setError(result?.message || 'Failed to access learner profile.');
+    }
   };
 
   return (
@@ -176,7 +182,23 @@ export default function PortalLoginPage({ onBackToHome }) {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 
-                {/* Secondary School Admin */}
+                {/* 1. Super Administrator */}
+                <button
+                  type="button"
+                  onClick={() => handleQuickLogin('admin@mpumuza.ug', 'Adallyn2290')}
+                  className="p-3.5 bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-300 hover:border-emerald-600 rounded-2xl text-left transition-all group flex items-center justify-between shadow-xs hover:shadow-sm"
+                >
+                  <div className="min-w-0 pr-2">
+                    <div className="font-bold text-slate-900 group-hover:text-emerald-800 flex items-center space-x-2 text-xs">
+                      <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+                      <span className="truncate">Super Administrator</span>
+                    </div>
+                    <span className="text-[10px] text-emerald-700 font-semibold block truncate mt-0.5">Platform Master Control</span>
+                  </div>
+                  <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-emerald-600 transition-transform group-hover:translate-x-1 shrink-0" />
+                </button>
+
+                {/* 2. Secondary School Admin (Kitende) */}
                 <button
                   type="button"
                   onClick={() => handleQuickLogin('admin.kitende@uneb.go.ug', 'admin123')}
@@ -185,30 +207,30 @@ export default function PortalLoginPage({ onBackToHome }) {
                   <div className="min-w-0 pr-2">
                     <div className="font-bold text-slate-900 group-hover:text-emerald-800 flex items-center space-x-2 text-xs">
                       <School className="w-4 h-4 text-emerald-600 shrink-0" />
-                      <span className="truncate">Secondary Admin</span>
+                      <span className="truncate">Kitende Admin (O &amp; A Level)</span>
                     </div>
-                    <span className="text-[10px] text-slate-500 block truncate mt-0.5">Kitende Secondary (O &amp; A Level)</span>
+                    <span className="text-[10px] text-slate-500 block truncate mt-0.5">St. Mary's College Kitende</span>
                   </div>
                   <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-emerald-600 transition-transform group-hover:translate-x-1 shrink-0" />
                 </button>
 
-                {/* Primary School Admin */}
+                {/* 3. Primary School Admin (Kampala Parents) */}
                 <button
                   type="button"
-                  onClick={() => handleQuickLogin('admin.namagunga@uneb.go.ug', 'admin123')}
+                  onClick={() => handleQuickLogin('admin.kps@uneb.go.ug', 'admin123')}
                   className="p-3.5 bg-slate-50 border border-slate-200 hover:border-emerald-500 rounded-2xl text-left transition-all group flex items-center justify-between shadow-xs hover:bg-emerald-50/40"
                 >
                   <div className="min-w-0 pr-2">
                     <div className="font-bold text-slate-900 group-hover:text-emerald-800 flex items-center space-x-2 text-xs">
                       <Building2 className="w-4 h-4 text-teal-600 shrink-0" />
-                      <span className="truncate">Primary Admin</span>
+                      <span className="truncate">Primary Admin (PLE)</span>
                     </div>
-                    <span className="text-[10px] text-slate-500 block truncate mt-0.5">Namagunga Primary (PLE Engine)</span>
+                    <span className="text-[10px] text-slate-500 block truncate mt-0.5">Kampala Parents Primary School</span>
                   </div>
                   <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-emerald-600 transition-transform group-hover:translate-x-1 shrink-0" />
                 </button>
 
-                {/* Teacher Subject Portal */}
+                {/* 4. Teacher Subject Portal */}
                 <button
                   type="button"
                   onClick={() => handleQuickLogin('tr.mukasa@kitende.edu.ug', 'teacher123')}
@@ -224,7 +246,7 @@ export default function PortalLoginPage({ onBackToHome }) {
                   <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-emerald-600 transition-transform group-hover:translate-x-1 shrink-0" />
                 </button>
 
-                {/* Parent Learner Portal */}
+                {/* 5. Parent Learner Portal (Secondary) */}
                 <button
                   type="button"
                   onClick={() => handleQuickParent('LIN-2026-S01', '1234')}
@@ -233,9 +255,25 @@ export default function PortalLoginPage({ onBackToHome }) {
                   <div className="min-w-0 pr-2">
                     <div className="font-bold text-slate-900 group-hover:text-emerald-800 flex items-center space-x-2 text-xs">
                       <UserCheck className="w-4 h-4 text-teal-600 shrink-0" />
-                      <span className="truncate">Parent &amp; Student Portal</span>
+                      <span className="truncate">Parent Portal (Secondary)</span>
                     </div>
-                    <span className="text-[10px] text-slate-500 block truncate mt-0.5">Mugisha Ivan (LIN-2026-S01)</span>
+                    <span className="text-[10px] text-slate-500 block truncate mt-0.5">Mugisha Ivan (Kitende)</span>
+                  </div>
+                  <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-emerald-600 transition-transform group-hover:translate-x-1 shrink-0" />
+                </button>
+
+                {/* 6. Parent Learner Portal (Primary) */}
+                <button
+                  type="button"
+                  onClick={() => handleQuickParent('LIN-2026-P01', '1234')}
+                  className="p-3.5 bg-slate-50 border border-slate-200 hover:border-emerald-500 rounded-2xl text-left transition-all group flex items-center justify-between shadow-xs hover:bg-emerald-50/40"
+                >
+                  <div className="min-w-0 pr-2">
+                    <div className="font-bold text-slate-900 group-hover:text-emerald-800 flex items-center space-x-2 text-xs">
+                      <UserCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+                      <span className="truncate">Parent Portal (Primary)</span>
+                    </div>
+                    <span className="text-[10px] text-slate-500 block truncate mt-0.5">Okello David (KPS Primary)</span>
                   </div>
                   <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-emerald-600 transition-transform group-hover:translate-x-1 shrink-0" />
                 </button>

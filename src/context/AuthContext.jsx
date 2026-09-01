@@ -250,9 +250,26 @@ export function AuthProvider({ children }) {
   const login = (email, password) => {
     const cleanEmail = (email || '').trim().toLowerCase();
     const cleanPass = (password || '').trim();
-    const found = users.find(
+
+    // 1. Check in loaded users
+    let found = users.find(
       u => (u.email || '').trim().toLowerCase() === cleanEmail && (u.password || '').trim() === cleanPass
     );
+
+    // 2. Demo Account Fallback (if state is initializing or cache missed)
+    if (!found) {
+      const allDemoUsers = [INITIAL_SUPER_ADMIN, ...INITIAL_USERS];
+      found = allDemoUsers.find(
+        u => (u.email || '').trim().toLowerCase() === cleanEmail && (u.password || '').trim() === cleanPass
+      );
+      if (found) {
+        setUsers(prev => {
+          if (!prev.some(u => u.id === found.id)) return [...prev, found];
+          return prev;
+        });
+      }
+    }
+
     if (found) {
       // Check if user is blocked individually
       if (found.blocked) {
@@ -266,7 +283,7 @@ export function AuthProvider({ children }) {
 
       // Check if school is blocked or suspended (Super Admin is always allowed)
       if (found.role !== 'SUPER_ADMIN' && found.schoolId) {
-        const userSchool = schools.find(s => s.id === found.schoolId);
+        const userSchool = schools.find(s => s.id === found.schoolId) || INITIAL_SCHOOLS.find(s => s.id === found.schoolId);
         if (userSchool && (userSchool.active === false || userSchool.subscriptionStatus === 'SUSPENDED')) {
           addAuditLog('BLOCKED_LOGIN_ATTEMPT', 'AUTHENTICATION',
             `Blocked login for ${found.email} (${found.role}) - School "${userSchool.name}" is currently blocked/suspended.`);
@@ -292,20 +309,35 @@ export function AuthProvider({ children }) {
     const cleanLin = String(lin).trim().toLowerCase();
     const cleanPin = String(pin).trim();
 
-    const foundStudent = students.find(
+    // 1. Search students in state
+    let foundStudent = students.find(
       s => s.lin && String(s.lin).trim().toLowerCase() === cleanLin && String(s.parentPin || '1234').trim() === cleanPin
     );
+
+    // 2. Demo student fallback
+    if (!foundStudent) {
+      foundStudent = INITIAL_STUDENTS.find(
+        s => s.lin && String(s.lin).trim().toLowerCase() === cleanLin && String(s.parentPin || '1234').trim() === cleanPin
+      );
+      if (foundStudent) {
+        setStudents(prev => {
+          if (!prev.some(s => s.id === foundStudent.id)) return [...prev, foundStudent];
+          return prev;
+        });
+      }
+    }
+
     if (foundStudent) {
       if (foundStudent.blocked) {
         addAuditLog('BLOCKED_PARENT_LOGIN_ATTEMPT', 'PARENT_PORTAL',
-          `Blocked parent login attempt for student ${foundStudent.name} (${foundStudent.lin}) - Student record is blocked.`);
+          `Blocked parent portal login for learner ${foundStudent.name} (${foundStudent.lin}) - Status: Blocked`);
         return {
           success: false,
-          message: 'Access Restricted: This student portal account has been temporarily blocked by school administration.'
+          message: 'Access Restricted: Student report access is currently blocked by school administration.'
         };
       }
 
-      const studentSchool = schools.find(s => s.id === foundStudent.schoolId);
+      const studentSchool = schools.find(s => s.id === foundStudent.schoolId) || INITIAL_SCHOOLS.find(s => s.id === foundStudent.schoolId);
       if (studentSchool && (studentSchool.active === false || studentSchool.subscriptionStatus === 'SUSPENDED')) {
         return {
           success: false,
