@@ -35,7 +35,8 @@ import {
   AlertTriangle,
   School,
   Save,
-  MessageCircle
+  MessageCircle,
+  Menu
 } from 'lucide-react';
 
 export default function SchoolAdminDashboard() {

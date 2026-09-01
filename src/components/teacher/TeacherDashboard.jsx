@@ -41,7 +41,8 @@ import {
   Upload,
   FileUp,
   X,
-  DownloadCloud
+  DownloadCloud,
+  Menu
 } from 'lucide-react';
 
 export default function TeacherDashboard() {
