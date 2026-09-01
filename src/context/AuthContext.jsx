@@ -129,9 +129,22 @@ export function AuthProvider({ children }) {
   useEffect(() => { try { localStorage.setItem(STORAGE_KEYS.AUDIT_LOGS, JSON.stringify(auditLogs)); } catch (_) {} }, [auditLogs]);
   useEffect(() => { try { localStorage.setItem(STORAGE_KEYS.SMS_LOGS, JSON.stringify(smsLogs)); } catch (_) {} }, [smsLogs]);
 
-  // ─── Session state ─────────────────────────────────────────────────────────
-  const [currentUser,    setCurrentUser]    = useState(null);
-  const [activeTenantId, setActiveTenantId] = useState('school-secondary-02');
+  // ─── Session & Navigation state ──────────────────────────────────────────
+  const [currentUser,         setCurrentUser]         = useState(null);
+  const [activeTenantId,      setActiveTenantId]      = useState('school-secondary-02');
+  const [activeTab,           setActiveTab]           = useState('students');
+  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
+
+  // Auto-set initial activeTab based on user role upon login
+  useEffect(() => {
+    if (currentUser?.role === 'TEACHER') {
+      setActiveTab('marks');
+    } else if (currentUser?.role === 'SUPER_ADMIN') {
+      setActiveTab('schools');
+    } else if (currentUser?.role === 'SCHOOL_ADMIN') {
+      setActiveTab('students');
+    }
+  }, [currentUser?.role]);
 
   // Use a ref so addAuditLog always sees the latest currentUser
   const currentUserRef = useRef(currentUser);
@@ -950,6 +963,10 @@ export function AuthProvider({ children }) {
       currentUser,
       currentSchool,
       activeTenantId,
+      activeTab,
+      setActiveTab,
+      isMobileSidebarOpen,
+      setIsMobileSidebarOpen,
       login,
       parentLogin,
       logout,

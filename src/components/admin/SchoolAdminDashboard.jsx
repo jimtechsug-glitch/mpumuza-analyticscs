@@ -67,7 +67,11 @@ export default function SchoolAdminDashboard() {
     addStreamToClass,
     removeStreamFromClass,
     updateSchoolSettings,
-    dispatchSMSForClass
+    dispatchSMSForClass,
+    activeTab: contextActiveTab,
+    setActiveTab: contextSetActiveTab,
+    isMobileSidebarOpen: contextIsMobileSidebarOpen,
+    setIsMobileSidebarOpen: contextSetIsMobileSidebarOpen
   } = useAuth();
 
   // Guard: schools may still be loading from storage/Firebase
@@ -82,7 +86,14 @@ export default function SchoolAdminDashboard() {
     );
   }
 
-  const [activeTab, setActiveTab] = useState('students');
+  const [localActiveTab, setLocalActiveTab] = useState('students');
+  const activeTab = contextActiveTab || localActiveTab;
+  const setActiveTab = contextSetActiveTab || setLocalActiveTab;
+
+  const [localIsMobileSidebarOpen, setLocalIsMobileSidebarOpen] = useState(false);
+  const isMobileSidebarOpen = contextIsMobileSidebarOpen !== undefined ? contextIsMobileSidebarOpen : localIsMobileSidebarOpen;
+  const setIsMobileSidebarOpen = contextSetIsMobileSidebarOpen || setLocalIsMobileSidebarOpen;
+
   const [selectedStudentForReport, setSelectedStudentForReport] = useState(null);
   const [batchClassForReport, setBatchClassForReport] = useState(null);
   const [reportTerm, setReportTerm] = useState('COMBINED');
@@ -161,7 +172,6 @@ export default function SchoolAdminDashboard() {
   const [isBulkModalOpen, setIsBulkModalOpen] = useState(false);
   const [isClassModalOpen, setIsClassModalOpen] = useState(false);
   const [isBatchReportModalOpen, setIsBatchReportModalOpen] = useState(false);
-  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
   // Confirm action modal (delete / block)
   const [confirmAction, setConfirmAction] = useState(null); // { type, entity, record }
 

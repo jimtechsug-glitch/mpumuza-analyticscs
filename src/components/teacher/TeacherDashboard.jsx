@@ -45,12 +45,32 @@ import {
 } from 'lucide-react';
 
 export default function TeacherDashboard() {
-  const { currentSchool, currentUser, classes, subjects, students, marks, saveMarks, updateStudent } = useAuth();
+  const {
+    currentSchool,
+    currentUser,
+    classes,
+    subjects,
+    students,
+    marks,
+    saveMarks,
+    updateStudent,
+    activeTab: contextActiveTab,
+    setActiveTab: contextSetActiveTab,
+    isMobileSidebarOpen: contextIsMobileSidebarOpen,
+    setIsMobileSidebarOpen: contextSetIsMobileSidebarOpen
+  } = useAuth();
 
   const schoolClasses = classes.filter(c => c.schoolId === currentSchool.id);
   const schoolSubjects = subjects.filter(s => s.schoolId === currentSchool.id);
 
-  const [activeTab, setActiveTab] = useState('marks'); // 'marks', 'remarks', 'analytics', 'roster', 'grading'
+  const [localActiveTab, setLocalActiveTab] = useState('marks');
+  const activeTab = contextActiveTab || localActiveTab;
+  const setActiveTab = contextSetActiveTab || setLocalActiveTab;
+
+  const [localIsMobileSidebarOpen, setLocalIsMobileSidebarOpen] = useState(false);
+  const isMobileSidebarOpen = contextIsMobileSidebarOpen !== undefined ? contextIsMobileSidebarOpen : localIsMobileSidebarOpen;
+  const setIsMobileSidebarOpen = contextSetIsMobileSidebarOpen || setLocalIsMobileSidebarOpen;
+
   const [selectedClassId, setSelectedClassId] = useState(schoolClasses[0]?.id || '');
   const [selectedStream, setSelectedStream] = useState('');
   const [selectedStudentId, setSelectedStudentId] = useState('');
@@ -78,7 +98,6 @@ export default function TeacherDashboard() {
   const [excelParsedSummary, setExcelParsedSummary] = useState(null);
   const [isParsingExcel, setIsParsingExcel] = useState(false);
   const [excelUploadError, setExcelUploadError] = useState(null);
-  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
 
   const currentClass = schoolClasses.find(c => c.id === selectedClassId);
   const availableStreams = currentClass?.streams || ['A', 'B'];
