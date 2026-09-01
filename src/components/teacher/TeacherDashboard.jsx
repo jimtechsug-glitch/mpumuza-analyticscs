@@ -78,6 +78,7 @@ export default function TeacherDashboard() {
   const [excelParsedSummary, setExcelParsedSummary] = useState(null);
   const [isParsingExcel, setIsParsingExcel] = useState(false);
   const [excelUploadError, setExcelUploadError] = useState(null);
+  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
 
   const currentClass = schoolClasses.find(c => c.id === selectedClassId);
   const availableStreams = currentClass?.streams || ['A', 'B'];
@@ -503,28 +504,41 @@ export default function TeacherDashboard() {
         </div>
       )}
 
-      {/* Responsive Mobile Tab Navigation Slider (Visible on mobile/tablet, hidden on desktop) */}
-      <div className="lg:hidden bg-white border border-slate-200 rounded-2xl p-2 shadow-sm space-y-2">
-        <div className="flex items-center justify-between">
-          <span className="text-[10px] font-extrabold uppercase text-slate-400 px-2 tracking-wider">
-            Quick Navigation:
-          </span>
+      {/* Mobile Navigation Bar & Drawer Trigger (Visible on mobile/tablet, hidden on desktop) */}
+      <div className="lg:hidden bg-white border border-slate-200 rounded-2xl p-3 shadow-sm space-y-2.5">
+        <div className="flex items-center justify-between gap-2">
+          <button
+            onClick={() => setIsMobileSidebarOpen(true)}
+            className="flex-1 py-2.5 px-3.5 bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-xl text-xs font-bold flex items-center justify-between shadow-sm active:scale-98 transition-all"
+          >
+            <div className="flex items-center space-x-2">
+              <Layers className="w-4 h-4 text-amber-400" />
+              <span>Teacher Menu &amp; Class Switcher</span>
+            </div>
+            <span className="text-[10px] bg-amber-500 text-slate-950 px-2 py-0.5 rounded-full font-black uppercase">
+              {activeTab}
+            </span>
+          </button>
+
           <button
             onClick={handleSaveAll}
-            className="px-3 py-1 bg-amber-500 text-white rounded-lg text-xs font-bold flex items-center space-x-1 shadow-sm"
+            className="px-3.5 py-2.5 bg-amber-500 text-white rounded-xl text-xs font-bold shadow-xs active:scale-95 flex items-center space-x-1.5 shrink-0"
+            title="Save All Marks"
           >
-            <Save className="w-3.5 h-3.5" />
-            <span>Save Marks</span>
+            <Save className="w-4 h-4" />
+            <span className="hidden sm:inline">Save</span>
           </button>
         </div>
+
+        {/* Horizontal Tab Chips for Quick Switching */}
         <div className="flex items-center space-x-1.5 overflow-x-auto pb-1 pt-0.5 no-scrollbar scroll-smooth">
           {[
             { id: 'marks', label: 'Marks Entry Grid', icon: FileSpreadsheet },
-            { id: 'ncdc', label: 'NCDC Continuous Assessment (AoI)', icon: Target },
+            { id: 'ncdc', label: 'Continuous Assessment (AoI)', icon: Target },
             { id: 'remarks', label: 'Class Remarks', icon: MessageSquareQuote },
-            { id: 'analytics', label: 'Performance Analytics', icon: BarChart3 },
+            { id: 'analytics', label: 'Analytics', icon: BarChart3 },
             { id: 'roster', label: 'Students Roster', icon: Users },
-            { id: 'grading', label: 'Grading Scales', icon: HelpCircle }
+            { id: 'grading', label: 'Grading Reference', icon: HelpCircle }
           ].map(tab => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
@@ -545,6 +559,170 @@ export default function TeacherDashboard() {
           })}
         </div>
       </div>
+
+      {/* Off-Canvas Mobile Sidebar Drawer */}
+      {isMobileSidebarOpen && (
+        <div className="fixed inset-0 z-50 lg:hidden flex">
+          {/* Backdrop Overlay */}
+          <div
+            onClick={() => setIsMobileSidebarOpen(false)}
+            className="fixed inset-0 bg-slate-950/70 backdrop-blur-xs transition-opacity"
+          />
+
+          {/* Drawer Content */}
+          <div className="relative w-[320px] max-w-[85vw] bg-white h-full shadow-2xl flex flex-col z-10 overflow-y-auto p-4 space-y-4">
+            {/* Drawer Header */}
+            <div className="flex items-center justify-between border-b border-slate-200 pb-3">
+              <div className="flex items-center space-x-2">
+                <div className="h-8 w-8 rounded-lg bg-amber-500 flex items-center justify-center text-white font-bold text-xs">
+                  <Users className="w-4 h-4" />
+                </div>
+                <div>
+                  <h3 className="text-xs font-extrabold text-slate-900 font-outfit uppercase tracking-wider">
+                    Teacher Portal
+                  </h3>
+                  <span className="text-[10px] text-slate-500 truncate block max-w-[170px]">{currentSchool?.name}</span>
+                </div>
+              </div>
+
+              <button
+                onClick={() => setIsMobileSidebarOpen(false)}
+                className="p-1.5 text-slate-400 hover:text-slate-700 rounded-lg hover:bg-slate-100"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Quick Actions in Mobile Drawer */}
+            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-3 space-y-2">
+              <span className="text-[10px] font-extrabold uppercase text-slate-400 tracking-wider block">
+                Quick Actions
+              </span>
+              <button
+                onClick={() => {
+                  handleSaveAll();
+                  setIsMobileSidebarOpen(false);
+                }}
+                className="w-full px-3 py-2 bg-amber-500 text-white rounded-xl text-xs font-bold flex items-center justify-between shadow-xs"
+              >
+                <div className="flex items-center space-x-2">
+                  <Save className="w-3.5 h-3.5" />
+                  <span>Save All Marks</span>
+                </div>
+                <Sparkles className="w-3.5 h-3.5 text-amber-200" />
+              </button>
+
+              <button
+                onClick={() => {
+                  setIsExcelModalOpen(true);
+                  setIsMobileSidebarOpen(false);
+                }}
+                className="w-full px-3 py-2 bg-slate-900 text-white rounded-xl text-xs font-bold flex items-center justify-between border border-slate-800"
+              >
+                <div className="flex items-center space-x-2">
+                  <FileSpreadsheet className="w-3.5 h-3.5 text-amber-400" />
+                  <span>Excel Import &amp; Template</span>
+                </div>
+                <DownloadCloud className="w-3.5 h-3.5 text-amber-400" />
+              </button>
+            </div>
+
+            {/* Active Class & Stream Switcher */}
+            <div className="bg-gradient-to-br from-slate-900 to-slate-800 text-white border border-slate-800 rounded-2xl p-3.5 space-y-2.5">
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-extrabold uppercase tracking-wider text-amber-400">
+                  Active Context
+                </span>
+                <span className="text-[10px] bg-white/10 px-2 py-0.5 rounded-full font-bold">
+                  {enrolledStudents.length} Students
+                </span>
+              </div>
+
+              <div className="space-y-2">
+                <div>
+                  <label className="block text-[10px] font-bold text-slate-400 mb-1">Class Level</label>
+                  <select
+                    value={selectedClassId}
+                    onChange={(e) => setSelectedClassId(e.target.value)}
+                    className="w-full bg-slate-800 border border-slate-700 rounded-xl px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-amber-500"
+                  >
+                    {schoolClasses.map(cls => (
+                      <option key={cls.id} value={cls.id}>
+                        {cls.name} ({cls.level})
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="grid grid-cols-2 gap-2">
+                  <div>
+                    <label className="block text-[10px] font-bold text-slate-400 mb-1">Stream</label>
+                    <select
+                      value={selectedStream}
+                      onChange={(e) => setSelectedStream(e.target.value)}
+                      className="w-full bg-slate-800 border border-slate-700 rounded-xl px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-amber-500"
+                    >
+                      {availableStreams.map(st => (
+                        <option key={st} value={st}>Stream {st}</option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-[10px] font-bold text-slate-400 mb-1">Student</label>
+                    <select
+                      value={selectedStudentId}
+                      onChange={(e) => setSelectedStudentId(e.target.value)}
+                      className="w-full bg-slate-800 border border-slate-700 rounded-xl px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-amber-500 truncate"
+                    >
+                      {enrolledStudents.length === 0
+                        ? <option value="">No students</option>
+                        : enrolledStudents.map(stu => (
+                          <option key={stu.id} value={stu.id}>{stu.name}</option>
+                        ))}
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Navigation Links */}
+            <div className="space-y-1 pt-1">
+              <span className="text-[10px] font-extrabold uppercase text-slate-400 px-2 tracking-wider block">
+                Modules &amp; Tools
+              </span>
+              {[
+                { id: 'marks', label: 'Marks Entry Grid', icon: FileSpreadsheet },
+                { id: 'ncdc', label: 'Continuous Assessment (AoI)', icon: Target },
+                { id: 'remarks', label: 'Class Remarks', icon: MessageSquareQuote },
+                { id: 'analytics', label: 'Performance Analytics', icon: BarChart3 },
+                { id: 'roster', label: 'Students Roster', icon: Users },
+                { id: 'grading', label: 'Grading Reference Scales', icon: HelpCircle }
+              ].map(tab => {
+                const Icon = tab.icon;
+                const isActive = activeTab === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    onClick={() => {
+                      setActiveTab(tab.id);
+                      setIsMobileSidebarOpen(false);
+                    }}
+                    className={`w-full flex items-center space-x-3 px-3 py-2.5 rounded-xl text-xs font-bold transition-all text-left ${
+                      isActive
+                        ? 'bg-amber-500 text-white font-extrabold shadow-sm'
+                        : 'text-slate-700 hover:bg-slate-100'
+                    }`}
+                  >
+                    <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-slate-500'}`} />
+                    <span>{tab.label}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Main Two-Column Layout with Categorized Left Sidebar */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">

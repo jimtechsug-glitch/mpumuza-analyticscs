@@ -23,7 +23,9 @@ import {
   Palette,
   Percent,
   SlidersHorizontal,
-  ExternalLink
+  ExternalLink,
+  Layers,
+  X
 } from 'lucide-react';
 
 export default function SuperAdminDashboard() {
@@ -45,6 +47,8 @@ export default function SuperAdminDashboard() {
   const [editingSchoolId, setEditingSchoolId] = useState(null);
   const [logFilterCategory, setLogFilterCategory] = useState('ALL');
   const [statusFilter, setStatusFilter] = useState('ALL'); // 'ALL', 'ACTIVE', 'BLOCKED'
+  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
+  const [mobileSection, setMobileSection] = useState('schools'); // 'schools' | 'logs'
 
   // Create School Form State
   const [formData, setFormData] = useState({
@@ -243,6 +247,122 @@ export default function SuperAdminDashboard() {
 
   return (
     <div className="space-y-8 text-left">
+
+      {/* Mobile Navigation Bar (visible on small screens) */}
+      <div className="lg:hidden bg-white border border-slate-200 rounded-2xl p-3 shadow-sm flex items-center justify-between gap-2">
+        <button
+          onClick={() => setIsMobileSidebarOpen(true)}
+          className="flex-1 py-2.5 px-3.5 bg-gradient-to-r from-sky-900 to-indigo-900 text-white rounded-xl text-xs font-bold flex items-center justify-between shadow-sm active:scale-98 transition-all"
+        >
+          <div className="flex items-center space-x-2">
+            <Layers className="w-4 h-4 text-sky-300" />
+            <span>Super Admin Control Panel</span>
+          </div>
+          <span className="text-[10px] bg-sky-400 text-slate-950 px-2 py-0.5 rounded-full font-black uppercase">
+            {mobileSection === 'schools' ? 'Schools' : 'Audit Logs'}
+          </span>
+        </button>
+        <button
+          onClick={() => setIsCreateModalOpen(true)}
+          className="px-3.5 py-2.5 bg-sky-600 text-white rounded-xl text-xs font-bold shadow-xs active:scale-95 flex items-center space-x-1.5 shrink-0"
+          title="Create New School"
+        >
+          <Plus className="w-4 h-4" />
+          <span className="hidden sm:inline">New School</span>
+        </button>
+      </div>
+
+      {/* Off-Canvas Mobile Sidebar Drawer */}
+      {isMobileSidebarOpen && (
+        <div className="fixed inset-0 z-50 lg:hidden flex">
+          <div
+            onClick={() => setIsMobileSidebarOpen(false)}
+            className="fixed inset-0 bg-slate-950/70 backdrop-blur-xs transition-opacity"
+          />
+          <div className="relative w-[320px] max-w-[85vw] bg-white h-full shadow-2xl flex flex-col z-10 overflow-y-auto p-4 space-y-4">
+            {/* Drawer Header */}
+            <div className="flex items-center justify-between border-b border-slate-200 pb-3">
+              <div className="flex items-center space-x-2">
+                <div className="h-8 w-8 rounded-lg bg-sky-600 flex items-center justify-center text-white">
+                  <ShieldCheck className="w-4 h-4" />
+                </div>
+                <div>
+                  <h3 className="text-xs font-extrabold text-slate-900 font-outfit uppercase tracking-wider">Super Admin</h3>
+                  <span className="text-[10px] text-slate-500">Platform Control Center</span>
+                </div>
+              </div>
+              <button
+                onClick={() => setIsMobileSidebarOpen(false)}
+                className="p-1.5 text-slate-400 hover:text-slate-700 rounded-lg hover:bg-slate-100"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Global Stats Summary */}
+            <div className="bg-gradient-to-br from-sky-900 to-indigo-900 text-white rounded-2xl p-3.5 space-y-3">
+              <span className="text-[10px] font-extrabold uppercase tracking-wider text-sky-300 block">Platform Overview</span>
+              <div className="grid grid-cols-2 gap-2 text-center">
+                <div className="bg-white/10 rounded-xl p-2">
+                  <div className="text-xl font-extrabold font-outfit">{schools.length}</div>
+                  <div className="text-[10px] text-sky-200">School Tenants</div>
+                </div>
+                <div className="bg-white/10 rounded-xl p-2">
+                  <div className="text-xl font-extrabold font-outfit">{students.length}</div>
+                  <div className="text-[10px] text-sky-200">Students</div>
+                </div>
+                <div className="bg-white/10 rounded-xl p-2">
+                  <div className="text-sm font-extrabold font-outfit text-emerald-300">{schools.filter(s => s.active).length} Active</div>
+                  <div className="text-[10px] text-sky-200">Live Portals</div>
+                </div>
+                <div className="bg-white/10 rounded-xl p-2">
+                  <div className="text-sm font-extrabold font-outfit text-rose-300">{schools.filter(s => !s.active).length} Blocked</div>
+                  <div className="text-[10px] text-sky-200">Restricted</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Quick Actions */}
+            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-3 space-y-2">
+              <span className="text-[10px] font-extrabold uppercase text-slate-400 tracking-wider block">Quick Actions</span>
+              <button
+                onClick={() => { setIsCreateModalOpen(true); setIsMobileSidebarOpen(false); }}
+                className="w-full px-3 py-2 bg-sky-600 text-white rounded-xl text-xs font-bold flex items-center justify-between shadow-xs"
+              >
+                <div className="flex items-center space-x-2">
+                  <Plus className="w-3.5 h-3.5" />
+                  <span>Create New School Platform</span>
+                </div>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+
+            {/* Section Navigation */}
+            <div className="space-y-1 pt-1">
+              <span className="text-[10px] font-extrabold uppercase text-slate-400 px-2 tracking-wider block">Sections</span>
+              {[
+                { id: 'schools', label: 'School Platforms Directory', icon: School },
+                { id: 'logs', label: 'Security & Audit Logs', icon: ShieldCheck }
+              ].map(section => {
+                const Icon = section.icon;
+                const isActive = mobileSection === section.id;
+                return (
+                  <button
+                    key={section.id}
+                    onClick={() => { setMobileSection(section.id); setIsMobileSidebarOpen(false); }}
+                    className={`w-full flex items-center space-x-3 px-3 py-2.5 rounded-xl text-xs font-bold transition-all text-left ${
+                      isActive ? 'bg-sky-600 text-white shadow-sm' : 'text-slate-700 hover:bg-slate-100'
+                    }`}
+                  >
+                    <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-slate-500'}`} />
+                    <span>{section.label}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      )}
       
       {/* Header Banner */}
       <div className="bg-gradient-to-r from-sky-600 via-sky-700 to-indigo-800 p-8 rounded-3xl text-white shadow-xl relative overflow-hidden">
